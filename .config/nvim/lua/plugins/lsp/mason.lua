@@ -5,10 +5,12 @@ return{
 "neovim/nvim-lspconfig",
   },
   config = function()
+  require('java').setup()
+  require('lspconfig').jdtls.setup({})
 	 require("mason").setup()
 	 require("mason-lspconfig").setup(
 		{
-		  ensure_installed = {"lua_ls", "clangd","jdtls", "angularls", "tsserver",  },
+		  ensure_installed = {"lua_ls", "clangd","java_language_server", "angularls", "tsserver","jdtls"  },
 		  automatic_installation = true,
 		}
 

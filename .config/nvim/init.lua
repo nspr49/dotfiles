@@ -27,8 +27,8 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
 	{ import = "plugins"}, {import = "plugins.lsp"}
 	},{})
-require('java').setup()
-require('lspconfig').jdtls.setup({})
+--require('java').setup()
+--require('lspconfig').jdtls.setup({})
 --telescope
 --vim.cmd("autocmd VimEnter * NERDTree")
 local builtin = require('telescope.builtin')
