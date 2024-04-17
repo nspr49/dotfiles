@@ -3,11 +3,18 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    {"williamboman/mason-lspconfig.nvim", opt = {automatic_installation = true;}} 
   },
   config = function()
-    -- import lspconfig plugin
+    require('java').setup()
+    require('lspconfig').jdtls.setup({})
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+
     local lspconfig = require("lspconfig")
+      
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
