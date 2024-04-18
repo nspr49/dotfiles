@@ -8,7 +8,7 @@ return{
   require("mason").setup()
   require("mason-lspconfig").setup(
 		{
-		 ensure_installed = {"lua_ls", "clangd","java_language_server", "angularls", "tsserver","jdtls"  },
+		 ensure_installed = {"lua_ls", "clangd","angularls", "tsserver",--[["jdtls" --]] },
 		  automatic_installation = false,
 		}
 

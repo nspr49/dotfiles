@@ -115,8 +115,8 @@ fi
 alias cdw='cd / && cd mnt/c/users/noah/documents' 
 alias cdcom='cd / && cd mnt/c/users/noah/documents/compilerbau/spl-compiler-skeleton/c'
 
-
-
+export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
+export PATH=$PATH:$JAVA_HOME/bin
 eval "$(/bin/brew shellenv)"
 eval "$(/bin/brew shellenv)"
 eval "$(/bin/brew shellenv)"

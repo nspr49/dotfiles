@@ -8,8 +8,6 @@ return {
     {"williamboman/mason-lspconfig.nvim", opt = {automatic_installation = false;}} 
   },
   config = function()
-    require('java').setup()
-    require('lspconfig').jdtls.setup({})
     require("mason").setup()
     require("mason-lspconfig").setup()
 
@@ -84,9 +82,9 @@ return {
     })
 
 	 --configure java server
-    lspconfig["java_language_server"].setup({
+    lspconfig["jdtls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+     on_attach = on_attach,
     })
 
     --options: tsserver , biome , vtsls
