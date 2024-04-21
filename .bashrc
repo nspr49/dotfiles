@@ -117,6 +117,3 @@ alias cdcom='cd / && cd mnt/c/users/noah/documents/compilerbau/spl-compiler-skel
 
 export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
 export PATH=$PATH:$JAVA_HOME/bin
-eval "$(/bin/brew shellenv)"
-eval "$(/bin/brew shellenv)"
-eval "$(/bin/brew shellenv)"
