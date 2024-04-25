@@ -118,4 +118,3 @@ alias cdcom='cd / && cd mnt/c/users/noah/documents/compilerbau/spl-compiler-skel
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
 export PATH=$PATH:$JAVA_HOME/bin
-exec zsh

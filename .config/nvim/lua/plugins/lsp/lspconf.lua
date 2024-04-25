@@ -74,6 +74,11 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+     lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
 
     -- configure c server
     lspconfig["clangd"].setup({
@@ -86,7 +91,11 @@ return {
       capabilities = capabilities,
      on_attach = on_attach,
     })
-
+  --configure java2 server
+    lspconfig["java_language_server"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     --options: tsserver , biome , vtsls
     -- configure typescript server with plugin
     lspconfig["biome"].setup({

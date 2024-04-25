@@ -95,9 +95,13 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# alias ohmyzsh="mate ~/.oh-my-zsh
+alias cdw='cd / && cd mnt/c/users/noah/documents' 
+alias cdcom='cd / && cd mnt/c/users/noah/documents/compilerbau/spl-compiler-skeleton/c'
+#export MAVEN_HOME="$HOME"
+#export PATH=$MAVEN_HOME/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
