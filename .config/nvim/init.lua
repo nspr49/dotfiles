@@ -39,6 +39,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>b', ':lua require\'dap\'.toggle_breakpoint()<CR>')
 --NERDTree
 vim.keymap.set('n', '<leader>n', ':NERDTree<CR>')
+vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
 --nvim dab
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
