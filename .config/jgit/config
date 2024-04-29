@@ -7,3 +7,6 @@
 [filesystem "Oracle Corporation|21.0.2|/dev/sdc"]
 	timestampResolution = 2730 nanoseconds
 	minRacyThreshold = 17574 microseconds
+[filesystem "Debian|17.0.10|/dev/sdc"]
+	timestampResolution = 2960 nanoseconds
+	minRacyThreshold = 18544 microseconds
