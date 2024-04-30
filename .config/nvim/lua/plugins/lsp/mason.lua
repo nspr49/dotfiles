@@ -9,7 +9,7 @@ return{
     require("mason").setup()
     require("mason-lspconfig").setup(
     {
-      ensure_installed = {"html","cssls", "lua_ls", "clangd","angularls", "tsserver","jdtls"--[[ "java_language_server"  --]]},
+      ensure_installed = {"html","cssls", "lua_ls", "clangd","angularls", "tsserver","jdtls", "cssls"--[[ "java_language_server"  --]]},
       automatic_installation = false,
     })
     require('mason-tool-installer').setup({
