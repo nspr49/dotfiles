@@ -102,6 +102,16 @@ alias cdw='cd / && cd mnt/c/users/noah/documents'
 alias cdcom='cd / && cd mnt/c/users/noah/documents/compilerbau/spl-compiler-skeleton/c'
 #export MAVEN_HOME="$HOME"
 #export PATH=$MAVEN_HOME/bin:$PATH
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64/
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+eval "$(pyenv virtualenv-init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

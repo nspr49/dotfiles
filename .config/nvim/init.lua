@@ -1,4 +1,4 @@
-vim.cmd("set number")
+vim.cmd("set relativenumber")
 vim.cmd("set modifiable")
 vim.cmd("set tabstop=2")
 vim.cmd("set shiftwidth=2")
@@ -8,7 +8,9 @@ vim.cmd('autocmd BufRead, BufNewFile *.flex set filetype=c')
 vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
--- test
+-- remove nvimstatus
+vim.cmd("set noshowmode")
+--
 --Lazy vim Setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -26,7 +28,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
 require("lazy").setup({
 	{ import = "plugins"}, {import = "plugins.lsp"}
-	},{})
+	},{
+
+  })
 --require('java').setup()
 --require('lspconfig').jdtls.setup({})
 --telescope
@@ -47,5 +51,4 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 
 --require("dapui").setup()
 
-
-
+vim.cmd("colorscheme catppuccin-mocha")
