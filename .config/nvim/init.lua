@@ -8,10 +8,12 @@ vim.cmd('autocmd BufRead, BufNewFile *.flex set filetype=c')
 vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
--- remove nvimstatus
+
+--- remove nvimstatus ---
 vim.cmd("set noshowmode")
---
---Lazy vim Setup
+
+--------------------- lazy.nvim ---------------------
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -24,31 +26,60 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
--- Set Mapleader
+
+
+-----------------------------------------------------
+
+
+--------------------- Set Mapleader ---------------------
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
+
+------------------------------------------------------
+
+
+--------------------- import plugins -----------------
+
 require("lazy").setup({
 	{ import = "plugins"}, {import = "plugins.lsp"}
 	},{
 
   })
---require('java').setup()
---require('lspconfig').jdtls.setup({})
---telescope
---vim.cmd("autocmd VimEnter * NERDTree")
+--------------------------------------------------------
+
+
+---------------------- telescope -----------------------
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+------------------------ dap --------------------------
+
 vim.keymap.set('n', '<leader>b', ':lua require\'dap\'.toggle_breakpoint()<CR>')
---NERDTree
+
+
+
+------------------------ NERDTree --------------------------
 vim.keymap.set('n', '<leader>n', ':NERDTree<CR>')
 vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
+
+-----
+
+
+
 --nvim dab
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
 
+------------------ leap nvim keybindings ----------------------
 
---require("dapui").setup()
+
+require('leap').create_default_mappings()
+
+
+----------------------------------------------------------------
+
 
 vim.cmd("colorscheme catppuccin-mocha")
