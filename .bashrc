@@ -120,7 +120,7 @@ export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64
 export PATH=$PATH:$JAVA_HOME/bin
 . "$HOME/.cargo/env"
 
-
+export Display=<fe80::4496:de74:1439:b95f%41>:0
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
