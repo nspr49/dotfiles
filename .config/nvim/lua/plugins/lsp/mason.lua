@@ -16,6 +16,8 @@ return{
       ensure_installed={
         'java-debug-adapter',
         'java-test',
+        'eslint_d',
+        'eslint',
         }
     })
     local lspconfig = require('lspconfig')
