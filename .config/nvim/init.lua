@@ -29,7 +29,8 @@ vim.opt.rtp:prepend(lazypath)
 
 
 -----------------------------------------------------
-
+---
+---
 
 --------------------- Set Mapleader ---------------------
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
@@ -73,13 +74,6 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
 
------------------- leap nvim keybindings ----------------------
-
-
-require('leap').create_default_mappings()
-
-
-----------------------------------------------------------------
 
 
 vim.cmd("colorscheme catppuccin-mocha")
