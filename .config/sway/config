@@ -14,24 +14,26 @@ set $down j
 set $up k
 set $right l
 #4 Your preferred terminal emulator
-set $term alacritty
+set $term alacritty 
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
 include /etc/sway/config-vars.d/*
 
 input * xkb_layout de
 ### Output configuration 
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/images.jpg fill
 #
 # Example configuration:
 	#
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output * mode 1920x1080
+output HDMI1 mode 1920x1080
+  bindsym $mod+m Output eDP-1 toggle
+workspace 1 output HDMI-A-1
 ### Idle configuration
 #
 # Example configuration:
@@ -55,7 +57,7 @@ output * mode 1920x1080
        natural_scroll enabled
        middle_emulation enabled
    }
-
+default_border none
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -78,7 +80,7 @@ bindsym $mod+Shift+f exec firefox
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-
+    
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -159,7 +161,8 @@ bindsym $mod+Shift+f exec firefox
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+
+  bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -207,6 +210,7 @@ input "type:mouse" {
 
 }
 
+
 #
 # Status Bar:
 #
@@ -226,3 +230,7 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+
+
+
