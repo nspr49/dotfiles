@@ -62,8 +62,9 @@ vim.keymap.set('n', '<leader>b', ':lua require\'dap\'.toggle_breakpoint()<CR>')
 
 
 
------------------------- NERDTree --------------------------
-vim.keymap.set('n', '<leader>n', ':NERDTree<CR>')
+------------------------ OIL --------------------------
+---
+vim.keymap.set("n", "<leader>n", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
 
 -----

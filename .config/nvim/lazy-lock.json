@@ -32,6 +32,7 @@
   "nvim-soil": { "branch": "master", "commit": "17d200eaa2268c8fb189dba9db98873e41359e45" },
   "nvim-treesitter": { "branch": "master", "commit": "eb93c3b2fbe9ca55d70e9297d5c037880b997559" },
   "nvim-web-devicons": { "branch": "master", "commit": "31ba3c489e56a7f20881cee013cea1269b6b2f2d" },
+  "oil.nvim": { "branch": "master", "commit": "64a3a555b40d96faae488ed6cf5d0f8b38520891" },
   "panda-vim": { "branch": "master", "commit": "375f7753e9a037f66261438cc883602cc898a8a8" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "shades-of-purple.vim": { "branch": "master", "commit": "e806d38190a6a2e8b9244824c2953d6567f141f3" },
