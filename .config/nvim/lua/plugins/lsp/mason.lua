@@ -18,6 +18,7 @@ return{
         'java-test',
         'eslint_d',
         'eslint',
+        "prettier",
         }
     })
     local lspconfig = require('lspconfig')

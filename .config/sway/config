@@ -27,9 +27,9 @@ input * xkb_layout de
 #
 # Wallpaper
 output * bg #1E1E2E solid_color  
-output * bg ~/animewall3.jpg fill
 
-#output * bg /usr/share/backgrounds/animeback2.jpg fill
+
+output * bg /usr/share/backgrounds/animeback2.jpg fill
 #
 # Example configuration:
 	#

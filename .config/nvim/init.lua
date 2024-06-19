@@ -4,6 +4,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set expandtab")
 vim.cmd("set softtabstop=2")
+vim.g.editorconfig = true
 vim.cmd('autocmd BufRead, BufNewFile *.flex set filetype=c')
 vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
@@ -12,6 +13,8 @@ vim.cmd("set list")
 --- remove nvimstatus ---
 vim.cmd("set noshowmode")
 
+
+-- parse editor config files
 --------------------- lazy.nvim ---------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
