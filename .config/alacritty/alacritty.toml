@@ -16,12 +16,12 @@ duration=0
 
 [font]
 
-normal={family="EnvyCodeR Nerd Font", style="Regular"}
+normal={family="JetBrains Mono Nerd Font", style="Regular"}
 
-bold={family="EnvyCodeR Nerd Font", style="bold"}
-italic={family="EnvyCodeR Nerd Font", style="italic"}
+bold={family="JetBrains Mono Nerd Font", style="bold"}
+italic={family="JetBrains Mono Nerd Font", style="italic"}
 
-size=13
+size=12
 
 [cursor]
 vi_mode_style =  "None"
