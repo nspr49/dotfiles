@@ -9,10 +9,8 @@ vim.cmd('autocmd BufRead, BufNewFile *.flex set filetype=c')
 vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
-
 --- remove nvimstatus ---
 vim.cmd("set noshowmode")
-
 
 -- parse editor config files
 --------------------- lazy.nvim ---------------------
@@ -78,6 +76,11 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
 
+------------------- transparent-Backround----------------
+vim.cmd("TransparentEnable")
+require('transparent').clear_prefix('lualine')
+---------------------------------------
 
 
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd.colorscheme "catppuccin"
+

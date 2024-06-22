@@ -114,12 +114,12 @@ window#waybar.chromium {
   margin-left: 0;
   font-size: 20;
     background-color: #1E1E2E;
-    color: #000000;
+    color: #ffffff;
     background-color: transparent;
 }
 
 #battery.charging, #battery.plugged {
-    color: #d9e0ee;
+    color: #ffffff;
     background-color: #26A65B;
     background-color: transparent;
 }

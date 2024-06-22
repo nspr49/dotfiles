@@ -121,8 +121,8 @@
             "critical": 15
         },
         "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
+        "format-charging": "{icon}  ",
+        "format-plugged": "{icon}  ",
         "format-alt": "{icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
