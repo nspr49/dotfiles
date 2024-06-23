@@ -12,6 +12,8 @@ vim.cmd("set list")
 --- remove nvimstatus ---
 vim.cmd("set noshowmode")
 
+vim.opt.hlsearch=true
+vim.keymap.set("n", "<Esc>" , "<cmd>nohlsearch<CR>")
 -- parse editor config files
 --------------------- lazy.nvim ---------------------
 
