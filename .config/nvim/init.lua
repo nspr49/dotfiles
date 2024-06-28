@@ -71,6 +71,11 @@ vim.keymap.set("n", "<leader>n", "<CMD>Oil<CR>", { desc = "Open parent directory
 vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
 
 -----
+---
+---
+
+vim.keymap.set("n", "<leader>oi", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
+
 
 
 
