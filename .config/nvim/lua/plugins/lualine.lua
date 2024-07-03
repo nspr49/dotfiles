@@ -5,7 +5,20 @@ return {
     local lualine = require("lualine")
     local custom_dracula = require'lualine.themes.dracula'
     --custom_dracula.normal.a =  {bg = '#8839ef', fg = '#282828', gui = 'bold'}
-    --
+    local mode_map = {
+   n = "(ᴗ_ ᴗ。)",
+   nt = "(ᴗ_ ᴗ。)",
+   i = "(•̀ - •́ )",
+   R = "( •̯́ ₃ •̯̀)",
+   v = "(⊙ _ ⊙ )",
+   V = "(⊙ _ ⊙ )",
+   no = "Σ(°△°ꪱꪱꪱ)",
+   ["\22"] = "(⊙ _ ⊙ )",
+   t = "(⌐■_■)",
+   ['!'] = "Σ(°△°ꪱꪱꪱ)",
+   c = "Σ(°△°ꪱꪱꪱ)",
+   s = "SUB"
+ }
     -- Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
@@ -78,6 +91,9 @@ return {
     -- Inserts a component in lualine_c at left section
     local function ins_left_mode(component)
       table.insert(config.sections.lualine_c,1, component)
+      fmt = function()
+          return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
+        end
     end
 
     local function ins_left (component)
@@ -100,8 +116,27 @@ return {
     
     
     ins_left {
+
+       
+
+
+
       -- mode component
       function()
+        local mode_map = {
+          n = "(ᴗ_ ᴗ。)",
+          nt = "(ᴗ_ ᴗ。)",
+          i = "(•̀ - •́ )",
+          R = "( •̯́ ₃ •̯̀)",
+          v = "(⊙ _ ⊙ )",
+          V = "(⊙ _ ⊙ )",
+          no = "Σ(°△°ꪱꪱꪱ)",
+          ["\22"] = "(⊙ _ ⊙ )",
+          t = "(⌐■_■)",
+          ['!'] = "Σ(°△°ꪱꪱꪱ)",
+          c = "Σ(°△°ꪱꪱꪱ)",
+          s = "SUB"
+        }
         -- auto change color according to neovims mode
         local mode_color = {
           n = colors.red,
@@ -128,8 +163,9 @@ return {
         vim.api.nvim_command(
         'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
         colors.bg)
-        return ''
-      end,
+        
+         return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
+       end,
      color = "LualineMode",
       left_padding = 0
     }
