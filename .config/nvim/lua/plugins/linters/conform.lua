@@ -8,7 +8,8 @@ return{
         python = { "prettier" },
         -- Use a sub-list to run only the first available formatter
         javascript = {  "prettier" },
-        java = { "prettier" },        html = {"prettier"},
+        java = { "google-java-format" },
+        html = {"prettier"},
         css = {"prettier" },
         typescript = {"prettier"},
         javascriptangular = {"prettier"},
@@ -16,10 +17,10 @@ return{
       },
     })
     local conform = require("conform")
-    vim.keymap.set("n", "<leader>v", function ()
+    vim.keymap.set("v", "<leader>v", function ()
       conform.format({
         lsp_fallback=true,
-        async = false,
+        async = true,
         timeout_ms = 500
       })
     end

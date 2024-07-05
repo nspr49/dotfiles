@@ -5,21 +5,7 @@ return {
     local lualine = require("lualine")
     local custom_dracula = require'lualine.themes.dracula'
     --custom_dracula.normal.a =  {bg = '#8839ef', fg = '#282828', gui = 'bold'}
-    local mode_map = {
-   n = "(ᴗ_ ᴗ。)",
-   nt = "(ᴗ_ ᴗ。)",
-   i = "(•̀ - •́ )",
-   R = "( •̯́ ₃ •̯̀)",
-   v = "(⊙ _ ⊙ )",
-   V = "(⊙ _ ⊙ )",
-   no = "Σ(°△°ꪱꪱꪱ)",
-   ["\22"] = "(⊙ _ ⊙ )",
-   t = "(⌐■_■)",
-   ['!'] = "Σ(°△°ꪱꪱꪱ)",
-   c = "Σ(°△°ꪱꪱꪱ)",
-   s = "SUB"
- }
-    -- Eviline config for lualine
+   -- Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
     local lualine = require 'lualine'
@@ -137,9 +123,11 @@ return {
           c = "Σ(°△°ꪱꪱꪱ)",
           s = "SUB"
         }
+
         -- auto change color according to neovims mode
         local mode_color = {
           n = colors.red,
+          nt = colors.red,
           i = colors.green,
           v = colors.blue,
           [''] = colors.blue,
@@ -166,7 +154,7 @@ return {
         
          return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
        end,
-     color = "LualineMode",
+     --color = "LualineMode",
       left_padding = 0
     }
 
