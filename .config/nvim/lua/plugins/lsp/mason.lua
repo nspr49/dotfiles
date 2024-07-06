@@ -28,6 +28,7 @@ return{
         'eslint',
         "prettier",
         "google-java-format",
+        'ts-standard',
         }
     })
     local lspconfig = require('lspconfig')

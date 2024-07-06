@@ -11,7 +11,7 @@ return{
         java = { "google-java-format" },
         html = {"prettier"},
         css = {"prettier" },
-        typescript = {"prettier"},
+        typescript = {"ts-standard"},
         javascriptangular = {"prettier"},
         json = {"prettier"},
       },
