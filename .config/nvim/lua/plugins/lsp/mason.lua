@@ -3,13 +3,21 @@ return{
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    --"neovim/nvim-lspconfig",
   },
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup(
     {
-      ensure_installed = {"html","cssls", "lua_ls", "clangd","angularls", "tsserver","jdtls", "cssls"--[[ "java_language_server"  --]]},
+      ensure_installed = {
+        "html",
+        "cssls",
+        "lua_ls",
+        "clangd",
+        "angularls", 
+        "tsserver",
+        "jdtls",
+        "cssls"
+        --[[ "java_language_server"  --]]},
       automatic_installation = false,
     })
     require('mason-tool-installer').setup({
@@ -19,7 +27,7 @@ return{
         'eslint_d',
         'eslint',
         "prettier",
-        "google-java-format"
+        "google-java-format",
         }
     })
     local lspconfig = require('lspconfig')
@@ -41,4 +49,3 @@ return{
           }) 
         end
         } 
-        

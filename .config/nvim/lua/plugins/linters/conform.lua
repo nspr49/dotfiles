@@ -4,7 +4,6 @@ return{
   config = function ()
     require("conform").setup({
       formatters_by_ft = {
-        lua = { "prettier" },
         -- Conform will run multiple formatters sequentially
         python = { "prettier" },
         -- Use a sub-list to run only the first available formatter
@@ -22,6 +21,9 @@ return{
           return;
           end
         local format = require("conform").format
+        if format == nil then
+          return;
+        end
         for i = #hunks, 1, -1 do
           local hunk = hunks[i]
           if hunk ~= nil and hunk.type ~= "delete" then

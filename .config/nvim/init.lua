@@ -44,7 +44,8 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 --------------------- import plugins -----------------
 
 require("lazy").setup({
-	{ import = "plugins"}, {import = "plugins.lsp"}, { import="plugins.linters" }, 
+	{import = "plugins.lsp"}, { import="plugins.linters" }, { import = "plugins.gui"},
+  {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" }
 	},{
 
   })
