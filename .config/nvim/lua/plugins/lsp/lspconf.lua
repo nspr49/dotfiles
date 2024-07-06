@@ -87,12 +87,10 @@ return {
     })
 
 	 --configure java server
-   --[[
     lspconfig["jdtls"].setup({
       capabilities = capabilities,
      on_attach = on_attach,
     })
-    --]]
   --configure java2 server
   --[[
     lspconfig["java_language_server"].setup({
