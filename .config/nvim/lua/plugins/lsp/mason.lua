@@ -29,6 +29,7 @@ return{
         "prettier",
         "google-java-format",
         'ts-standard',
+        "checkstyle"
         }
     })
     local lspconfig = require('lspconfig')
