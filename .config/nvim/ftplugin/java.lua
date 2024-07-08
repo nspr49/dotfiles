@@ -54,7 +54,7 @@ local config = {
   settings = {
     java = {
       -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-      home = '/usr/lib/jvm/jdk-21-oracle-x64/',
+      home = '/usr/lib/jvm/jdk-21-oracle-x64',
       eclipse = {
         downloadSources = true,
       },
@@ -139,7 +139,7 @@ local config = {
 -- Needed for debugging
 config['on_attach'] = function(client, bufnr)
   jdtls.setup_dap({ hotcodereplace = 'auto' })
-  require('jdtls.dap').setup_dap_main_class_configs()
+  --require('jdtls.dap').setup_dap_main_class_configs()
 end
 
 -- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
