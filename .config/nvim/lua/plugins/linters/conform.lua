@@ -63,5 +63,9 @@ return {
       end
     end
     )
+    vim.keymap.set("n", "<leader>gv",   function()
+      require("conform").format({ async = true, lsp_format = "fallback" })
+    end
+    )
   end
 }

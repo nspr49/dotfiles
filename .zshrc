@@ -30,9 +30,12 @@ zinit light-mode for \
 
 #powerlevel10k
 #
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+#zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
 if [[ $(ps --no-header -p $PPID -o comm) =~ '^alacritty$' ]]; then
         for wid in $(xdotool search --pid $PPID); do
