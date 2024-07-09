@@ -37,6 +37,11 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+
+autoload -U compinit && compinit
+
 if [[ $(ps --no-header -p $PPID -o comm) =~ '^alacritty$' ]]; then
         for wid in $(xdotool search --pid $PPID); do
             xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
