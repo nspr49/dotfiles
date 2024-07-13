@@ -89,7 +89,6 @@
     vim 
       wget
       pkgs.libappindicator-gtk3
-      pkgs.neovim
       pkgs.wlroots
       grim
       pkgs.dconf
@@ -101,11 +100,8 @@
       wl-clipboard
       mako
       git
-      firefox
       pkgs.alacritty
       stow
-      pkgs.waybar
-      pkgs.nodejs_22
       home-manager
       
 #wm
@@ -114,31 +110,23 @@
 # sway bg
       pkgs.swaybg
 #menu 
-      pkgs.wofi
-      rofi-wayland
       pkgs.pipewire
 #network
       pkgs.networkmanager
 #pkgs.wg-netmanager
       pkgs.networkmanagerapplet
       pkgs.cacert
-#pyenv
-      pkgs.pyenv
-      pkgs.python3
-      pkgs.python312Packages.cmake
 #zsh
       pkgs.zsh
-      pkgs.starship
       #c
-      gcc
-      gdb
-      gnumake
       ];
 
   fonts.packages = with pkgs; [
     nerdfonts
 
   ];
+
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
 # programs.mtr.enable = true;
