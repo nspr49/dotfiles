@@ -87,10 +87,21 @@ return {
     })
 
 	 --configure java server
-    lspconfig["jdtls"].setup({
-      capabilities = capabilities,
-     on_attach = on_attach,
-    })
+require('lspconfig').jdtls.setup({
+  settings = {
+    java = {
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-21",
+            path = "/usr/lib/jvm/jdk-21-oracle-x64/",
+            default = true,
+          }
+        }
+      }
+    }
+  }
+}) 
   --configure java2 server
   --[[
     lspconfig["java_language_server"].setup({
