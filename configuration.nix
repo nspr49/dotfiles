@@ -118,6 +118,7 @@
       pkgs.cacert
 #zsh
       pkgs.zsh
+killall
       #c
       ];
 

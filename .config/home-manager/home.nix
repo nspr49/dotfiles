@@ -25,7 +25,6 @@
   pyenv
   python3
   python312Packages.cmake
-  wofi
   rofi-wayland
   swaybg
   waybar
@@ -37,14 +36,13 @@
   fastfetch
   spotify
   #notification deamon
-  dunst
+  mako
+  hyprshot
+  fuzzel
   ];
 
-  programs.tmux = {
-    enable = true;
 
-  };
-
+  
 
 
 

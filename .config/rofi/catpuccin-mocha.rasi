@@ -8,6 +8,7 @@
     fg-col2: #f38ba8;
     grey: #6c7086;
     width: 600;
+    background-color: transparent;
     font: "JetBrainsMono Nerd Font 12";
 }
 
