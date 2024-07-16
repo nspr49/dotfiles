@@ -85,31 +85,6 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-
-	 --configure java server
-require('lspconfig').jdtls.setup({
-  settings = {
-    java = {
-      configuration = {
-        runtimes = {
-          {
-            name = "JavaSE-21",
-            path = "/usr/lib/jvm/jdk-21-oracle-x64/",
-            default = true,
-          }
-        }
-      }
-    }
-  }
-}) 
-  --configure java2 server
-  --[[
-    lspconfig["java_language_server"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-    --]]
-    --options: tsserver , biome , vtsls
     -- configure typescript server with plugin
     lspconfig["biome"].setup({
       capabilities = capabilities,
