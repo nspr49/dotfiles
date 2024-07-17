@@ -10,10 +10,18 @@
     ./hardware-configuration.nix
     ];
 
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
+
+ hardware.opengl = {
+    enable = true;
+    #driSupport = true;
+    #driSupport32Bit = true;
+ };
 # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
+ # boot.loader.grub.enable = true;
+ # boot.loader.grub.device = "/dev/nvme0n1";
+ # boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 # Configure network proxy if necessary
@@ -42,18 +50,28 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
+hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 # Configure keymap in X11
   services.xserver = {
     enable=true;
     layout = "de";
     xkbVariant = "";
+    videoDrivers = ["nvidia"];
     displayManager.gdm = {
       enable = true;
       wayland=true;
     };
   };
 
+    hardware.nvidia = {
+    modesetting.enable = true;
+
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+  };
+  
 # Configure console keymap
   console.keyMap = "de";
 
@@ -66,7 +84,7 @@
   };
 
 #enable pulseaudio
-  hardware.pulseaudio.enable=true;
+  #hardware.pulseaudio.enable=true;
 
 
 #nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -126,6 +144,13 @@ killall
     nerdfonts
 
   ];
+security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa.enable = true;
+
+  };
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
