@@ -2,7 +2,7 @@ return{
   "williamboman/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
-      "html",
+--[[      "html",
       "cssls",
       "lua_ls",
       "clangd",
@@ -10,7 +10,8 @@ return{
       "tsserver",
       "jdtls",
       "cssls",
-      "ansiblels"
+      "ansiblels",
+      "nil_ls" --]]
     },
     automatic_installation = false,
   },

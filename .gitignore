@@ -1,1 +1,14 @@
-.tmux/
+*
+
+!.config/hypr
+!configuration.nix
+!.zshrc
+!.tmux.conf
+!.config/nvim
+!.config/rofi
+!.config/starship.toml
+!.config/mako
+!.config/waybar
+!.config/kitty
+!.config/home-manager
+!.config/alacritty

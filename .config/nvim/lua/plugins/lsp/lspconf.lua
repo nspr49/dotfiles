@@ -98,7 +98,10 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-
+    lspconfig["nil_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       settings = {

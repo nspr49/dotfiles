@@ -1,17 +1,17 @@
 // vim: filetype=json
 //credit : copied from https://github.com/dreamsofcode-io/dotfiles 
 {
-    // "layer": "top", // Waybar at top layer
+     "layer": "top", // Waybar at top layer
      //"position": "left", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 0, // Gaps between modules (4px)
+    "spacing": 3, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "custom/media"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["mpd",
       //"idle_inhibitor",
-      //"pulseaudio",
+      "pulseaudio",
       "network",
  //     "cpu",
      // "memory",
@@ -20,27 +20,12 @@
       //"keyboard-state",
       //"sway/language",
       "battery",
-      "battery#bat2",
-      "clock"
+      //"battery#bat2",
+      "clock",
+      "custom/power"
       //"tray"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
-    "keyboard-state": {
+        "keyboard-state": {
         "numlock": true,
         "capslock": true,
         "format": "{name} {icon}",
@@ -117,23 +102,22 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}",
+        "format": "{icon}  ",
         "format-charging": "{icon}  ",
         "format-plugged": "{icon}  ",
-        "format-alt": "{icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-alt": "{icon} ",
+        "format-good": "", // An empty format will hide the module
+         "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "network": { // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "",
+        "tooltip-format": "via {gwaddr}",
+        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -147,26 +131,26 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": " ",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    "custom/power": {
+      "format" : " ⏻ ",
+      "tooltip": false,
+      "menu": "on-click",
+      "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+      "menu-actions": {
+        "shutdown": "shutdown",
+        "reboot": "reboot",
+        "suspend": "systemctl suspend",
+        "hibernate": "systemctl hibernate"
+      }
     }
 }
 

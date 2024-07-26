@@ -6,10 +6,10 @@
     blue: #89b4fa;
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
+    mauve: #cba6f7;
     grey: #6c7086;
-    width: 600;
-    background-color: transparent;
-    font: "JetBrainsMono Nerd Font 12";
+    width: 400;
+    font: "JetBrainsMono 12";
 }
 
 element-text, element-icon , mode-switcher {
@@ -18,16 +18,20 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
+    opacity: 1;
     height: 360px;
     border: 3px;
-    border-color: @border-col;
+    border-color: @mauve;
+    border-radius: 20;
 }
 
 mainbox {
+    opacity: 0.1;
     background-color: @bg-col;
 }
 
 inputbar {
+    opacity: 0.1;
     children: [prompt,entry];
     background-color: @bg-col;
     border-radius: 5px;
@@ -35,9 +39,8 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
-    padding: 6px;
-    text-color: @bg-col;
+    background-color: transparent;
+    text-color: transparent;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }
@@ -58,7 +61,6 @@ listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 2;
     lines: 5;
     background-color: @bg-col;
 }
@@ -66,7 +68,7 @@ listview {
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
 }
 
 element-icon {
@@ -74,8 +76,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color:  @selected-col;
+    text-color: @mauve;
 }
 
 mode-switcher {

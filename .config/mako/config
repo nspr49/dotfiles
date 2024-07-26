@@ -1,11 +1,18 @@
 # Colors
-
-background-color=#1e1e2e
+font=JetBrainsMono 10
+background-color=#1e1e2eFF
 text-color=#cdd6f4
 border-color=#cba6f7
-progress-color=over #313244
+default-timeout=2000
+height=300
+width=350
 
-border-radius=6
+#border
+border-size=4
+border-radius=14
+border-color=#cba6f7
 
 [urgency=high]
-border-color=#cba6f7
+ignore-timeout=1
+
+#timeout

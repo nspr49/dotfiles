@@ -13,7 +13,7 @@
 boot.loader.systemd-boot.enable = true;
 boot.loader.efi.canTouchEfiVariables = true;
 
- hardware.opengl = {
+ hardware.graphics = {
     enable = true;
     #driSupport = true;
     #driSupport32Bit = true;
@@ -116,12 +116,13 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
       xwayland
       slurp
       wl-clipboard
-      mako
       git
       pkgs.alacritty
       stow
       home-manager
-      
+      pkgs.vesktop
+ (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+
 #wm
       pkgs.hyprland
 #pkgs.hyprpaper # fuck this
@@ -136,12 +137,12 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
       pkgs.cacert
 #zsh
       pkgs.zsh
-killall
-      #c
+      killall
       ];
 
   fonts.packages = with pkgs; [
     nerdfonts
+    font-awesome
 
   ];
 security.rtkit.enable = true;
@@ -149,9 +150,18 @@ security.rtkit.enable = true;
     enable = true;
     pulse.enable = true;
     alsa.enable = true;
-
+alsa.support32Bit=true;
   };
 
+xdg = {
+  portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
+};
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.

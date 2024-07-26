@@ -32,19 +32,32 @@
   firefox
   neovim
   tmux
-  firefox
   fastfetch
   spotify
-  #notification deamon
-  mako
   hyprshot
-  fuzzel
+  hyprpicker
+  hyprcursor
+
+
+  unzip
+  mako
+  cargo
+  discord
+  pwvucontrol
+discord-ptb
+discord-canary
+zed-editor
+anki
+
+#lsp
+libclang
+lua
+lua-language-server
+jdt-language-server
+
   ];
 
-
-  
-
-
+#services.dunst.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
