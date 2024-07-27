@@ -17,7 +17,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   imports = [
-    ./tmux.nix
+    ./modules/tmux.nix
   ];
 
   home.packages = with pkgs; [

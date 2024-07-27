@@ -70,5 +70,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 alias switch="sudo nixos-rebuild switch --flake ~/dotfiles/"
+alias ntest="sudo nixos-rebuild test --flake ~/dotfiles/"
 eval "$(direnv hook zsh)"
 
