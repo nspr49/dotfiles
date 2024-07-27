@@ -54,8 +54,8 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 # Configure keymap in X11
   services.xserver = {
     enable=true;
-    layout = "de";
-    xkbVariant = "";
+    xkb.layout = "de";
+    xkb.variant = "";
     videoDrivers = ["nvidia"];
     displayManager.gdm = {
       enable = true;
@@ -121,6 +121,7 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
       stow
       home-manager
       pkgs.vesktop
+      direnv
  (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
 
 #wm

@@ -1,0 +1,10 @@
+configuration.nix
+flake.lock
+flake.nix
+hardware-configuration.nix
+.config/spotify
+.config/dconf
+.config/vesktop
+.config/discordcanary
+.config/environment.d
+.config gtk-3.0
