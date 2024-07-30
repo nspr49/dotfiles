@@ -79,6 +79,7 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 
 require('lspconfig').jdtls.setup({})
 vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
+vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 
 
 

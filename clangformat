@@ -1,0 +1,68 @@
+Language: Java
+BasedOnStyle: Google
+IndentWidth: 2
+TabWidth: 2
+# Tabs in stream
+ContinuationIndentWidth: 2
+ColumnLimit: 140
+UseTab: Never
+
+AlignConsecutiveBitFields: false
+# No new line before klammer 
+BreakBeforeBraces: Attach
+
+# Method declaration
+SpacesInParentheses: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterFunctionDefinitionName: true
+SpaceBeforeRangeBasedForLoopColon: true
+
+SpacesInParens: Never
+
+# Switch case
+# AlignConsecutiveShortCaseStatements for Alignment
+#
+#
+# <setting id="org.eclipse.jdt.core.formatter.alignment_for_additive_operator" value="16"/>
+AlignAfterOpenBracket: DontAlign
+AlignOperands: true
+AlignTrailingComments: true
+
+# Argument next line in large method call
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+
+# No short block in one line 
+AllowShortBlocksOnASingleLine: false
+# next only in clang 19+ 
+#AllowShortCaseExpressionOnASingleLine: true
+#AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+
+BinPackArguments: false
+BinPackParameters: false
+# is for below behavior
+#void f() {
+  # f(aaaaaaaaaaaaaaaaaaaa,
+  # aaaaaaaaaaaaaaaaaaaa,
+    #  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+    #}
+# Annotations
+#ArrayInitializerAlignmentStyle: AIAS_Left
+IncludeBlocks: Regroup
+
+#AlignArrayOfStructure: ArrayInitializerArgumentStyle
+#
+#
+BreakAfterJavaFieldAnnotations: true
+SortJavaStaticImport: Before
+
+BreakArrays: true
+
+PenaltyBreakAssignment: 1

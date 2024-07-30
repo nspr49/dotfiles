@@ -36,6 +36,7 @@
     }
     ];
     extraConfig = "
+    set-option -g status-position top
       set -g default-terminal 'screen-256color'
       set -as terminal-features ',xterm-256color:RGB'
       set -g prefix C-s

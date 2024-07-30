@@ -8,3 +8,4 @@ hardware-configuration.nix
 .config/discordcanary
 .config/environment.d
 .config gtk-3.0
+.git*

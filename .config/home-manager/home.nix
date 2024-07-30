@@ -28,6 +28,7 @@
   pyenv
   python3
   python312Packages.cmake
+  
   rofi-wayland
   swaybg
   waybar
@@ -40,6 +41,7 @@
   hyprshot
   hyprpicker
   hyprcursor
+  ags
 
 
   unzip
@@ -50,12 +52,15 @@ discord-ptb
 discord-canary
 zed-editor
 anki
+ripgrep
 
 #tmux
 tmuxPlugins.sensible
 tmuxPlugins.resurrect
 tmuxPlugins.continuum
 
+#form
+google-java-format
 
 #lspjkj
 libclang

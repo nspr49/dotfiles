@@ -33,6 +33,7 @@ window#waybar.chromium {
     /* Avoid rounded borders under each workspace name */
     /*box-shadow: 10px 5px 5px red;*/
     background: rgba(114, 44, 228, 0.4);
+    background: transparent;
     padding: 0 3px;
     border-radius: 60;
 }

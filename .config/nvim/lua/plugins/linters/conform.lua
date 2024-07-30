@@ -8,7 +8,7 @@ return {
         python = { "prettier" },
         -- Use a sub-list to run only the first available formatter
         javascript = { "prettier" },
-        java = { "google-java-format" },
+        java = { "clang-format" },
         html = { "prettier" },
         css = { "prettier" },
         typescript = { "ts-standard" },
