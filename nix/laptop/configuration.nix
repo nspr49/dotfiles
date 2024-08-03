@@ -84,12 +84,9 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
     enable = true;
   };
 
-#enable pulseaudio
-  #hardware.pulseaudio.enable=true;
+hardware.bluetooth.enable = true; # enables support for Bluetooth
+hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-
-#nix.settings.experimental-features = ["nix-command" "flakes"];
-# Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.extra = {
     isNormalUser = true;
     description = "extra";
