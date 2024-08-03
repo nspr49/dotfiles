@@ -102,7 +102,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["rls"].setup({
+    lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

@@ -48,10 +48,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  ",
+        "format": "{icon} ",
         "format-charging": "{icon}  ",
         "format-plugged": "{icon}  ",
-        "format-alt": "{icon} ",
+        "format-alt": "{icon} ",
         "format-good": "", // An empty format will hide the module
          "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -88,7 +88,7 @@
         "on-click": "pwvucontrol"
     },
     "custom/power": {
-      "format" : " ⏻ ",
+      "format" : " ⏻  ",
       "tooltip": false,
       "menu": "on-click",
       "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder

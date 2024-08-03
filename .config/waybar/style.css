@@ -106,16 +106,11 @@ window#waybar.chromium {
 #battery {
   margin-left: 0;
   font-size: 20;
+  border-radius: 60;
     background-color: #1E1E2E;
     color: #ffffff;
     background-color: transparent;
     background-color: rgb(203, 166, 247);
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-    background-color: transparent;
 }
 
 @keyframes blink {
@@ -158,20 +153,10 @@ label:focus {
     color: #ffffff;
 }
 
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-
 #custom-power {
   
   background-color: rgb(203, 166, 247);
-  box-shadow: rgb(203, 166, 247);
-  border-radius: 30;
-box-shadow: inset 0 -3px transparent;
-box-shadow: 10px 5px 5px rgb(203, 166, 247);
-  border: none;
+  border-radius: 40;
 }
 
 
