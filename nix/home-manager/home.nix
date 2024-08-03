@@ -1,85 +1,86 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+# Home Manager needs a bit of information about you and the paths it should
+# manage.
   home.username = "extra";
   home.homeDirectory = "/home/extra";
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
+# This value determines the Home Manager release that your configuration is
+# compatible with. This helps avoid breakage when a new Home Manager release
+# introduces backwards incompatible changes.
+#
+# You should not change this value, even if you update Home Manager. If you do
+# want to update the value, then make sure to first check the Home Manager
+# release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  imports = [
+# The home.packages option allows you to install Nix packages into your
+# environment.
+    imports = [
+    ./modules/hypr.nix
     ./modules/tmux.nix
-  ];
+    ./modules/zsh.nix
+    ];
 
   home.packages = with pkgs; [
-  starship
-  gcc
-  gdb
-  gnumake
-  pyenv
-  python3
-  python312Packages.cmake
-  
-  rofi-wayland
-  swaybg
-  waybar
-  nodejs_22
-  firefox
-  neovim
-  tmux
-  fastfetch
-  spotify
-  hyprshot
-  hyprpicker
-  hyprcursor
-  ags
+    starship
+      gcc
+      gdb
+      gnumake
+      pyenv
+      python3
+      python312Packages.cmake
+      rofi-wayland
+      swaybg
+      waybar
+      nodejs_22
+      firefox
+      neovim
+      tmux
+      fastfetch
+      spotify
+      hyprshot
+      hyprpicker
+      hyprcursor
+      ags
 
 
-  unzip
-  mako
-  discord
-  pwvucontrol
-discord-ptb
-discord-canary
-zed-editor
-anki
-ripgrep
+      unzip
+      mako
+      discord
+      pwvucontrol
+      discord-ptb
+      discord-canary
+      zed-editor
+      anki
+      ripgrep
 
 #fuck db
-chromium
+      chromium
 
 #tmux
-tmuxPlugins.sensible
-tmuxPlugins.resurrect
-tmuxPlugins.continuum
+      tmuxPlugins.sensible
+      tmuxPlugins.resurrect
+      tmuxPlugins.continuum
 
 #form
-google-java-format
+      google-java-format
 
 #lspjkj
-libclang
-lua
-lua-language-server
-jdt-language-server
-vscode-langservers-extracted
-nil
-];
+      libclang
+      lua
+      lua-language-server
+      jdt-language-server
+      vscode-langservers-extracted
+      nil
+      ];
 
   home.file = {
 # # Building this configuration will create a copy of 'dotfiles/screenrc' in
 # # the Nix store. Activating the configuration will then make '~/.screenrc' a
 # # symlink to the Nix store copy.
 # ".screenrc".source = dotfiles/screenrc;
-  
+
 # # You can also set the file content immediately.
 # ".gradle/gradle.properties".text = ''
 #   org.gradle.console=verbose

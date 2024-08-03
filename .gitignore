@@ -1,6 +1,4 @@
 .config/spotify/*
-./configuration.nix
-hardware-configuration.nix
 .config/tmux/**
 .config/dconf/*
 .config/chromium/*
