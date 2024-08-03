@@ -1,0 +1,30 @@
+2024-08-03T06:45:34.698Z [Modules] Modules initializing
+2024-08-03T06:45:34.698Z [Modules] Distribution: remote
+2024-08-03T06:45:34.698Z [Modules] Host updates: disabled
+2024-08-03T06:45:34.698Z [Modules] Module updates: enabled
+2024-08-03T06:45:34.699Z [Modules] Module install path: /home/extra/.config/discord/0.0.58/modules
+2024-08-03T06:45:34.699Z [Modules] Module installed file path: /home/extra/.config/discord/0.0.58/modules/installed.json
+2024-08-03T06:45:34.699Z [Modules] Module download path: /home/extra/.config/discord/0.0.58/modules/pending
+2024-08-03T06:45:35.267Z [Modules] Bootstrapping...
+2024-08-03T06:45:35.269Z [Modules] Installing discord_desktop_core@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_desktop_core.zip
+2024-08-03T06:45:35.282Z [Modules] Failed installing discord_desktop_core@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_desktop_core.zip'
+2024-08-03T06:45:35.283Z [Modules] Installing discord_erlpack@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_erlpack.zip
+2024-08-03T06:45:35.289Z [Modules] Failed installing discord_erlpack@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_erlpack.zip'
+2024-08-03T06:45:35.291Z [Modules] Installing discord_spellcheck@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_spellcheck.zip
+2024-08-03T06:45:35.297Z [Modules] Failed installing discord_spellcheck@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_spellcheck.zip'
+2024-08-03T06:45:35.300Z [Modules] Installing discord_utils@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_utils.zip
+2024-08-03T06:45:35.306Z [Modules] Failed installing discord_utils@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_utils.zip'
+2024-08-03T06:45:35.309Z [Modules] Installing discord_voice@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_voice.zip
+2024-08-03T06:45:35.315Z [Modules] Failed installing discord_voice@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_voice.zip'
+2024-08-03T06:45:35.315Z [Modules] Installing discord_zstd@0 from /nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_zstd.zip
+2024-08-03T06:45:35.319Z [Modules] Failed installing discord_zstd@0: Error: ENOENT: no such file or directory, open '/nix/store/7lylwjw7qywsn43bpf9kvf9ks64p2ry4-discord-0.0.58/opt/Discord/resources/bootstrap/discord_zstd.zip'
+2024-08-03T06:45:35.320Z [Modules] Finished module installations. [success: 0] [failure: 6]
+2024-08-03T06:45:35.321Z [Modules] Host is up to date.
+2024-08-03T06:45:35.321Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-08-03T06:45:35.450Z [Modules] Failed fetching module versions: Error: getaddrinfo ENOTFOUND discord.com
+2024-08-03T06:45:45.452Z [Modules] Host is up to date.
+2024-08-03T06:45:45.453Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-08-03T06:45:45.477Z [Modules] Failed fetching module versions: Error: getaddrinfo ENOTFOUND discord.com
+2024-08-03T06:46:05.479Z [Modules] Host is up to date.
+2024-08-03T06:46:05.480Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-08-03T06:46:05.513Z [Modules] Failed fetching module versions: Error: getaddrinfo ENOTFOUND discord.com
