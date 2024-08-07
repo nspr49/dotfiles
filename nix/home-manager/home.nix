@@ -65,6 +65,7 @@
 
 #form
       google-java-format
+      uncrustify
 
 #lspjkj
       libclang

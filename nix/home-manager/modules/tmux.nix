@@ -17,9 +17,8 @@
         set -g @catppuccin_window_current_number \"#{thm_pink}\"
         set -g @catppuccin_window_current_fill \"all\"
 
-        set -g @catppuccin_window_default_color \"#{thm_bg}\"
+        set -g @catppuccin_window_default_color \"#{thm_black}\"
         set -g @catppuccin_window_default_background \"#{thm_magenta}\"
-        set -g @catppuccin_window_default_number \"#{thm_bg}\"
         set -g @catppuccin_window_default_fill \"all\"
 
         set -g @catppuccin_status_modules_right \"...\";
