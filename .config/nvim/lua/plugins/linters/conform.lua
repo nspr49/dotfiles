@@ -15,7 +15,6 @@ return {
         javascriptangular = { "prettier" },
         json = { "prettier" },
       },
-      --[[
       format_on_save = function()
         local hunks = require("gitsigns").get_hunks()
         if hunks == nil then
@@ -37,8 +36,7 @@ return {
           end
         end
       end
-    }]] --
-    })
+  })
 
     local conform = require("conform")
     vim.keymap.set("n", "<leader>vv", function()
