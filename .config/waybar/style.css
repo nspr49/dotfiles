@@ -179,4 +179,10 @@ label:focus {
     min-width: 16px;
 }
 
+#cava {
+  border-radius: 40;
+  background: rgb(203, 166, 247);
+  padding-left: 5;
+  padding-right: 5;
+}
 
