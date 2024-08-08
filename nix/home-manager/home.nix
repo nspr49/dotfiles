@@ -54,6 +54,8 @@
       zed-editor
       anki
       ripgrep
+      cava
+      hyprlock
 
 #fuck db
       chromium

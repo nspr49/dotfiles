@@ -86,6 +86,8 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
 hardware.bluetooth.enable = true; # enables support for Bluetooth
 hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+services.blueman.enable = true;
+
 
   users.users.extra = {
     isNormalUser = true;
@@ -98,6 +100,7 @@ hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth control
   nixpkgs.config.allowUnfree = true;
 
   programs.hyprland.enable=true;
+
 
 # List packages installed in system profile. To search, run:
 # $ nix search wget
@@ -151,6 +154,7 @@ security.rtkit.enable = true;
     alsa.enable = true;
 alsa.support32Bit=true;
   };
+  security.pam.services.hyprlock = {};
 
 xdg = {
   portal = {

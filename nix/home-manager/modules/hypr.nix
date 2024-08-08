@@ -77,6 +77,7 @@
           "$mod, P, pseudo," # dwindle
           "$mod, I, togglesplit, # dwindle"
           "$mod,F,fullscreen "
+          "SUPER_SHIFT , L, exec, hyprlock"
 
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
