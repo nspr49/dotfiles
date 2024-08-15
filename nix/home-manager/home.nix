@@ -30,12 +30,15 @@
       pyenv
       python3
       python312Packages.cmake
+      gtksourceview
+      gtk3
+      webkitgtk
+      accountsservice
       rofi-wayland
       swaybg
       waybar
       nodejs_22
       firefox
-      neovim
       tmux
       fastfetch
       spotify
@@ -44,7 +47,10 @@
       hyprcursor
       ags
 
+socat
+jq
 
+      wlogout
       unzip
       mako
       discord
@@ -56,7 +62,9 @@
       ripgrep
       cava
       hyprlock
-
+      eww
+      drawing
+      ags
 #fuck db
       chromium
 
@@ -67,17 +75,28 @@
 
 #form
       google-java-format
-      uncrustify
+
+      #languages
+      zulu8
 
 #lspjkj
       libclang
       lua
       lua-language-server
       jdt-language-server
+      nodePackages.typescript-language-server
       vscode-langservers-extracted
+  #    tree-sitter-grammars.tree-sitter-java
       nil
       ];
-
+  nixpkgs.overlays = [
+    (final: prev:
+    {
+      ags = prev.ags.overrideAttrs (old: {
+        buildInputs = old.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
+      });
+    })
+  ];
   home.file = {
 # # Building this configuration will create a copy of 'dotfiles/screenrc' in
 # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -109,6 +128,14 @@
 #
   home.sessionVariables = {
 # EDITOR = "emacs";
+  };
+ programs.neovim = {
+       enable = true;
+       viAlias = true;
+       withPython3 = true;
+       plugins = with pkgs.vimPlugins; [
+         nvim-treesitter.withAllGrammars
+       ];
   };
 
 # Let Home Manager install and manage itself.

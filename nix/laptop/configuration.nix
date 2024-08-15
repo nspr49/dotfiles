@@ -165,6 +165,7 @@ xdg = {
     ];
   };
 };
+services.upower.enable = true;
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.

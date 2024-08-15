@@ -1,1 +1,4 @@
-return {'nvim-java/nvim-java'}
+return {
+  'mfussenegger/nvim-jdtls',
+--only open in java file
+}

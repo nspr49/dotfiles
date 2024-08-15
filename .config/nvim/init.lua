@@ -48,9 +48,7 @@ require("lazy").setup({
 	{import = "plugins.lsp"}, { import="plugins.linters" }, { import = "plugins.gui"},
   {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" }
 	},{
-	{import = "plugins.lsp"}, { import="plugins.linters" }, { import = "plugins.gui"},
-  {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" }
-  })
+})
 --------------------------------------------------------
 
 
@@ -77,7 +75,6 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 ---
 ---
 
-require('lspconfig').jdtls.setup({})
 vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
 vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 

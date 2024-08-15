@@ -1,0 +1,97 @@
+window.bar {
+    font-family: "JetBrains Mono Nerd Font", font-awesome, Roboto, Helvetica, Arial, sans-serif  ;
+  font-size: 16;
+  color: white;
+}
+
+button {
+    min-width: 0;
+    color: #FFFFFF;
+    border:transparent;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 40;
+}
+
+
+.workspaces button.focused {
+  border: #cba6f7;
+    background: #cba6f7;
+    border-radius: 40;
+}
+
+button:active {
+    background-color: #cba6f7;
+}
+
+button:hover {
+    background-color: #cba6f7;
+}
+
+label {
+}
+
+.clock {
+font-size: 20;
+border-radius: 10;
+padding-left: 6;
+padding-right: 6;
+background: transparent;
+
+}
+
+.client-title {
+}
+
+.notification {
+}
+
+.battery {
+}
+
+
+levelbar block,
+highlight {
+  background: #cba6f7;
+}
+
+.battery trough {
+  background-color: #9399b2;
+  border-radius: 40;
+  border: none
+}
+
+
+.battery levelbar block {
+  min-height: 0.9em;
+ background-color: #a6e3a1;
+ color: #000000;
+ border: #1e1e2e;
+ border: 0.3em;
+ border-radius: 40;
+ border-color: #1e1e2e;
+}
+
+.battery levelbar block.empty {
+
+ border-color: #1e1e2e;
+  min-height: 0.9em;
+ background-color: #f38ba8; 
+}
+
+.battery label {
+ color: #a6e3a1;
+ font-size: 15 ;
+ margin-right: 0.6em;
+}
+
+.sound {
+  background-color: #1e1e2e; 
+  border-radius: 1.5em;
+  color: #cba6f7;
+  font-size: 17;
+}
+
+.sound box {
+}
+

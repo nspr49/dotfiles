@@ -1,11 +1,10 @@
 { config, pkgs, lib, ...}:
   let
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-      ${pkgs.waybar}/bin/waybar &
+      ${pkgs.ags}/bin/ags &
       ${pkgs.swaybg}/bin/swaybg -i ~/Pictures/animeback.png -m fill
       ${pkgs.dunst}/bin/dunst
-    '';
-  in
+    ''; in
   {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -16,21 +15,24 @@
       general = {
         "gaps_in" = "3";
         "gaps_out" = "5";
-        "border_size" = "2";
+        "border_size" = "4";
         "col.active_border" = "rgba(cba6f7ee)"; 
         "col.inactive_border" = "rgba(45475aaa)";
         "resize_on_border" = "false";
         "allow_tearing" = "false";
         "layout" = "dwindle";
       };
-
       decoration = {
         rounding = "10";
         active_opacity = "1";
         inactive_opacity = "1.0";
         drop_shadow = "true";
-        shadow_range = "4";
-        shadow_render_power = "3";
+        shadow_range = "10";
+        shadow_render_power = "2";
+        shadow_ignore_window = "1";
+        "shadow_offset"= "0 0";
+        "col.shadow"= "rgba(cba6f7ee)";
+        "col.shadow_inactive" = "rgba(45475a00)";
         blur =  {
           enabled = "true";
           size = "1";
