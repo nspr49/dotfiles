@@ -301,14 +301,17 @@ function Bar(monitor = 0) {
     })
 }
 
+function monitor() {
+  let monitors = [];
+  for (let i = 0; i < hyprland.monitors.length; i++) {
+    monitors.push(Bar(i));
+  }
+  return monitors;
+}
+
 App.config({
-    style: "./style.css",
-    windows: [
+  style: "./style.css",
+  windows: monitor(),
+});
 
-        // you can call it, for each monitor
-         Bar(),
-    ],
-    
-})
-
-export { }
+export {};

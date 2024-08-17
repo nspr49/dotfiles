@@ -65,6 +65,8 @@ jq
       eww
       drawing
       ags
+      go-sct
+      bitwarden
 #fuck db
       chromium
 
@@ -129,6 +131,7 @@ jq
   home.sessionVariables = {
 # EDITOR = "emacs";
   };
+
  programs.neovim = {
        enable = true;
        viAlias = true;
