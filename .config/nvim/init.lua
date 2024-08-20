@@ -9,6 +9,7 @@ vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
 vim.cmd("set number")
+vim.cmd("set syntax=off")
 --- remove nvimstatus --- vim.cmd("set noshowmode")
 
 vim.opt.hlsearch=true
@@ -35,7 +36,11 @@ vim.g.editorconfig = true
 		disable = { "yaml" }, -- Disable yaml highlighting because Helm sucks :<
 		additional_vim_regex_highlighting = false,
 	},
-})--]]
+
+})
+
+
+--]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -61,20 +66,15 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 
 -- not much use to see this visually at the moment
 
+
 --------------------- import plugins -----------------
 
-require'nvim-treesitter.configs'.setup({ 
-  auto_install = false;
-  highlight = { enable = true, additional_vim_regex_highlighting=false; },
-})
-
 require("lazy").setup({
-	{import = "plugins.lsp"}, { import="plugins.linters" }, { import = "plugins.gui"},
+	{ import="plugins.linters" }, {import = "plugins.lsp"}, { import = "plugins.gui"},
   {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
 	}, { performance = {reset_packpath = false, rtp = { reset = false } }}
 )
 --------------------------------------------------------
-
 
 ---------------------- telescope -----------------------
 
@@ -110,6 +110,4 @@ vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 vim.cmd("TransparentEnable")
 require('transparent').clear_prefix('lualine')
 ---------------------------------------
-
-vim.cmd.colorscheme "catppuccin"
-
+vim.cmd"colorscheme catppuccin"
