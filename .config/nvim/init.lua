@@ -9,15 +9,33 @@ vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
 vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
 vim.cmd("set number")
---- remove nvimstatus ---
-vim.cmd("set noshowmode")
+--- remove nvimstatus --- vim.cmd("set noshowmode")
 
 vim.opt.hlsearch=true
 vim.keymap.set("n", "<Esc>" , "<cmd>nohlsearch<CR>")
 -- parse editor config files
 vim.g.editorconfig = true
 --------------------- lazy.nvim ---------------------
+---
+---
 
+-- Defines a read-write directory for treesitters in nvim's cache dir
+--local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
+--vim.fn.mkdir(parser_install_dir, "p")
+
+-- In your treesitter config,
+--[[require('nvim-treesitter.configs').setup( {
+	auto_install = false, -- Parsers are managed by Nix
+	indent = {
+		enable = true,
+		disable = { "python", "yaml" }, -- Yaml and Python indents are unusable
+	},
+	highlight = {
+		enable = true,
+		disable = { "yaml" }, -- Disable yaml highlighting because Helm sucks :<
+		additional_vim_regex_highlighting = false,
+	},
+})--]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -41,14 +59,20 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 
 ------------------------------------------------------
 
+-- not much use to see this visually at the moment
 
 --------------------- import plugins -----------------
 
+require'nvim-treesitter.configs'.setup({ 
+  auto_install = false;
+  highlight = { enable = true, additional_vim_regex_highlighting=false; },
+})
+
 require("lazy").setup({
 	{import = "plugins.lsp"}, { import="plugins.linters" }, { import = "plugins.gui"},
-  {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" }
-	},{
-})
+  {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
+	}, { performance = {reset_packpath = false, rtp = { reset = false } }}
+)
 --------------------------------------------------------
 
 
@@ -78,9 +102,6 @@ vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR
 vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
 vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 
-
-
-
 --nvim dab
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
@@ -89,7 +110,6 @@ vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 vim.cmd("TransparentEnable")
 require('transparent').clear_prefix('lualine')
 ---------------------------------------
-
 
 vim.cmd.colorscheme "catppuccin"
 

@@ -20,6 +20,7 @@
     ./modules/hypr.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
+ #   ./modules/nvim.nix
     ];
 
   home.packages = with pkgs; [
@@ -46,7 +47,6 @@
       hyprpicker
       hyprcursor
       ags
-
 socat
 jq
 
@@ -65,8 +65,12 @@ jq
       eww
       drawing
       ags
-      go-sct
       bitwarden
+      pdfstudio2023
+      hyprshade
+      bibata-cursors
+      obsidian
+      docker
 #fuck db
       chromium
 
@@ -132,14 +136,19 @@ jq
 # EDITOR = "emacs";
   };
 
- programs.neovim = {
-       enable = true;
-       viAlias = true;
-       withPython3 = true;
-       plugins = with pkgs.vimPlugins; [
-         nvim-treesitter.withAllGrammars
-       ];
-  };
+programs.neovim = {
+  enable = true;
+  vimAlias = true;
+  plugins = [
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+  ];
+};
+
+#home.file."/.local/share/nvim/lazy/nvim-treesitter" = {
+#  recursive = true;
+#  source = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+#};
+
 
 # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

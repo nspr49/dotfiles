@@ -35,6 +35,8 @@ boot.loader.efi.canTouchEfiVariables = true;
 #networking.wireless.enable = true; 
 # Set your time zone.
   time.timeZone = "Europe/Berlin";
+  # trying to to fuck up windows on dual boot
+  services.localtimed.enable=true;
 
 # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -62,7 +64,7 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
       wayland=true;
     };
   };
-
+environment.sessionVariables.NIXOS_OZONE_WL = "1";
     hardware.nvidia = {
     modesetting.enable = true;
 
@@ -92,7 +94,7 @@ hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   users.users.extra = {
     isNormalUser = true;
     description = "extra";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -163,6 +165,8 @@ xdg = {
     ];
   };
 };
+
+virtualisation.docker.enable = true;
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.

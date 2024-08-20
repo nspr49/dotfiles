@@ -5,7 +5,10 @@ hardware-configuration.nix
 .config/spotify
 .config/dconf
 .config/vesktop
+.config/hypr/*
 .config/discordcanary
+.config/systemd
+.config/discord
 .config/environment.d
 .config gtk-3.0
 .git*
