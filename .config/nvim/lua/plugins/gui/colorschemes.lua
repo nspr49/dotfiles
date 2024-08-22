@@ -8,7 +8,6 @@ return {
   {"Rigellute/shades-of-purple.vim"}, 
   {"rebelot/kanagawa.nvim"},
   {"loctvl842/monokai-pro.nvim"},  		
-  {"wilmanbarrios/palenight.nvim"},
   {"scottmckendry/cyberdream.nvim"},
   {"rose-pine/nvim"},
   {"0xstepit/flow.nvim"},
