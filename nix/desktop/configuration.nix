@@ -36,7 +36,6 @@ boot.loader.efi.canTouchEfiVariables = true;
 # Set your time zone.
   time.timeZone = "Europe/Berlin";
   # trying to to fuck up windows on dual boot
-  services.localtimed.enable=true;
 
 # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -115,7 +114,6 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
       pkgs.gtk3
       kitty
       pkgs.polkit
-      xwayland
       slurp
       wl-clipboard
       git
@@ -124,7 +122,6 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
       home-manager
       pkgs.vesktop
       direnv
- (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
 
 #wm
       pkgs.hyprland

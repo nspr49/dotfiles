@@ -72,7 +72,7 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
 	{ import="plugins.linters" }, {import = "plugins.lsp"}, { import = "plugins.gui"},
   {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
-  { import = "plugins.wildfly" },
+  { import = "plugins.wildfly" }, { import = "plugins.extra" },
   
 	}, { performance = {reset_packpath = false, rtp = { reset = false } }}
 )

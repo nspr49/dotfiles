@@ -18,7 +18,6 @@ return {
     -- see below for full list of optional dependencies 👇
   },
   opts = {
-    
     workspaces = {
       {
         name = "personal",

@@ -5,7 +5,7 @@ local config = {
       java = {
         format = {
           settings = {
-            url = '/home/extra/dotfiles/eclipse_style.xml',
+            url = '/home/extra/dotfiles/ec2.xml',
           }
         }
       }

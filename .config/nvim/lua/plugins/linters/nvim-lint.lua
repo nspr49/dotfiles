@@ -10,7 +10,7 @@ return {
       javascript = { "ESLint" },
       typescript = { "ESLint" },
       typescriptangular = { "ESLint" },
-      java = { "checkstyle" }
+      go = {"golangci-lint"}
     }
 
     local lint_augroup = vim.api.create_augroup("lint", { clear = true })

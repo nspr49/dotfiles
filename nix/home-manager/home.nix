@@ -20,10 +20,12 @@
     ./modules/hypr.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
+    ./modules/fastfetch.nix
  #   ./modules/nvim.nix
     ];
 
   home.packages = with pkgs; [
+
     starship
       gcc
       gdb
@@ -31,19 +33,18 @@
       pyenv
       python3
       python312Packages.cmake
-      gtksourceview
-      gtk3
-      webkitgtk
+      #gtksourceview
+      #webkitgtk
       accountsservice
       rofi-wayland
       swaybg
       waybar
       nodejs_22
-      firefox
       tmux
       fastfetch
       spotify
       hyprshot
+      firefox-unwrapped
       hyprpicker
       hyprcursor
       ags
@@ -64,13 +65,13 @@ jq
       hyprlock
       eww
       drawing
-      ags
       bitwarden
       pdfstudio2023
       hyprshade
       bibata-cursors
       obsidian
       docker
+      gitlab-runner
 #fuck db
       chromium
 
@@ -81,9 +82,7 @@ jq
 
 #form
       google-java-format
-
       #languages
-      zulu8
 
 #lspjkj
       libclang
@@ -94,6 +93,8 @@ jq
       vscode-langservers-extracted
   #    tree-sitter-grammars.tree-sitter-java
       nil
+
+      catppuccin-cursors
       ];
   nixpkgs.overlays = [
     (final: prev:
@@ -136,20 +137,27 @@ jq
 # EDITOR = "emacs";
   };
 
-programs.neovim = {
-  enable = true;
-  vimAlias = true;
-  plugins = [
-    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-  ];
-};
+  home.pointerCursor = {
+    package = pkgs.catppuccin-cursors.mochaMauve;
+    gtk = {
+      enable =true;
+    };
+    x11= {
 
-#home.file."/.local/share/nvim/lazy/nvim-treesitter" = {
-#  recursive = true;
-#  source = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
-#};
+      enable =true;
+      defaultCursor = "catppuccin-mocha-mauve-cursors";
+    };
+    name="catppuccin-mocha-mauve-cursors";
+    size=32;
+  };
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+        pkgs.vimPlugins.markdown-preview-nvim
+    ];
+  };
 
-
-# Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

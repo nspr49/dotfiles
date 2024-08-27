@@ -1,3 +1,4 @@
+import GLib from "gi://GLib?version=2.0"
 const hyprland = await Service.import("hyprland")
 const notifications = await Service.import("notifications")
 const mpris = await Service.import("mpris")
@@ -117,6 +118,7 @@ function Volume() {
       child: icon,
     })
 
+  /*
     const slider = Widget.Slider({
         hexpand: true,
         draw_value: false,
@@ -124,12 +126,12 @@ function Volume() {
         setup: self => self.hook(audio.speaker, () => {
             self.value = audio.speaker.volume || 0
         }),
-    })
+    })*/
 
     return Widget.Box({
         class_name: "volume",
-        css: "min-width: 180px",
-        children: [button, slider],
+        css: "",
+        children: [button ],
     })
 }
 
@@ -141,7 +143,7 @@ function BatteryLabel() {
   //const data = battery.bind("percent").as(p => `${p} %`)
     return Widget.Box({
         class_name: "battery",
-        visible:  battery.bind("available"),
+        visible: battery.bind("available"),
         children: [
             //Widget.Icon({ label: icon }),
             Widget.Label({
@@ -189,42 +191,37 @@ function Center() {
 }
 
 function sound() {
-  const slider = Widget.Slider({
-        hexpand: true,
-        draw_value: false,
-        on_change: ({ value }) => audio.speaker.volume = value,
-        setup: self => self.hook(audio.speaker, () => {
-            self.value = audio.speaker.volume || 0
-        }),
-    })
-
   const outputs = audio
     .speakers.map(function(speaker)  { return "" + speaker.description });
 
   const labels = outputs.map(function(out)  {
     return Widget.Label({
-              label:out,
-            });
+      class_name: "sound-text",
+      hpack: "start",
+      label:out,
+    });
   })
   const sliders = [];
   for(let i = 0; i<outputs.length; i++){
     sliders.push(Widget.Slider({
       draw_value: false,
-        on_change: ({ value }) => audio.speakers[i].volume = value,
-        setup: self => self.hook(audio.speakers[i], () => {
-            self.value = audio.speakers[i].volume || 0
-        })
+      css: "min-height: 10px;",
+      on_change: ({ value }) => audio.speakers[i].volume = value,
+      setup: self => self.hook(audio.speakers[i], () => {
+        self.value = audio.speakers[i].volume || 0
+      })
     })
     )
   }
 
   const box_names = Widget.Box({
-          vertical: true,
+    vertical: true,
     children: labels,
   });
 
   const box_sliders = Widget.Box({
     vertical: true,
+    class_name:"sliders",
     css: "min-width: 180px",
     children: sliders,
   });
@@ -236,6 +233,7 @@ function sound() {
   const header = Widget.Box({
     vertical: false,
     hexpand: true,
+    class_name: "sound-header",
     children: [
       Widget.Label({
         label: "Audio Control"
@@ -243,8 +241,8 @@ function sound() {
       Widget.Button({
         hexpand: true,
         hpack: "end",
+        css: "max-width:0.5em;max-height: 1em;",
         on_clicked: close,
-        
         label:"x",
       }),
     ],
@@ -252,21 +250,21 @@ function sound() {
 
     return Widget.Window({
       name:"sound",
-        class_name: "sound",
+      class_name:"sound",
         anchor: ["top", "right"],
         exclusivity: "exclusive",
-
         child: Widget.Box({
+        class_name: "sound-box",
           vertical: true,
           css:"padding-left: 1em; padding-right: 1em",
           children:[
             header,
             Widget.Box({
-              class_name:"sound-body",
                 vertical: false,
+              class_name: "sound-body",
               children: [
                 box_names,
-            box_sliders,
+                box_sliders,
               ],
             }),
         ],
@@ -309,9 +307,18 @@ function monitor() {
   return monitors;
 }
 
-App.config({
+function getCurosr() {
+  const cursor = GLib.getenv("XCURSOR_THEME"); 
+  console.log(cursor);
+  return cursor == null ? "catppuccin-mocha-mauve-cursors 32" : cursor;
+}
+
+App.config(
+
+  {
   style: "./style.css",
   windows: monitor(),
+  cursorTheme: getCurosr(),
 });
 
 export {};

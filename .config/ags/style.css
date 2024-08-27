@@ -81,17 +81,76 @@ highlight {
 
 .battery label {
  color: #a6e3a1;
- font-size: 15 ;
+ font-size: 15px ;
  margin-right: 0.6em;
 }
 
-.sound {
-  background-color: #1e1e2e; 
-  border-radius: 1.5em;
-  color: #cba6f7;
-  font-size: 17;
+.sound:not(.sound-body) {
+  border-radius: 14px;
 }
 
-.sound box {
+
+
+.sound-box {
+  background-color: #1e1e2e; 
+  color: #cba6f7;
+  border-radius: 14px;
+  border-width: 7px;
+  border-radius: 14px;
+  box-shadow: 0 0 3px 4px rgba(203, 166, 247, 1.0);
+  margin: 20px;
+  margin-left:10px;
+  font-size: 17px;
 }
+
+.sound-header label {
+  color: #cba6f7;
+  border-width: 5px;
+  padding: 0px 0px;
+}
+
+.sound-header label:hover {
+  padding-top:1px;
+  background-color: rgba(203, 166, 247, 0.4);
+}
+
+.sound-header button:hover {
+}
+
+
+
+
+
+.sound-box label {
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.sound-box scale {
+  background-color: #1e1e2e;
+}
+
+
+.sliders trough {
+    background-color: #1e1e2e;
+    border-color: #b4befe;
+    border-radius: 24px;
+    min-height: 5px;
+}
+
+.sliders highlight {
+  background-color: rgb(203, 166, 247);
+  border-color:#b4befe;
+  border-radius: 14px;
+  background: rgb(203, 166, 247);
+}
+
+.sliders slider {
+  color: #cba6f7;
+  border-width: 2px;
+  border-color:#b4befe;
+  background:#cba6f7;
+}
+
+
 

@@ -1,26 +1,21 @@
 return {
-  	{ "Mofiqul/dracula.nvim" },
-  	{'markvincze/panda-vim'},
-	{"sainnhe/everforest"},
+  { "Mofiqul/dracula.nvim" },
+  {"sainnhe/everforest"},
   {"folke/tokyonight.nvim"},
-  {"eldritch-theme/eldritch.nvim"},
-	{"catppuccin/nvim"},
-  {"Rigellute/shades-of-purple.vim"}, 
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {"rebelot/kanagawa.nvim"},
-  {"loctvl842/monokai-pro.nvim"},  		
   {"scottmckendry/cyberdream.nvim"},
-  {"rose-pine/nvim"},
-  {"0xstepit/flow.nvim"},
-dependencies = {
-  "nvim-treesitter"
-},
+  {"shaunsingh/nord.nvim"},
+  dependencies = {
+    "nvim-treesitter"
+  },
 
   config = function ()
-   require("catppuccin").setup({
-     flavour="mocha",
-     color_overrides = {
-     }
-   })
+    require("catppuccin").setup({
+      flavour="mocha",
+      color_overrides = {
+      }
+    })
   end
 
-  }
+}

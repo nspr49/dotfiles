@@ -5,7 +5,6 @@
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
       ${pkgs.swaybg}/bin/swaybg -i ~/Pictures/animeback.png -m fill &
       ${pkgs.mako}/bin/mako & 
-      hyprctl setcursor Bibata-Original-Ice
     ''; in
   {
     wayland.windowManager.hyprland = {
@@ -29,8 +28,10 @@
           "layout" = "dwindle";
         };
         env = [
-          "HYPRCURSOR_THEME,Bibata-Original-Ice"
-            "HYPRCURSOR_SIZE, 22"
+            "XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+            "XCURSOR_SIZE,32"
+            "HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+            "HYPRCURSOR_SIZE, 32"
         ];
         decoration = {
           rounding = "10";
@@ -55,10 +56,12 @@
 
         animations = {
           "enabled" = "true";
-          "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05"; 
+          #"bezier" = "overshot, 0.9, 0.9, 0.3, 1.05"; 
+          "bezier" = "cubic, 0.79, 0.01, 0.14, 0.53";
+
           "animation" = [
-            "windows, 1, 7, myBezier"
-              "windowsOut, 1, 7, default, popin 80%"
+            "windows, 1, 7, cubic, popin 20%"
+              "windowsOut, 1, 7, cubic, popin 10%"
               "border, 1, 10, default"
               "borderangle, 1, 8, default"
               "workspaces, 1, 6, default"
