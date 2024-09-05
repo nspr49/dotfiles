@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
@@ -16,14 +17,18 @@
         nixosConfigurations = {
           nixos = lib.nixosSystem {
             system = "x86_64-linux";
-            modules = [ 
+                        modules = [ 
             ./configuration.nix 
             home-manager.nixosModules.home-manager
             {
+              
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-
-             home-manager.users.extra = import ./home.nix;
+              
+              home-manager.users.extra = import ./home.nix;
             }
             ];
           };
