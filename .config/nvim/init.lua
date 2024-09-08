@@ -10,35 +10,14 @@ vim.cmd("set listchars=tab:»·,trail:·")
 vim.cmd("set list")
 vim.cmd("set number")
 vim.cmd("set syntax=off")
---- remove nvimstatus --- vim.cmd("set noshowmode")
+--- remove nvimstatus 
+vim.cmd("set noshowmode")
 
 vim.opt.hlsearch=true
 vim.keymap.set("n", "<Esc>" , "<cmd>nohlsearch<CR>")
 -- parse editor config files
 vim.g.editorconfig = true
 --------------------- lazy.nvim ---------------------
----
----
-
--- Defines a read-write directory for treesitters in nvim's cache dir
---local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
---vim.fn.mkdir(parser_install_dir, "p")
-
--- In your treesitter config,
---[[require('nvim-treesitter.configs').setup( {
-	auto_install = false, -- Parsers are managed by Nix
-	indent = {
-		enable = true,
-		disable = { "python", "yaml" }, -- Yaml and Python indents are unusable
-	},
-	highlight = {
-		enable = true,
-		disable = { "yaml" }, -- Disable yaml highlighting because Helm sucks :<
-		additional_vim_regex_highlighting = false,
-	},
-
-})
-
 
 --]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -60,7 +39,7 @@ vim.opt.rtp:prepend(lazypath)
 ---
 
 --------------------- Set Mapleader ---------------------
-vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 ------------------------------------------------------
 
@@ -72,7 +51,7 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
 	{ import="plugins.linters" }, {import = "plugins.lsp"}, { import = "plugins.gui"},
   {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
-  { import = "plugins.wildfly" }, { import = "plugins.extra" },
+  { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import="plugins.tmux" }
   
 	}, { performance = {reset_packpath = false, rtp = { reset = false } }}
 )

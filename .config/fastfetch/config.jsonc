@@ -16,67 +16,83 @@
 		    "top": 1
 	    }
     },
-    "display": {
-        "separator": " "
+  "display": {
+        "separator": ">  ",
+        "color": {
+            "separator": "red"
+        },
+        "constants": [
+            "───────────────────────────────────────────────────────────────────────────",
+            "│\u001b[75C│\u001b[75D"
+        ]
     },
     "modules": [
-        "break",
-        "break",
-        "break",
+      "break",
+      "break",
         {
-            "type": "title",
-            "keyWidth": 10
+            "format": "{#1}{#keys}╭{$1}╮\u001b[76D {user-name-colored}{at-symbol-colored}{host-name-colored} 🖥  ",
+            "type": "title"
         },
         {
-            "type": "custom",
-            "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            "key": "{$2}{#31} kernel   ",
+            "type": "kernel"
         },
         {
-            "type": "os",
-            "key": "~ ",
-            "keyColor": "34",  // = color4
+            "key": "{$2}{#32}󰅐 uptime   ",
+            "type": "uptime"
         },
         {
-            "type": "kernel",
-            "key": "~ ",
-            "keyColor": "34",
+            "key": "{$2}{#33}{icon} distro   ",
+            "type": "os"
         },
         {
-            "type": "packages",
-            "format": "{} (nix)",
-            "key": "~ ",
-            "keyColor": "34",  
+            "key": "{$2}{#34}󰇄 desktop  ",
+            "type": "de"
         },
         {
-            "type": "shell",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#35} term     ",
+            "type": "terminal"
         },
         {
-            "type": "terminal",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#36} shell    ",
+            "type": "shell"
         },
         {
-            "type": "wm",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#35}󰍛 cpu      ",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
         },
         {
-            "type": "uptime",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#34}󰍛 gpu      ",
+            "type": "gpu"
         },
         {
-            "type": "media",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#33}󰉉 disk     ",
+            "type": "disk",
+            "folders": "/"
         },
         {
-            "type": "player",
-            "key": "~ ",
-            "keyColor": "34", 
+            "key": "{$2}{#32} memory   ",
+            "type": "memory"
         },
-        "break",
+        {
+            "key": "{$2}{#31}󰩟 network  ",
+            "type": "localip",
+            "format": "{ipv4} ({ifname})"
+        },
+        {
+            "format": "{#1}{#keys}├{$1}┤",
+            "type": "custom"
+        },
+        {
+            "key": "{$2}{#39} colors   ",
+            "type": "colors",
+            "symbol": "circle"
+        },
+        {
+            "format": "{#1}{#keys}╰{$1}╯",
+            "type": "custom"
+        }
     ]
 }

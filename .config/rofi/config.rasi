@@ -1,3 +1,14 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+}
 
-@theme  "catpuccin-mocha"
+@theme "catpuccin-mocha"
+
+
+
+
+
+
+
 

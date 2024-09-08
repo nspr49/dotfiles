@@ -106,6 +106,24 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+    --[[
+   lspconfig["markdown_oxide"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    --]]
+
+    lspconfig['ltex'].setup({
+      on_attach = on_attach,
+      cmd = { "ltex-ls" },
+      filetypes = { "markdown", "text" },
+      flags = { debounce_text_changes = 300 },
+      settings = {
+        ltex = {
+          language="de"
+        }
+      }
+    })
 
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,

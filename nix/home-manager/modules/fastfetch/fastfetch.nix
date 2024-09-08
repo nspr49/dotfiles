@@ -4,5 +4,4 @@
   programs.fastfetch = {
     enable = true;
   };
-
 }

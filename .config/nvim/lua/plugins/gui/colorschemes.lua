@@ -6,15 +6,23 @@ return {
   {"rebelot/kanagawa.nvim"},
   {"scottmckendry/cyberdream.nvim"},
   {"shaunsingh/nord.nvim"},
-  dependencies = {
-    "nvim-treesitter"
-  },
-
-  config = function ()
+  {"uZer/pywal16.nvim"},
+{
+  "xero/evangelion.nvim",
+  lazy = false,
+  priority = 1000,
+},
+config = function ()
     require("catppuccin").setup({
       flavour="mocha",
       color_overrides = {
-      }
+        all = {
+        }
+      },
+      transparent_background = true;
+    })
+    require('tokyonight').setup({
+      plugins = { markdown = true },
     })
   end
 

@@ -12,7 +12,7 @@ return {
 
     -- Color table for highlights
     local colors = {
-      bg = '#1e1e2e',
+      bg = nil, -- transparent
       fg = '#bbc2cf',
       yellow = '#ECBE7B',
       cyan = '#008080',

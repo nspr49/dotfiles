@@ -10,6 +10,8 @@
     syntaxHighlighting.enable = true;
       shellAliases = {
         ll = "ls -l";
+        uni = "cd ~/documents/uni/";
+        com = "cd ~/documents/Compilerbau/new_skellet/spl-compiler-skeleton/c/";
       };
     history = {
       size = 10000;

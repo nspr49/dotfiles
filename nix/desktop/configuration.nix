@@ -163,6 +163,8 @@ xdg = {
     ];
   };
 };
+environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
+
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are

@@ -3,7 +3,7 @@
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       ${pkgs.ags}/bin/ags &
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
-      ${pkgs.swaybg}/bin/swaybg -i ~/Pictures/animeback.png -m fill &
+      ${pkgs.hyprpaper}/bin/hyprpaper &
       ${pkgs.mako}/bin/mako & 
     ''; in
   {
@@ -18,8 +18,8 @@
 
 
         general = {
-          "gaps_in" = "3";
-          "gaps_out" = "5";
+          "gaps_in" = "7";
+          "gaps_out" = "7";
           "border_size" = "4";
           "col.active_border" = "rgba(cba6f7ee)"; 
           "col.inactive_border" = "rgba(45475aaa)";
@@ -64,7 +64,8 @@
               "windowsOut, 1, 7, cubic, popin 10%"
               "border, 1, 10, default"
               "borderangle, 1, 8, default"
-              "workspaces, 1, 6, default"
+              "workspaces, 1, 6, default, slidefadevert 100%"
+              #"workspaces, 1, 6, default"
           ];
         };
 
@@ -80,7 +81,7 @@
         "$mod" = "SUPER";
         "$terminal" = "kitty";
         "$fileManager" = "dolphin";
-        "$menu" = "rofi -show run";
+        "$menu" = "rofi -show drun";
 
         bind = [
           "$mod, o, exec, $terminal"
@@ -127,7 +128,7 @@
             "$mod, mouse_down, workspace, e+1"
             "$mod, mouse_up, workspace, e-1"
 
-            ",Print, exec, hyprshot -m region"
+            ",Print, exec, hyprshot -m region --clipboard-only"
             ];
 
         bindm = [

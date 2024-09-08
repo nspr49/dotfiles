@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 # Home Manager needs a bit of information about you and the paths it should
@@ -20,7 +20,7 @@
     ./modules/hypr.nix
     ./modules/tmux.nix
     ./modules/zsh.nix
-    ./modules/fastfetch.nix
+    ./modules/fastfetch/fastfetch.nix
  #   ./modules/nvim.nix
     ];
 
@@ -44,13 +44,15 @@
       fastfetch
       spotify
       hyprshot
-      firefox-unwrapped
+      hyprpaper
+      firefox
       hyprpicker
       hyprcursor
       ags
-socat
-jq
+      socat
+      jq
 
+  postman
       wlogout
       unzip
       mako
@@ -71,10 +73,11 @@ jq
       bibata-cursors
       obsidian
       docker
+      podman
       gitlab-runner
-#fuck db
       chromium
-
+      yazi
+      pywal
 #tmux
       tmuxPlugins.sensible
       tmuxPlugins.resurrect
@@ -91,11 +94,19 @@ jq
       jdt-language-server
       nodePackages.typescript-language-server
       vscode-langservers-extracted
+      ltex-ls
+      languagetool
   #    tree-sitter-grammars.tree-sitter-java
       nil
-
+       widevine-cdm
       catppuccin-cursors
+    inputs.zen-browser.packages."${system}".default
+    markdown-oxide 
+    bun
       ];
+
+     
+
   nixpkgs.overlays = [
     (final: prev:
     {
@@ -143,7 +154,6 @@ jq
       enable =true;
     };
     x11= {
-
       enable =true;
       defaultCursor = "catppuccin-mocha-mauve-cursors";
     };

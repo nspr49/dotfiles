@@ -1,4 +1,5 @@
 configuration.nix
+.config/mimeapps.list
 flake.lock
 flake.nix
 hardware-configuration.nix
@@ -11,4 +12,12 @@ hardware-configuration.nix
 .config/discord
 .config/environment.d
 .config gtk-3.0
+eclipse_style.xml
+clang
+ec2.xml
+maven_shell_hook.md
+testzsh
+tmux
+clangformat
 .git*
+nix/*

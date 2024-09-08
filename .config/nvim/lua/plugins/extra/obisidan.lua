@@ -1,5 +1,5 @@
 return {
-  "epwalsh/obsidian.nvim",
+ --[[ "epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
@@ -18,14 +18,16 @@ return {
     -- see below for full list of optional dependencies 👇
   },
   opts = {
+    ui = { enable = false; },
     workspaces = {
       {
         name = "personal",
-        path = "~/notes",
+        path = "~/documents/uni",
       },
     },
 
     -- see below for full list of options 👇
   },
+  --]]
 }
 

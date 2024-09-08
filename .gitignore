@@ -3,3 +3,5 @@
 .config/dconf/*
 .config/chromium/*
 ./.config/mimeapps.list
+.config/discord/*
+./.config/fontconfig/*

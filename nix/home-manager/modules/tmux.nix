@@ -22,6 +22,7 @@
         set -g @catppuccin_window_default_fill \"all\"
 
         set -g @catppuccin_status_modules_right \"...\";
+        set -g @catppuccin_status_background \"default\"
         ";
     }
     {
@@ -32,6 +33,9 @@
     }
     {
       plugin = tmuxPlugins.continuum;
+    }
+    {
+      plugin=tmuxPlugins.vim-tmux-navigator;
     }
     ];
     extraConfig = "

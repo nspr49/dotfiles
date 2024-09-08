@@ -4,6 +4,35 @@ window.bar {
   color: white;
 }
 
+
+
+.Center, .Right, .Left {
+  margin-top: -3px;
+  margin-bottom: 6px;
+  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-right: 4px;
+  padding-left: 4px;
+  background-color:#1e1e2e ;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1 solid rgba(203, 166, 247, 1.0);
+  box-shadow: 0 0 3px 4px rgba(203, 166, 247, 1.0);
+}
+
+.Left {
+  margin-left: -2;
+  padding-left: 3px;
+  border-bottom-left-radius: 0px;
+}
+
+.Right {
+
+  margin-right: -2;
+  padding-right: 3px;
+  border-bottom-right-radius: 0px;
+}
+
 button {
     min-width: 0;
     color: #FFFFFF;
@@ -12,7 +41,6 @@ button {
     background: transparent;
     border-radius: 40;
 }
-
 
 .workspaces button.focused {
   border: #cba6f7;
@@ -28,17 +56,19 @@ button:hover {
     background-color: #cba6f7;
 }
 
+
 label {
 }
 
 .clock {
-font-size: 20;
-border-radius: 10;
-padding-left: 6;
-padding-right: 6;
+font-size: 20px;
+border-radius: 10px;
+padding-left: 6px;
+padding-right: 6px;
 background: transparent;
-
 }
+
+
 
 .client-title {
 }
@@ -57,7 +87,7 @@ highlight {
 
 .battery trough {
   background-color: #9399b2;
-  border-radius: 40;
+  border-radius: 40px;
   border: none
 }
 
@@ -93,7 +123,7 @@ highlight {
 
 .sound-box {
   background-color: #1e1e2e; 
-  color: #cba6f7;
+  color: #cdd6f4;
   border-radius: 14px;
   border-width: 7px;
   border-radius: 14px;
@@ -104,7 +134,7 @@ highlight {
 }
 
 .sound-header label {
-  color: #cba6f7;
+  color: #cdd6f4;
   border-width: 5px;
   padding: 0px 0px;
 }
@@ -140,15 +170,14 @@ highlight {
 
 .sliders highlight {
   background-color: rgb(203, 166, 247);
-  border-color:#b4befe;
+  border-color:#cba6f7;
   border-radius: 14px;
   background: rgb(203, 166, 247);
 }
 
 .sliders slider {
   color: #cba6f7;
-  border-width: 2px;
-  border-color:#b4befe;
+  border: none;
   background:#cba6f7;
 }
 
