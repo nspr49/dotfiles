@@ -5,14 +5,14 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    {"williamboman/mason-lspconfig.nvim", opt = {automatic_installation = false;}} 
+    { "williamboman/mason-lspconfig.nvim",   opt = { automatic_installation = false, } }
   },
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup()
 
     local lspconfig = require("lspconfig")
-      
+
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -74,12 +74,15 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-     lspconfig["tsserver"].setup({
+    lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-
+    lspconfig["yamlls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     -- configure c server
     lspconfig["clangd"].setup({
       capabilities = capabilities,
@@ -94,7 +97,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-   lspconfig["cssls"].setup({
+    lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -102,7 +105,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-   lspconfig["gopls"].setup({
+    lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -120,7 +123,7 @@ return {
       flags = { debounce_text_changes = 300 },
       settings = {
         ltex = {
-          language="de"
+          language = "de-DE"
         }
       }
     })

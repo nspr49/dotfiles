@@ -23,7 +23,6 @@
     ./modules/fastfetch/fastfetch.nix
  #   ./modules/nvim.nix
     ];
-
   home.packages = with pkgs; [
 
     starship
@@ -39,7 +38,6 @@
       rofi-wayland
       swaybg
       waybar
-      nodejs_22
       tmux
       fastfetch
       spotify
@@ -103,6 +101,7 @@
     inputs.zen-browser.packages."${system}".default
     markdown-oxide 
     bun
+    lazygit
       ];
 
      

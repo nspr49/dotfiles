@@ -166,6 +166,9 @@ xdg = {
 environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
 
 
+# run dynamically linked binaries
+programs.nix-ld.enable = true;
+
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.

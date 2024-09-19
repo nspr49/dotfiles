@@ -12,6 +12,7 @@ hardware-configuration.nix
 .config/discord
 .config/environment.d
 .config gtk-3.0
+.cofig/discord/*
 eclipse_style.xml
 clang
 ec2.xml

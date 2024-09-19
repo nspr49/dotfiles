@@ -6,19 +6,17 @@ vim.cmd("set expandtab")
 vim.cmd("set softtabstop=2")
 vim.cmd('autocmd BufRead, BufNewFile *.flex set filetype=c')
 vim.cmd("autocmd BufRead, BufNewFile *.c set filetype=java")
-vim.cmd("set listchars=tab:»·,trail:·")
+vim.cmd("set listchars=tab:>·,trail:·")
 vim.cmd("set list")
 vim.cmd("set number")
 vim.cmd("set syntax=off")
---- remove nvimstatus 
+--- remove nvimstatus
 vim.cmd("set noshowmode")
-
-vim.opt.hlsearch=true
-vim.keymap.set("n", "<Esc>" , "<cmd>nohlsearch<CR>")
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- parse editor config files
 vim.g.editorconfig = true
 --------------------- lazy.nvim ---------------------
-
 --]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -49,11 +47,11 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 --------------------- import plugins -----------------
 
 require("lazy").setup({
-	{ import="plugins.linters" }, {import = "plugins.lsp"}, { import = "plugins.gui"},
-  {import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
-  { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import="plugins.tmux" }
-  
-	}, { performance = {reset_packpath = false, rtp = { reset = false } }}
+  { import = "plugins.linters" }, { import = "plugins.lsp" }, { import = "plugins.gui" },
+  { import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
+  { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import = "plugins.tmux" }
+
+}, { performance = { reset_packpath = false, rtp = { reset = false } } }
 )
 --------------------------------------------------------
 
@@ -91,4 +89,4 @@ vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 vim.cmd("TransparentEnable")
 require('transparent').clear_prefix('lualine')
 ---------------------------------------
-vim.cmd"colorscheme catppuccin"
+vim.cmd "colorscheme catppuccin"
