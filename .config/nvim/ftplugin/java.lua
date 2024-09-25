@@ -1,15 +1,15 @@
 local config = {
-    cmd = {'jdtls'},
-    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-    settings = {
-      java = {
-        format = {
-          settings = {
-            url = '/home/extra/dotfiles/ec2.xml',
-          }
+  cmd = { 'jdtls' },
+  root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+  settings = {
+    java = {
+      format = {
+        settings = {
+          url = '/home/extra/dotfiles/ec2.xml',
         }
       }
-    },
+    }
+  },
 }
 --[[
 augroup_id = vim.api.nvim_create_augroup(
@@ -29,17 +29,28 @@ vim.api.nvim_create_autocmd(
   end,
 }
 )
-]]--
+]] --
 
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function ()
+  callback = function()
     local hunks = require("gitsigns").get_hunks()
     if hunks == nil then
       return;
     end
     local format = vim.lsp.buf.format
-    if format == nil then
+    local flag = false;
+    for _, client in pairs(vim.lsp.get_clients()
+    ) do
+      if
+          client
+          and (client.name ~= nil or client.name == "jdtls") then
+        flag = true;
+      end
+    end
+
+
+    if format == nil or flag then
       return;
     end
     for i = #hunks, 1, -1 do
