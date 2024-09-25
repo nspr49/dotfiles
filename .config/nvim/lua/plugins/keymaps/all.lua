@@ -1,0 +1,149 @@
+M = {}
+vim.g.mapleader = " " --jMake sure to set `mapleader` before lazy so your mappings are correct
+
+function M.boneRemaps()
+  vim.keymap.set({ "n", "v" }, 'r', "<UP>", { noremap = true })
+  vim.keymap.set({ "n", "v" }, 'n', "<DOWN>", { noremap = true })
+  vim.keymap.set({ "n", "v" }, 's', "<RIGHT>", { noremap = true })
+  vim.keymap.set({ "n", "v" }, 'b', "<LEFT>", { noremap = true })
+  vim.keymap.set({ "n", "v" }, 'z', "r")
+  --[[
+
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  vim.keymap.set("n", '', "")
+  --]]
+end
+
+function M.telescope()
+  local builtin = require('telescope.builtin')
+  vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+  vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+  vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+  vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+end
+
+function M.oil()
+  vim.keymap.set("n", "<leader>n", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+end
+
+function M.markdown()
+  vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+  vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+end
+
+function M.harpoon()
+  local harpoon = require("harpoon");
+  local function toggle_telescope(harpoon_files)
+    harpoon.ui:toggle_quick_menu(harpoon:list(), { bg = "##FF0000" }) 
+  end
+
+  vim.keymap.set("n", "<leader>a", function() require("harpoon"):list():add() end)
+  vim.keymap.set("n", "<leader>z", function() toggle_telescope(require("harpoon"):list()) end)
+  --vim.keymap.set("n", "<leader>h", function() toggle_telescope(harpoon:list()) end)
+
+  vim.keymap.set("n", "<C-n>", function() require("harpoon"):list():select(1) end)
+  vim.keymap.set("n", "<C-t>", function() require("harpoon"):list():select(2) end)
+  vim.keymap.set("n", "<C-m>", function() require("harpoon"):list():select(3) end)
+  vim.keymap.set("n", "<C-p>", function() require("harpoon"):list():select(4) end)
+
+  -- Toggle previous & next buffers stored within Harpoon list
+  vim.keymap.set("n", "<C-S-P>", function() require("harpoon"):list():prev() end)
+  vim.keymap.set("n", "<C-S-N>", function() require("harpoon"):list():next() end)
+end
+
+function M.generalLSP()
+  vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
+
+  vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
+  vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
+end
+
+function M.lspConfig()
+  -- import cmp-nvim-lsp plugin
+  local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+  local keymap = vim.keymap -- for conciseness
+
+  local opts = { noremap = true, silent = true }
+
+  opts.desc = "Show LSP references"
+  keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+
+  opts.desc = "Go to declaration"
+  keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+
+  opts.desc = "Show LSP definitions"
+  keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+
+  opts.desc = "Show LSP implementations"
+  keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+
+  opts.desc = "Show LSP type definitions"
+  keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+
+  opts.desc = "See available code actions"
+  keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
+  opts.desc = "Smart rename"
+  keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+
+  opts.desc = "Show buffer diagnostics"
+  keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+
+  opts.desc = "Show line diagnostics"
+  keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+  opts.desc = "Go to previous diagnostic"
+  keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+  opts.desc = "Go to next diagnostic"
+  keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+  opts.desc = "Show documentation for what is under cursor"
+  keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+  opts.desc = "Restart LSP"
+  keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+end
+
+function M.oilKeymaps()
+  return {
+    ["g?"] = "actions.show_help",
+    ["<CR>"] = "actions.select",
+    --["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
+    --["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+    --["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+    --["<C-p>"] = "actions.preview",
+    --["<C-c>"] = "actions.close",
+    --["<C-l>"] = "actions.refresh",
+    ["-"] = "actions.parent",
+    ["_"] = "actions.open_cwd",
+    ["`"] = "actions.cd",
+    ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
+    ["gs"] = "actions.change_sort",
+    ["gx"] = "actions.open_external",
+    ["g."] = "actions.toggle_hidden",
+    ["g\\"] = "actions.toggle_trash",
+  }
+end
+
+function M.flash()
+  return {
+    { "ä",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    { "Ä",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    --   { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+  }
+end
+
+function M.lazyGit()
+  return { { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" } }
+end
+
+return M
