@@ -1,11 +1,11 @@
 local config = {
-  cmd = { 'jdtls' },
+  cmd = {vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
   settings = {
     java = {
       format = {
         settings = {
-          url = '/home/extra/dotfiles/ec2.xml',
+          url = '/home/nspringer/dotfiles/ec2.xml',
         }
       }
     }
@@ -39,13 +39,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       return;
     end
     local format = vim.lsp.buf.format
-    local flag = false;
+    local flag = true;
     for _, client in pairs(vim.lsp.get_clients()
     ) do
       if
           client
           and (client.name ~= nil or client.name == "jdtls") then
-        flag = true;
+        flag = false;
       end
     end
 
