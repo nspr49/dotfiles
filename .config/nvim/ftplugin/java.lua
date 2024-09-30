@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd(
 )
 ]] --
 
-
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
     local hunks = require("gitsigns").get_hunks()
@@ -40,6 +39,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
     local format = vim.lsp.buf.format
     local flag = true;
+    
     for _, client in pairs(vim.lsp.get_clients()
     ) do
       if
@@ -49,6 +49,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       end
     end
 
+ if not vim.lsp.buf_is_attached(0, vim.lsp.client.id) then
+      return;
+    end
 
     if format == nil or flag then
       return;
@@ -67,5 +70,43 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
---vim.keymap.set('v', '<Leader>1f', vim.lsp.buf.format, bufopts)
+--[[vim.keymap.set('n', '<Leader>1f', 
+  function()
+    local hunks = require("gitsigns").get_hunks()
+    if hunks == nil then
+      return;
+    end
+    local format = vim.lsp.buf.format
+    local flag = true;
+    
+    for _, client in pairs(vim.lsp.get_clients()
+    ) do
+      if
+          client
+          and (client.name ~= nil or client.name == "jdtls") then
+        flag = false;
+      end
+    end
+
+    if not vim.lsp.buf_is_attached(0, vim.lsp.client.id) then
+      return;
+    end
+
+
+    if format == nil or flag then
+      return;
+    end
+    for i = #hunks, 1, -1 do
+      local hunk = hunks[i]
+      if hunk ~= nil and hunk.type ~= "delete" then
+        local start = hunk.added.start
+        local last = start + hunk.added.count
+        -- nvim_buf_get_lines uses zero-based indexing -> subtract from last
+        local last_hunk_line = vim.api.nvim_buf_get_lines(0, last - 2, last - 1, true)[1]
+        local range = { start = { start, 0 }, ["end"] = { last - 1, last_hunk_line:len() } }
+        format({ range = range })
+      end
+    end
+  end
+)--]]
 require('jdtls').start_or_attach(config)
