@@ -33,9 +33,6 @@ function M.molten()
     config = {
       color = "pink",
       invoke_on_body = true,
-      hint = {
-        border = "rounded", -- you can change the border if you want
-      },
     },
     mode = { "n" },
     body = "<leader>j", -- this is the key that triggers the hydra
