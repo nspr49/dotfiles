@@ -1,13 +1,63 @@
 M = {}
 vim.g.mapleader = " " --jMake sure to set `mapleader` before lazy so your mappings are correct
+function M.quattro()
+  local runner = require("quarto.runner")
+  vim.keymap.set("n", "<leader>rc", runner.run_cell, { desc = "run cell", silent = true })
+  vim.keymap.set("n", "<leader>ra", runner.run_above, { desc = "run cell and above", silent = true })
+  vim.keymap.set("n", "<leader>rA", runner.run_all, { desc = "run all cells", silent = true })
+  vim.keymap.set("n", "<leader>rl", runner.run_line, { desc = "run line", silent = true })
+  vim.keymap.set("v", "<leader>r", runner.run_range, { desc = "run visual range", silent = true })
+  vim.keymap.set("n", "<leader>RA", function()
+    runner.run_all(true)
+  end, { desc = "run all cells of all languages", silent = true })
+end
+
+function M.molten()
+  vim.keymap.set("n", "<leader>meo", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+  vim.keymap.set("n", "<leader>os", ":noautocmd MoltenEnterOutput<CR>",
+    { desc = "open output window", silent = true })
+  vim.keymap.set('n', "<leader>min", ":MoltenInit /home/extra/.local/share/jupyter/runtime/")
+  local function keys(str)
+    return function()
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(str, true, false, true), "m", true)
+    end
+  end
+
+  local hydra = require("hydra")
+  hydra({
+    name = "QuartoNavigator",
+    hint = [[
+      _j_/_k_: move down/up  _r_: run cell
+      _l_: run line  _R_: run above
+      ^^     _<esc>_/_q_: exit ]],
+    config = {
+      color = "pink",
+      invoke_on_body = true,
+      hint = {
+        border = "rounded", -- you can change the border if you want
+      },
+    },
+    mode = { "n" },
+    body = "<leader>j", -- this is the key that triggers the hydra
+    heads = {
+      { "j",     keys("]b") },
+      { "k",     keys("[b") },
+      { "r",     ":QuartoSend<CR>" },
+      { "l",     ":QuartoSendLine<CR>" },
+      { "R",     ":QuartoSendAbove<CR>" },
+      { "<esc>", nil,                   { exit = true } },
+      { "q",     nil,                   { exit = true } },
+    },
+  })
+end
 
 function M.boneRemaps()
+  --[[
   vim.keymap.set({ "n", "v" }, 'r', "<UP>", { noremap = true })
   vim.keymap.set({ "n", "v" }, 'n', "<DOWN>", { noremap = true })
   vim.keymap.set({ "n", "v" }, 's', "<RIGHT>", { noremap = true })
   vim.keymap.set({ "n", "v" }, 'b', "<LEFT>", { noremap = true })
   vim.keymap.set({ "n", "v" }, 'z', "r")
-  --[[
 
   vim.keymap.set("n", '', "")
   vim.keymap.set("n", '', "")
@@ -39,7 +89,7 @@ end
 function M.harpoon()
   local harpoon = require("harpoon");
   local function toggle_telescope(harpoon_files)
-    harpoon.ui:toggle_quick_menu(harpoon:list(), { bg = "##FF0000" }) 
+    harpoon.ui:toggle_quick_menu(harpoon:list(), { bg = "##FF0000" })
   end
 
   vim.keymap.set("n", "<leader>a", function() require("harpoon"):list():add() end)
@@ -134,8 +184,8 @@ end
 
 function M.flash()
   return {
-    { "ä",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-    { "Ä",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
     --   { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
     { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },

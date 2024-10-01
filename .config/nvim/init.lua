@@ -49,41 +49,33 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup({
   { import = "plugins.linters" }, { import = "plugins.lsp" }, { import = "plugins.gui" },
   { import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
-  { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import = "plugins.tmux" }
+  { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import = "plugins.tmux" },
+
 
 }, { performance = { reset_packpath = false, rtp = { reset = false } } }
 )
 --------------------------------------------------------
 
 ---------------------- telescope -----------------------
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
+keymaps = require("plugins.keymaps.all");
+keymaps.telescope();
 ------------------------ dap --------------------------
 
-vim.keymap.set('n', '<leader>b', ':lua require\'dap\'.toggle_breakpoint()<CR>')
-
-
-
 ------------------------ OIL --------------------------
+
+keymaps.oil();
+
+keymaps.boneRemaps();
 ---
-vim.keymap.set("n", "<leader>n", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
 
 -----
 ---
 ---
 
-vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
-vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
-
 --nvim dab
 --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
 --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
+
 
 ------------------- transparent-Backround----------------
 vim.cmd("TransparentEnable")

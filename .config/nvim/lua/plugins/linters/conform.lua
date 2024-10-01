@@ -10,11 +10,12 @@ return {
         javascript = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
-        typescript = { "ts-standard" },
+        typescript = { "typescript" },
         javascriptangular = { "prettier" },
         json = { "prettier" },
+        go = {"gofmt"}
       },
-      format_on_save = function()
+      --[[format_on_save = function()
         local hunks = require("gitsigns").get_hunks()
         if hunks == nil then
           return;
@@ -35,7 +36,12 @@ return {
           end
         end
       end
-  })
+--]]
+  format_on_save = {
+    lsp_format = "fallback";
+    timeout_ms = 500;
+  }})
+    
 
     local conform = require("conform")
     vim.keymap.set("n", "<leader>vv", function()

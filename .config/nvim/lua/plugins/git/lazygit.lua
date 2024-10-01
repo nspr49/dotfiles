@@ -1,4 +1,5 @@
--- nvim v0.8.0
+package.path = package.path .. ";../?.lua"
+
 return {
   "kdheepak/lazygit.nvim",
   cmd = {
@@ -14,7 +15,5 @@ return {
   },
   -- setting the keybinding for LazyGit with 'keys' is recommended in
   -- order to load the plugin when the command is run for the first time
-  keys = {
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-  }
+  keys = require("plugins.keymaps.all").lazyGit()
 }

@@ -21,6 +21,7 @@
     ./modules/tmux.nix
     ./modules/zsh.nix
     ./modules/fastfetch/fastfetch.nix
+    ./modules/nvim.nix
  #   ./modules/nvim.nix
     ];
   home.packages = with pkgs; [
@@ -102,6 +103,11 @@
     markdown-oxide 
     bun
     lazygit
+    libsForQt5.okular
+    #quarto
+     
+  #  imagemagick
+  #  luajitPackages.magick
       ];
 
      
@@ -161,11 +167,22 @@
   };
   programs.neovim = {
     enable = true;
+extraLuaPackages = ps: [ ps.magick ];
+#    extraPackages = ps: [ ps.imagemagick ];
+ extraPython3Packages = ps: with ps; [
+        # ... other python packages
+        pynvim
+        jupyter-client
+        cairosvg # for image rendering
+        pnglatex # for image rendering
+        plotly # for image rendering
+        pyperclip
+      ipython
+      nbformat
+      ];
     vimAlias = true;
-    plugins = [
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-        pkgs.vimPlugins.markdown-preview-nvim
-    ];
+    
+    
   };
 
   programs.home-manager.enable = true;

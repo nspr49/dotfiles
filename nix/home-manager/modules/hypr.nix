@@ -71,7 +71,7 @@
 
         dwindle = {
           "pseudotile" = "true";
-          "preserve_split" = "true";
+         "preserve_split" = "true";
         };
 
         misc = {
@@ -84,16 +84,16 @@
         "$menu" = "rofi -show drun";
 
         bind = [
-          "$mod, o, exec, $terminal"
-            "$mod, Q, killactive,"
-            "$mod, M, exit,"
+          "$mod, m, exec, $terminal"
+            "$mod, j, killactive,"
+            "$mod, z, exit,"
             "$mod, E, exec, $fileManager"
             "$mod, V, togglefloating,"
-            "$mod, R, exec, $menu"
+            "$mod, a, exec, $menu"
             "$mod, P, pseudo," # dwindle
             "$mod, I, togglesplit, # dwindle"
-            "$mod,F,fullscreen "
-            "SUPER_SHIFT , L, exec, hyprlock -c ~/dotfiles/.config/hypr/hyprlock.conf"
+            "$mod,E,fullscreen "
+            "SUPER_SHIFT , s, exec, hyprlock -c ~/dotfiles/.config/hypr/hyprlock.conf"
 
             "$mod, 1, workspace, 1"
             "$mod, 2, workspace, 2"
@@ -117,12 +117,12 @@
             "$mod SHIFT, 9, movetoworkspace, 9"
             "$mod SHIFT, 0, movetoworkspace, 10"
 
-            "$mod, h, movefocus, l"
-            "$mod, l, movefocus, r"
-            "$mod, k, movefocus, u"
-            "$mod, j, movefocus, d"
+            "$mod, b, movefocus, l"
+            "$mod, g, movefocus, r"
+            "$mod, r, movefocus, u"
+            "$mod, s, movefocus, d"
 
-            "$mod, S, togglespecialworkspace, magic"
+            "$mod, t, togglespecialworkspace, magic"
             "$mod SHIFT, S, movetoworkspace, special:magic"
 
             "$mod, mouse_down, workspace, e+1"
@@ -136,8 +136,10 @@
             "$mod, mouse:273, resizewindow"
         ];
 
+
         input = { 
           "kb_layout" = "de";
+                "kb_variant" = "bone";
           "follow_mouse" = "1";
           "sensitivity" = "0";
           touchpad = {
