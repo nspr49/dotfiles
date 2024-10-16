@@ -7,6 +7,7 @@ return {
   { "scottmckendry/cyberdream.nvim" },
   { "shaunsingh/nord.nvim" },
   { "uZer/pywal16.nvim" },
+  { "eldritch-theme/eldritch.nvim" },
   {
     "xero/evangelion.nvim",
     lazy = false,

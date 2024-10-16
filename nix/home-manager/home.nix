@@ -57,17 +57,13 @@
       mako
       discord
       pwvucontrol
-      discord-ptb
-      discord-canary
-      zed-editor
       anki
       ripgrep
       cava
       hyprlock
       eww
       drawing
-      bitwarden
-      pdfstudio2023
+      #bitwarden
       hyprshade
       bibata-cursors
       obsidian
@@ -99,12 +95,22 @@
       nil
        widevine-cdm
       catppuccin-cursors
-    inputs.zen-browser.packages."${system}".default
     markdown-oxide 
     bun
     lazygit
-    libsForQt5.okular
-    #quarto
+    fzf
+    pnglatex
+    netpbm
+   # texliveFull
+    netpbm
+   # latexrun
+    texlivePackages.pdfcrop
+texlivePackages.dvipng
+optipng
+
+       python312Packages.pylatexenc
+        tetex
+    quarto
      
   #  imagemagick
   #  luajitPackages.magick
@@ -167,9 +173,12 @@
   };
   programs.neovim = {
     enable = true;
-extraLuaPackages = ps: [ ps.magick ];
-#    extraPackages = ps: [ ps.imagemagick ];
- extraPython3Packages = ps: with ps; [
+    extraLuaPackages = ps: [ ps.magick ];
+    extraPackages = with pkgs; [
+        # ... other packages
+        imagemagick # for image rendering
+      ];
+      extraPython3Packages = ps: with ps; [
         # ... other python packages
         pynvim
         jupyter-client
@@ -177,6 +186,8 @@ extraLuaPackages = ps: [ ps.magick ];
         pnglatex # for image rendering
         plotly # for image rendering
         pyperclip
+        pylatexenc
+        pylatex
       ipython
       nbformat
       ];

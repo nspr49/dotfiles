@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+# Filename: ~/github/dotfiles-latest/colorscheme/list/eldritch-colors.sh
+# ~/github/dotfiles-latest/colorscheme/list/eldritch-colors.sh
+
+color01="#f265b5"
+color02="#37f499"
+color03="#04d1f9"
+color04="#a48cf2"
+color05="#f1fc79"
+color06="#f7c67f"
+# Markdown codeblock, lualine color across
+color07="#314154"
+color08="#f16c75"
+# Comments
+color09="#a5afc2"
+# Terminal and neovim background
+color10="#212337"
+# Underline spellbad
+color11="#f16c75"
+# Underline spellcap
+color12="#f1fc79"
+# line across cursor
+color13="#314154"
+# Cursor and tmux windows text
+color14="#ebfafa"
+# Tmux inactive windows
+color15="#013e4a"
+# Selected text
+color16="#d99ffd"
+# Lualine across
+color17="#282b43"
+# Lighter markdown headings
+# Markdown heading 1 - color04
+color18="#5b4996"
+# Markdown heading 2 - color02
+color19="#21925b"
+# Markdown heading 3 - color03
+color20="#027d95"
+# Markdown heading 4 - color01
+color21="#585c89"
+# Markdown heading 5 - color05
+color22="#0f857c"
+# Markdown heading 6 - color08
+color23="#396592"
+
+
+kitty_colors="# vim:ft=kitty
+## name: Eldritch 
+## author: jacobrreed
+## license: MIT
+## upstream: https://github.com/eldritch-theme/kitty 
+## blurb: A theme for the Ancient Ones!
+foreground            #ebfafa
+background            #212337
+selection_foreground  #ebfafa
+selection_background #bf4f8e
+
+url_color #04d1f9
+
+# black
+color0  #21222c
+color8  #7081d0
+
+# red
+color1  #f9515d 
+color9  #f16c75
+
+# green
+color2  #37f499 
+color10 #69F8B3
+
+# yellow
+color3  #e9f941
+color11 #f1fc79
+
+# blue
+color4   #9071f4
+color12  #a48cf2
+
+# magenta
+color5  #f265b5
+color13 #FD92CE
+
+# cyan
+color6  #04d1f9
+color14 #66e4fd
+
+# white
+color7  #ebfafa
+color15 #ffffff
+
+# Cursor colors
+cursor #37f499
+cursor_text_color #f8f8f2
+
+# Tab bar colors
+active_tab_foreground   #212337
+active_tab_background   #04d1f9
+inactive_tab_foreground #37f499
+inactive_tab_background #323449
+
+# Marks
+mark1_foreground #212337
+mark1_background #f9515d
+
+# Splits/Windows
+active_border_color #a48cf2
+inactive_border_color #212337
+"

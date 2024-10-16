@@ -66,6 +66,8 @@ keymaps.telescope();
 keymaps.oil();
 
 keymaps.boneRemaps();
+
+keymaps.generalLSP();
 ---
 
 -----
