@@ -6,21 +6,23 @@
     # ... other config
     programs.neovim = {
       # whatever other neovim configuration you have
+      enable=true;
       plugins = with pkgs.vimPlugins; [
         # ... other plugins
-        pkgs.vimPlugins.markdown-preview-nvim
+       # pkgs.vimPlugins.markdown-preview-nvim
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.quarto-nvim
       ];
       withNodeJs = true;
     withRuby = true;
     withPython3 = true;
+    extraLuaPackages = ps: [ ps.magick ];
       extraPackages = with pkgs; [
         # ... other packages
         imagemagick # for image rendering
+        pyright
       ];
-      extraLuaPackages = ps: [
-        # ... other lua packages
-      ];
+      
       extraPython3Packages = ps: with ps; [
         # ... other python packages
         pynvim
@@ -29,6 +31,13 @@
         pnglatex # for image rendering
         plotly # for image rendering
         pyperclip
+        pylatexenc
+        pylatex
+      ipython
+      nbformat
       ];
-    };
+    vimAlias = true;
+    
+    
+   };
   }

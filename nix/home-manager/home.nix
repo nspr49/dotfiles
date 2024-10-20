@@ -57,6 +57,7 @@
       mako
       discord
       pwvucontrol
+     # anki-bin
       anki
       ripgrep
       cava
@@ -88,7 +89,7 @@
       lua-language-server
       jdt-language-server
       nodePackages.typescript-language-server
-      vscode-langservers-extracted
+      #vscode-langservers-extracted
       ltex-ls
       languagetool
   #    tree-sitter-grammars.tree-sitter-java
@@ -102,7 +103,6 @@
     pnglatex
     netpbm
    # texliveFull
-    netpbm
    # latexrun
     texlivePackages.pdfcrop
 texlivePackages.dvipng
@@ -110,7 +110,7 @@ optipng
 
        python312Packages.pylatexenc
         tetex
-    quarto
+    quartoMinimal
      
   #  imagemagick
   #  luajitPackages.magick
@@ -156,7 +156,7 @@ optipng
 #  /etc/profiles/per-user/extra/etc/profile.d/hm-session-vars.sh
 #
   home.sessionVariables = {
-# EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   home.pointerCursor = {
@@ -171,30 +171,5 @@ optipng
     name="catppuccin-mocha-mauve-cursors";
     size=32;
   };
-  programs.neovim = {
-    enable = true;
-    extraLuaPackages = ps: [ ps.magick ];
-    extraPackages = with pkgs; [
-        # ... other packages
-        imagemagick # for image rendering
-      ];
-      extraPython3Packages = ps: with ps; [
-        # ... other python packages
-        pynvim
-        jupyter-client
-        cairosvg # for image rendering
-        pnglatex # for image rendering
-        plotly # for image rendering
-        pyperclip
-        pylatexenc
-        pylatex
-      ipython
-      nbformat
-      ];
-    vimAlias = true;
-    
-    
-  };
-
-  programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
 }

@@ -5,6 +5,7 @@
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
       ${pkgs.hyprpaper}/bin/hyprpaper &
       ${pkgs.mako}/bin/mako & 
+      ${pkgs.python3}/bin/python3 ~/dotfiles/hyprshade_activator.py & 
     ''; in
   {
     wayland.windowManager.hyprland = {
