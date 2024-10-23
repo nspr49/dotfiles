@@ -57,12 +57,10 @@
       mako
       discord
       pwvucontrol
-     # anki-bin
-      anki
+      anki-bin
       ripgrep
       cava
       hyprlock
-      eww
       drawing
       #bitwarden
       hyprshade
@@ -104,9 +102,10 @@
     netpbm
    # texliveFull
    # latexrun
-    texlivePackages.pdfcrop
-texlivePackages.dvipng
+   # texlivePackages.pdfcrop
+#texlivePackages.dvipng
 optipng
+banana-cursor
 
        python312Packages.pylatexenc
         tetex
@@ -160,15 +159,15 @@ optipng
   };
 
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.mochaMauve;
+    package = pkgs.banana-cursor;
     gtk = {
       enable =true;
     };
     x11= {
       enable =true;
-      defaultCursor = "catppuccin-mocha-mauve-cursors";
+      defaultCursor = "Banana";
     };
-    name="catppuccin-mocha-mauve-cursors";
+    name="Banana";
     size=32;
   };
     programs.home-manager.enable = true;

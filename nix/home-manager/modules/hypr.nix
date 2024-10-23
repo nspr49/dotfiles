@@ -30,9 +30,9 @@
           "layout" = "dwindle";
         };
         env = [
-            "XCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+            "XCURSOR_THEME, Banana"
             "XCURSOR_SIZE,32"
-            "HYPRCURSOR_THEME, catppuccin-mocha-mauve-cursors"
+            "HYPRCURSOR_THEME, Banana"
             "HYPRCURSOR_SIZE, 32"
         ];
         decoration = {

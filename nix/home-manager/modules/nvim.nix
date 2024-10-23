@@ -10,8 +10,9 @@
       plugins = with pkgs.vimPlugins; [
         # ... other plugins
        # pkgs.vimPlugins.markdown-preview-nvim
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      pkgs.vimPlugins.quarto-nvim
+      nvim-treesitter.withAllGrammars
+      quarto-nvim
+      jupytext-nvim
       ];
       withNodeJs = true;
     withRuby = true;
