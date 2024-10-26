@@ -50,6 +50,7 @@
       ags
       socat
       jq
+      zed-editor
 
   postman
       wlogout

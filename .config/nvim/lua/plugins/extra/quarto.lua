@@ -17,11 +17,11 @@ return {
         closePreviewOnExit = true,
         lspFeatures = {
           enabled = true,
-          chunks = "curly",
+          --         chunks = "curly",
           languages = { "r", "python" },
           diagnostics = {
             enabled = true,
-            triggers = { "BufWritePost" },
+            triggers = { "BufWrite" },
           },
           completion = {
             enabled = true,

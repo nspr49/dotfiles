@@ -103,7 +103,7 @@
             "$mod, P, pseudo," # dwindle
             "$mod, I, togglesplit, # dwindle"
             "$mod,E,fullscreen "
-            "SUPER_SHIFT , s, exec, hyprlock -c ~/dotfiles/.config/hypr/hyprlock.conf"
+            "SUPER_SHIFT , l, exec, hyprlock -c ~/dotfiles/.config/hypr/hyprlock.conf"
 
             "$mod, 1, workspace, 1"
  #           "SUPER, 1, exec, $w1"

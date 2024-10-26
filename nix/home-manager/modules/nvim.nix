@@ -12,7 +12,8 @@
        # pkgs.vimPlugins.markdown-preview-nvim
       nvim-treesitter.withAllGrammars
       quarto-nvim
-      jupytext-nvim
+      otter-nvim
+     # jupytext-nvim
       ];
       withNodeJs = true;
     withRuby = true;
