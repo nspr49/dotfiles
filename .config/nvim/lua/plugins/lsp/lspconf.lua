@@ -4,12 +4,12 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
+    "nvim-java/nvim-java",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "williamboman/mason-lspconfig.nvim",   opt = { automatic_installation = false, } }
   },
   config = function()
     package.path = package.path .. ";../?.lua"
-    require("java").setup()
     require("mason").setup()
     require("mason-lspconfig").setup()
 
