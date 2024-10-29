@@ -11,9 +11,8 @@
         # ... other plugins
        # pkgs.vimPlugins.markdown-preview-nvim
       nvim-treesitter.withAllGrammars
-      quarto-nvim
+   #   quarto-nvim
       otter-nvim
-     # jupytext-nvim
       ];
       withNodeJs = true;
     withRuby = true;
@@ -29,6 +28,7 @@
         # ... other python packages
         pynvim
         jupyter-client
+        jupytext
         cairosvg # for image rendering
         pnglatex # for image rendering
         plotly # for image rendering

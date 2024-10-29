@@ -1,5 +1,6 @@
-local config = {
-  cmd = {vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
+--[[local config = {
+  --  cmd = {vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
+  cmd = { vim.fn.expand('jdtls') },
   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
   settings = {
     java = {
@@ -11,6 +12,7 @@ local config = {
     }
   },
 }
+
 --[[
 augroup_id = vim.api.nvim_create_augroup(
 "FormatModificationsDocumentFormattingGroup",
@@ -29,8 +31,7 @@ vim.api.nvim_create_autocmd(
   end,
 }
 )
-]] --
-
+--
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
     local hunks = require("gitsigns").get_hunks()
@@ -39,7 +40,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
     local format = vim.lsp.buf.format
     local flag = true;
-    
+
     for _, client in pairs(vim.lsp.get_clients()
     ) do
       if
@@ -49,7 +50,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       end
     end
 
- if not vim.lsp.buf_is_attached(0, vim.lsp.client.id) then
+    if not vim.lsp.buf_is_attached(0, vim.lsp.client.id) then
       return;
     end
 
@@ -70,7 +71,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
---[[vim.keymap.set('n', '<Leader>1f', 
+--[[vim.keymap.set('n', '<Leader>1f',
   function()
     local hunks = require("gitsigns").get_hunks()
     if hunks == nil then
@@ -78,7 +79,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
     local format = vim.lsp.buf.format
     local flag = true;
-    
+
     for _, client in pairs(vim.lsp.get_clients()
     ) do
       if
@@ -108,5 +109,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       end
     end
   end
-)--]]
-require('jdtls').start_or_attach(config)
+)
+require('jdtls').start_or_attach(config) --]]
