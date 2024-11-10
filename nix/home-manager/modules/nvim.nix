@@ -22,6 +22,18 @@
         # ... other packages
         imagemagick # for image rendering
         pyright
+        rust-analyzer
+        tailwindcss-language-server 
+        lua-language-server
+        jdt-language-server
+        nodePackages.typescript-language-server
+      #vscode-langservers-extracted
+         ltex-ls
+       languagetool
+       rustfmt
+      nil
+
+
       ];
       
       extraPython3Packages = ps: with ps; [
@@ -41,5 +53,16 @@
     vimAlias = true;
     
     
+   };
+
+   programs.vscode = {
+    enable = true;
+     extensions = with pkgs.vscode-extensions; [
+    vscodevim.vim
+ms-toolsai.jupyter
+ms-python.python
+ms-toolsai.jupyter-renderers
+    yzhang.markdown-all-in-one
+  ];
    };
   }

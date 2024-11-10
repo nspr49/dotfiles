@@ -48,7 +48,9 @@
       hyprpicker
       hyprcursor
       ags
+      wezterm
       socat
+      xwayland
       jq
       zed-editor
 
@@ -85,14 +87,7 @@
 #lspjkj
       libclang
       lua
-      lua-language-server
-      jdt-language-server
-      nodePackages.typescript-language-server
-      #vscode-langservers-extracted
-      ltex-ls
-      languagetool
-  #    tree-sitter-grammars.tree-sitter-java
-      nil
+       #    tree-sitter-grammars.tree-sitter-java
        widevine-cdm
       catppuccin-cursors
     markdown-oxide 
@@ -100,6 +95,9 @@
     lazygit
     fzf
     pnglatex
+    waypaper
+    mpvpaper
+    vscode
     netpbm
    # texliveFull
    # latexrun
@@ -171,5 +169,6 @@ banana-cursor
     name="Banana";
     size=32;
   };
+  programs.wezterm.enable = true;
     programs.home-manager.enable = true;
 }

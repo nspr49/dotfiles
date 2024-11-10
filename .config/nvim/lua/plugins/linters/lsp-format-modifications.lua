@@ -1,3 +1,3 @@
 return {
-"joechrisellis/lsp-format-modifications.nvim",
+--"joechrisellis/lsp-format-modifications.nvim",
 }

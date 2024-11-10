@@ -3,7 +3,8 @@
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       ${pkgs.ags}/bin/ags &
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
-      ${pkgs.hyprpaper}/bin/hyprpaper &
+      ${pkgs.mpvpaper}/bin/mpvpaper -o "no-audio --loop-playlist shuffle" '*' ~/Pictures/city.mp4 
+  #    ${pkgs.swaybg}/bin/swaybg -i ~/Pictures/rem.jpg 
       ${pkgs.mako}/bin/mako & 
       ${pkgs.python3}/bin/python3 ~/dotfiles/hyprshade_activator.py & 
     ''; in
@@ -146,6 +147,7 @@
             "$mod, mouse_up, workspace, e-1"
 
             ",Print, exec, hyprshot -m region --clipboard-only"
+            "SUPER_SHIFT,P, exec, hyprshot -m region"
             ",$mod Print, exec, hyprshot -m window --clipboard-only"
             ];
 
@@ -170,6 +172,9 @@
         ];
         windowrulev2 = [
           "suppressevent maximize, class:.*"
+"float,class:^(org.wezfurlong.wezterm)$"
+"tile,class:^(org.wezfurlong.wezterm)$"
+
         ];
       }; 
     };
