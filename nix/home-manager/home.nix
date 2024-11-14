@@ -25,7 +25,7 @@
     ./modules/nvim.nix
     ];
   home.packages = with pkgs; [
-
+swww
     starship
       gcc
       gdb
