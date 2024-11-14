@@ -108,6 +108,7 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
     vim 
       wget
+      at
       pkgs.libappindicator-gtk3
       pkgs.wlroots
       grim
@@ -164,7 +165,7 @@ xdg = {
   };
 };
 environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
-
+services.atd.enable = true;
 
 # run dynamically linked binaries
 programs.nix-ld.enable = true;

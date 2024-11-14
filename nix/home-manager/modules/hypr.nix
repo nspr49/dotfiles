@@ -3,10 +3,11 @@
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       ${pkgs.ags}/bin/ags &
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
+#      ${pkgs.hyprpanel}/bin/hyprpanel
       ${pkgs.mpvpaper}/bin/mpvpaper -o "no-audio --loop-playlist shuffle" '*' ~/Pictures/city.mp4 
-  #    ${pkgs.swaybg}/bin/swaybg -i ~/Pictures/rem.jpg 
+  #${pkgs.swaybg}/bin/swaybg -i ~/Pictures/rem.jpg 
       ${pkgs.mako}/bin/mako & 
-      ${pkgs.python3}/bin/python3 ~/dotfiles/hyprshade_activator.py & 
+
     ''; in
   {
     wayland.windowManager.hyprland = {
@@ -14,8 +15,8 @@
       settings = {
         exec-once = ''${startupScript}/bin/start'';
         exec = [
-          "hyprshade auto"
         #  "swaybg -i ~/Pictures/tokyo-ghoul.jpg"
+        "hyprshade auto"
         ];
         "monitor" = ",preferred,auto,1";
 

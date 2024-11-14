@@ -21,17 +21,18 @@
     ./modules/tmux.nix
     ./modules/zsh.nix
     ./modules/fastfetch/fastfetch.nix
+   ./modules/zellij.nix
     ./modules/nvim.nix
- #   ./modules/nvim.nix
     ];
   home.packages = with pkgs; [
 
     starship
       gcc
       gdb
+      at
       gnumake
       pyenv
-      python3
+      python313
       python312Packages.cmake
       #gtksourceview
       #webkitgtk
@@ -53,7 +54,7 @@
       xwayland
       jq
       zed-editor
-
+hyprpanel
   postman
       wlogout
       unzip
@@ -75,22 +76,15 @@
       chromium
       yazi
       pywal
-#tmux
-      tmuxPlugins.sensible
-      tmuxPlugins.resurrect
-      tmuxPlugins.continuum
 
 #form
       google-java-format
       #languages
 
-#lspjkj
       libclang
       lua
-       #    tree-sitter-grammars.tree-sitter-java
        widevine-cdm
       catppuccin-cursors
-    markdown-oxide 
     bun
     lazygit
     fzf
@@ -99,19 +93,16 @@
     mpvpaper
     vscode
     netpbm
-   # texliveFull
+    texliveFull
    # latexrun
-   # texlivePackages.pdfcrop
-#texlivePackages.dvipng
 optipng
 banana-cursor
 
        python312Packages.pylatexenc
-        tetex
     quartoMinimal
+    zellij
+zjstatus
      
-  #  imagemagick
-  #  luajitPackages.magick
       ];
 
      
@@ -170,5 +161,5 @@ banana-cursor
     size=32;
   };
   programs.wezterm.enable = true;
-    programs.home-manager.enable = true;
 }
+

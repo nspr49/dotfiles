@@ -1,5 +1,5 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
+  --[[  "nvim-treesitter/nvim-treesitter",
   config = function()
     --    local status, ts = pcall(require, "nvim-treesitter.configs")
     --   if (not status) then return end
@@ -8,12 +8,13 @@ return {
       --sync_install = false,
       auto_install = false,
       highlight = { enable = true, vim_additional_regex_highlighting = true },
-      --    disable = { "lua" },
+         disable = { "julia" },
       indent = { enable = false },
       autotag = {
         enable = true,
       }
     })
   end
+  ]] --
 
 }

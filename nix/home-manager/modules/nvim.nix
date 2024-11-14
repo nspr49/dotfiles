@@ -1,44 +1,43 @@
-  # home.nix or wherever you configure neovim
-  { pkgs, ... }:
+# home.nix or wherever you configure neovim
+{ pkgs, ... }:
 
-    # the vimPlugins.molten-nvim package has not been merged into nixpkgs yet but for now you can use this
-     {
-    # ... other config
-    programs.neovim = {
-      # whatever other neovim configuration you have
-      enable=true;
-      plugins = with pkgs.vimPlugins; [
-        # ... other plugins
-       # pkgs.vimPlugins.markdown-preview-nvim
-      nvim-treesitter.withAllGrammars
-   #   quarto-nvim
-      otter-nvim
-      ];
-      withNodeJs = true;
+{
+# ... other config
+  programs.neovim =
+  let
+    toLua = str: "lua << EOF\n${str}\nEOF\n";
+    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n$";
+  in{
+    enable=true;
+    plugins = with pkgs.vimPlugins; [
+    {
+      plugin = nvim-treesitter.withAllGrammars;
+      #config = toLuaFile ./nvim/plugin/treesitter.lua;
+    }
+    {
+      plugin = otter-nvim;
+    }
+    ];
+    withNodeJs = true;
     withRuby = true;
     withPython3 = true;
     extraLuaPackages = ps: [ ps.magick ];
-      extraPackages = with pkgs; [
-        # ... other packages
-        imagemagick # for image rendering
+    extraPackages = with pkgs; [
+      imagemagick # for image rendering
         pyright
         rust-analyzer
         tailwindcss-language-server 
         lua-language-server
         jdt-language-server
         nodePackages.typescript-language-server
-      #vscode-langservers-extracted
-         ltex-ls
-       languagetool
-       rustfmt
-      nil
-
-
-      ];
-      
-      extraPython3Packages = ps: with ps; [
-        # ... other python packages
-        pynvim
+        ltex-ls
+        languagetool
+        rustfmt
+        nil
+        luajitPackages.luarocks
+    ];
+    extraPython3Packages = ps: with ps; [
+      pynvim
         jupyter-client
         jupytext
         cairosvg # for image rendering
@@ -47,22 +46,23 @@
         pyperclip
         pylatexenc
         pylatex
-      ipython
-      nbformat
-      ];
+        ipython
+        nbformat
+    ];
     vimAlias = true;
-    
-    
-   };
 
-   programs.vscode = {
+
+  };
+
+  programs.vscode = {
     enable = true;
-     extensions = with pkgs.vscode-extensions; [
-    vscodevim.vim
-ms-toolsai.jupyter
-ms-python.python
-ms-toolsai.jupyter-renderers
-    yzhang.markdown-all-in-one
-  ];
-   };
-  }
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+        ms-toolsai.jupyter
+        ms-python.python
+        ms-toolsai.jupyter-renderers
+        yzhang.markdown-all-in-one
+    ];
+  };
+}
+

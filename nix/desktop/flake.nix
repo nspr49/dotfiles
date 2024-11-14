@@ -2,37 +2,56 @@
   description = "A very basic flake";
 
   inputs = {
+   zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-#    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager,zjstatus, ... }: 
     let
-      lib = nixpkgs.lib;
+    lib = nixpkgs.lib;
+
+    pkgs = import nixpkgs {
   system = "x86_64-linux";
- # pkgs = nixpkgs.legacyPackages.${system};
-      in {
-  #    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
-        nixosConfigurations = {
-          nixos = lib.nixosSystem {
-                        modules = [ 
-            ./configuration.nix 
-            home-manager.nixosModules.home-manager
-            {
-              
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-              };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              
-              home-manager.users.extra = import ./home.nix;
-            }
+  overlays = [
+    (final: prev: {
+      zjstatus = inputs.zjstatus.packages."x86_64-linux".default;
+      hyprpanel = inputs.hyprpanel.packages."x86_64-linux".default;
+    })
+  ];
+config = {
+allowUnfree = true;
+};
+};
+
+
+  in {
+#    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
+pkgs."x86_64-linux".default = [
+pkgs.zjstatus
+pkgs.hyprpanel
+];
+    nixosConfigurations = {
+      nixos = lib.nixosSystem {
+        modules = [ 
+          ./configuration.nix 
+          home-manager.nixosModules.home-manager
+          {
+
+            home-manager.extraSpecialArgs = {
+              inherit inputs pkgs;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.extra = import ./home.nix;
+          }
             ];
           };
         };
