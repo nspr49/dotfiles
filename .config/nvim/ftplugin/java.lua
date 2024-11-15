@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd(
 }
 )
 --
+--]]
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
     local hunks = require("gitsigns").get_hunks()
