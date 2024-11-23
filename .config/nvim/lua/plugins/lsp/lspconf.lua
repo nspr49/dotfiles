@@ -17,6 +17,8 @@ return {
     require("plugins.keymaps.all").lspConfig()
 
 
+
+
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -25,6 +27,9 @@ return {
     local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
+      vim.diagnostic.config({
+        severity_sort = true,
+      })
 
       -- set keybinds
     end

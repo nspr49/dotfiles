@@ -9,23 +9,25 @@ return {
   { "uZer/pywal16.nvim" },
   { "eldritch-theme/eldritch.nvim" },
   {
+    "rose-pine/neovim",
+    priority = 1000,
+    config = function()
+      require("rose-pine").setup({
+        highlight_groups = {
+          TelescopeBorder = { fg = "highlight_high", bg = "none" },
+          TelescopeNormal = { bg = "none" },
+          TelescopePromptNormal = { bg = "none" },
+          TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+          TelescopeSelection = { fg = "text", bg = "base" },
+          TelescopeSelectionCaret = { fg = "rose", bg = "none" },
+        },
+      })
+    end
+
+
+  },
+  {
     "xero/evangelion.nvim",
     lazy = false,
-    priority = 1000,
   },
-  config = function()
-    require("catppuccin").setup({
-      flavour = "mocha",
-      color_overrides = {
-        all = {
-          bg = nil,
-        }
-      },
-      transparent_background = true,
-    })
-    require('tokyonight').setup({
-      plugins = { markdown = true },
-    })
-  end
-
 }

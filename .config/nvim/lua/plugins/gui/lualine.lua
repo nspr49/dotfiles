@@ -3,9 +3,9 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
-    local custom_dracula = require'lualine.themes.dracula'
+    local custom_dracula = require 'lualine.themes.dracula'
     --custom_dracula.normal.a =  {bg = '#8839ef', fg = '#282828', gui = 'bold'}
-   -- Eviline config for lualine
+    -- Eviline config for lualine
     -- Author: shadmansaleh
     -- Credit: glepnir
     local lualine = require 'lualine'
@@ -23,7 +23,7 @@ return {
       magenta = '#cba6f7',
       blue = '#8839ef',
       red = '#ec5f67',
-      flamingo ='#f2cdcd',
+      flamingo = '#f2cdcd',
     }
 
     local conditions = {
@@ -45,24 +45,24 @@ return {
           -- We are going to use lualine_c an lualine_x as left and
           -- right section. Both are highlighted by c theme .  So we
           -- are just setting default looks o statusline
-          normal = {c = {fg = colors.fg, bg = colors.bg}},
+          normal = { c = { fg = colors.fg, bg = colors.bg } },
           insert = { c = { fg = colors.green, bg = colors.bg } },
           visual = { c = { fg = colors.flamingo, bg = colors.bg } },
           replace = { c = { fg = colors.red, bg = colors.bg } },
           command = { c = { fg = colors.red, bg = colors.bg } },
-          inactive = {c = {fg = colors.fg, bg = colors.bg}}
+          inactive = { c = { fg = colors.fg, bg = colors.bg } }
         }
       },
       sections = {
         -- these are to remove the defaults
-      
+
         lualine_a = {},
         lualine_b = {},
         lualine_y = {},
         lualine_z = {},
         -- These will be filled later
         lualine_x = {},
-        lualine_c = {'mode'},
+        lualine_c = { 'mode' },
       },
       inactive_sections = {
         -- these are to remove the defaults
@@ -76,34 +76,34 @@ return {
     }
     -- Inserts a component in lualine_c at left section
     local function ins_left_mode(component)
-      table.insert(config.sections.lualine_c,1, component)
+      table.insert(config.sections.lualine_c, 1, component)
       fmt = function()
-          return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
-        end
+        return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
+      end
     end
 
-    local function ins_left (component)
+    local function ins_left(component)
       table.insert(config.sections.lualine_c, component)
     end
     -- Inserts a component in lualine_x ot right section
     local function ins_right(component)
       table.insert(config.sections.lualine_x, component)
     end
-    
-    
+
+
 
 
     ins_left_mode {
       --function() return '▊' end,
-      function() return '♥' end,
-      color = {fg = colors.blue}, -- Sets highlighting of component
-      left_padding = 0 -- We don't need space before this
+      function() return '󰧱' end,
+      color = { fg = colors.blue }, -- Sets highlighting of component
+      left_padding = 0              -- We don't need space before this
     }
-    
-    
+
+
     ins_left {
 
-       
+
 
 
 
@@ -149,12 +149,12 @@ return {
           t = colors.red
         }
         vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-        colors.bg)
-        
-         return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
-       end,
-     --color = "LualineMode",
+          'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
+          colors.bg)
+
+        return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
+      end,
+      --color = "LualineMode",
       left_padding = 0
     }
 
@@ -182,20 +182,20 @@ return {
     ins_left {
       'filename',
       condition = conditions.buffer_not_empty,
-      color = {fg = colors.magenta, gui = 'bold'}
+      color = { fg = colors.magenta, gui = 'bold' }
     }
 
-    
-    ins_left {'location',
-      color = {fg = colors.fg}
+
+    ins_left { 'location',
+      color = { fg = colors.fg }
     }
 
-   -- ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
-    
+    -- ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
+
     ins_left {
       'diagnostics',
-      sources = {'nvim_lsp'},
-      symbols = {error = ' ', warn = ' ', info = ' '},
+      sources = { 'nvim_lsp' },
+      symbols = { error = ' ', warn = ' ', info = ' ' },
       color_error = colors.red,
       color_warn = colors.yellow,
       color_info = colors.cyan
@@ -203,9 +203,9 @@ return {
 
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
-    ins_left {function() return '%=' end}
+    ins_left { function() return '%=' end }
 
-   ins_left {
+    ins_left {
       -- Lsp server name .
       function()
         local msg = 'No Active Lsp'
@@ -221,34 +221,34 @@ return {
         return msg
       end,
       icon = ' LSP:',
-      color = {fg = '#ffffff', gui = 'bold'}
+      color = { fg = '#ffffff', gui = 'bold' }
     }
     -- Add components to right sections
     ins_right {
       'o:encoding', -- option component same as &encoding in viml
       upper = true, -- I'm not sure why it's upper case either ;)
       condition = conditions.hide_in_width,
-      color = {fg = colors.green, gui = 'bold'}
+      color = { fg = colors.green, gui = 'bold' }
     }
 
     ins_right {
       'fileformat',
       upper = true,
       icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = {fg = colors.green, gui = 'bold'}
+      color = { fg = colors.green, gui = 'bold' }
     }
 
     ins_right {
       'branch',
       icon = '',
       condition = conditions.check_git_workspace,
-      color = {fg = colors.violet, gui = 'bold'}
+      color = { fg = colors.violet, gui = 'bold' }
     }
 
     ins_right {
       'diff',
       -- Is it me or the symbol for modified us really weird
-      symbols = {added = ' ', modified = '柳 ', removed = ' '},
+      symbols = { added = ' ', modified = '柳 ', removed = ' ' },
       color_added = colors.green,
       color_modified = colors.orange,
       color_removed = colors.red,
@@ -257,13 +257,13 @@ return {
 
     ins_right {
       --function() return '▊' end,
-      function() return '♥'  end,
-      color = {fg = colors.blue},
+      function() return '󰧱' end,
+      color = { fg = colors.blue },
       right_padding = 0
     }
 
     -- Now don't forget to initialize lualine
-    lualine.setup(config--[[, { theme = "dracula"}--]])
+    lualine.setup(config --[[, { theme = "dracula"}--]])
   end,
 
-  }
+}

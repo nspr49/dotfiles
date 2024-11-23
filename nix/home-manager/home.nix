@@ -25,7 +25,7 @@
     ./modules/nvim.nix
     ];
   home.packages = with pkgs; [
-swww
+openconnect_openssl
     starship
       gcc
       gdb
@@ -102,6 +102,7 @@ banana-cursor
     quartoMinimal
     zellij
 zjstatus
+zip
      
       ];
 

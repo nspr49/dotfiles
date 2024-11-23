@@ -1,5 +1,6 @@
 term xterm-256color
 kitty themes --reload-in=all Catppuccin-Mocha
+include current-theme.conf
 
 
 font_family      JetBrains Mono Nerd Font 
@@ -57,5 +58,4 @@ tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows >
 
 # BEGIN_KITTY_THEME
 # Catppuccin-Mocha
-include current-theme.conf
 # END_KITTY_THEME

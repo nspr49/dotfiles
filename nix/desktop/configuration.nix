@@ -107,6 +107,8 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
 # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
+    nvidia-container-toolkit
+    nvidia-docker
       wget
       at
       pkgs.libappindicator-gtk3
@@ -166,9 +168,11 @@ xdg = {
 };
 environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
 services.atd.enable = true;
+# run cuda in docker
+hardware.nvidia-container-toolkit.enable = true;
 
 # run dynamically linked binaries
-programs.nix-ld.enable = true;
+#programs.nix-ld.enable = true;
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # Some programs need SUID wrappers, can be configured further or are
