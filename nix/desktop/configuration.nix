@@ -171,6 +171,7 @@ services.atd.enable = true;
 # run cuda in docker
 hardware.nvidia-container-toolkit.enable = true;
 
+
 # run dynamically linked binaries
 #programs.nix-ld.enable = true;
 

@@ -13,6 +13,7 @@
         uni = "cd ~/documents/uni/";
         com = "cd ~/documents/Compilerbau/new_skellet/spl-compiler-skeleton/c/";
         creNo = "~/dotfiles/utils/create_notebook.sh";
+        muni = "~/dotfiles/muni.sh";
       };
     history = {
       size = 10000;

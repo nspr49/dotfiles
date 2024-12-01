@@ -3,9 +3,9 @@
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       ${pkgs.ags}/bin/ags &
       dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
-#      ${pkgs.hyprpanel}/bin/hyprpanel
-      ${pkgs.mpvpaper}/bin/mpvpaper -o "no-audio --loop-playlist shuffle" '*' ~/Pictures/city.mp4 
-  #${pkgs.swaybg}/bin/swaybg -i ~/Pictures/rem.jpg 
+#    ${pkgs.hyprpanel}/bin/hyprpanel
+      ${pkgs.swww}/bin/swww-daemon &
+      ${pkgs.swww}/bin/swww img ~/Pictures/ekko_jinx_bridge.jpg &
       ${pkgs.mako}/bin/mako & 
 
     ''; in

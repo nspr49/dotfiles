@@ -25,7 +25,9 @@
     ./modules/nvim.nix
     ];
   home.packages = with pkgs; [
+  dooit
 openconnect_openssl
+swww
     starship
       gcc
       gdb
@@ -104,6 +106,7 @@ banana-cursor
 zjstatus
 zip
      
+     lm_sensors
       ];
 
      
