@@ -1,5 +1,5 @@
---[[local config = {
-  --  cmd = {vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
+local config = {
+  --cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
   cmd = { vim.fn.expand('jdtls') },
   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
   settings = {
@@ -11,6 +11,18 @@
       }
     }
   },
+
+}
+
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob("/home/extra/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"),
+};
+
+-- This is the new part
+--vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
+config['init_options'] = {
+  bundles = bundles,
 }
 
 --[[
@@ -111,4 +123,56 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
   end
 )
-require('jdtls').start_or_attach(config) --]]
+-]]
+
+local dap = require('dap')
+
+vim.keymap.set('n', '<leader>bn', function() require('dap').continue() end)
+vim.keymap.set('n', '<leader>bs', function() require('dap').step_over() end)
+vim.keymap.set('n', '<leader>bi', function() require('dap').step_into() end)
+vim.keymap.set('n', '<leader>bo', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>bt', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>Bs', function() require('dap').set_breakpoint() end)
+
+-- Function to attach to the Java process
+function attach_to_debug()
+  dap.configurations.java = {
+    {
+      type = 'java',
+      request = 'attach',
+      name = 'Debug (Attach) - Remote',
+      hostName = '127.0.0.1',
+      port = 5005,
+    }
+  }
+  -- Attach debugger
+  dap.run(dap.configurations.java[1])
+end
+
+function attach_to_wildfly()
+  dap.configurations.java = {
+    {
+      type = 'java',
+      request = 'attach',
+      name = 'Debug (Attach) - Remote',
+      hostName = '127.0.0.1',
+      port = 8787,
+    }
+  }
+  -- Attach debugger
+  dap.run(dap.configurations.java[1])
+end
+
+vim.keymap.set('n', '<leader>cg', ':lua attach_to_debug()<CR>')
+vim.keymap.set('n', '<leader>cw', ':lua attach_to_wildfly()<CR>')
+
+local jdtls = require("jdtls")
+-- Needed for debugging
+config["on_attach"] = function(client, bufnr)
+  jdtls.setup_dap({ hotcodereplace = "auto" })
+  require("jdtls.dap").setup_dap_main_class_configs()
+end
+
+
+vim.keymap.set("n", "<leader>od", ":lua attach_to_debug()<CR>");
+require('jdtls').start_or_attach(config)

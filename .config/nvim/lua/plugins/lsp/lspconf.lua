@@ -4,7 +4,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
-    "nvim-java/nvim-java",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "williamboman/mason-lspconfig.nvim",   opt = { automatic_installation = false, } }
   },
@@ -106,20 +105,6 @@ return {
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       on_attach = on_attach,
-    })
-    require('lspconfig').jdtls.setup({
-      cmd = { vim.fn.expand('jdtls') },
-      root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
-      settings = {
-        java = {
-          format = {
-            settings = {
-              url = '/home/nspringer/dotfiles/ec2.xml',
-            }
-          }
-        }
-      },
-
     })
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
