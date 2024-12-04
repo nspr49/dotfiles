@@ -17,5 +17,6 @@ return {
     dap.listeners.before.event_exited.dapui_config = function()
       dapui.close()
     end
+    vim.keymap.set("n", "<leader>t", ":lua require('dapui').toggle()<CR>")
   end
 }
