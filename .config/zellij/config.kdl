@@ -150,8 +150,8 @@ keybinds clear-defaults=true {
         bind "Alt n" { NewPane; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
-        bind "Alt h" "Alt Left" { GoToNextTab; }
-        bind "Alt l" "Alt Right" { GoToPreviousTab; }
+        bind "Alt l" "Alt Left" { GoToNextTab; }
+        bind "Alt h" "Alt Right" { GoToPreviousTab; }
         bind "Alt j" "Alt Down" { FocusNextPane; }
         bind "Alt k" "Alt Up" { FocusPreviousPane; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
