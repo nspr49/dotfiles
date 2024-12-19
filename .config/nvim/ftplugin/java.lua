@@ -127,12 +127,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 local dap = require('dap')
 
-vim.keymap.set('n', '<leader>bn', function() require('dap').continue() end)
-vim.keymap.set('n', '<leader>bs', function() require('dap').step_over() end)
-vim.keymap.set('n', '<leader>bi', function() require('dap').step_into() end)
-vim.keymap.set('n', '<leader>bo', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>bt', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<Leader>Bs', function() require('dap').set_breakpoint() end)
+require('plugins.keymaps.all').dap()
 
 -- Function to attach to the Java process
 function attach_to_debug()

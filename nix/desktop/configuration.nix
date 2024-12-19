@@ -108,6 +108,7 @@ environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
     vim 
     nvidia-container-toolkit
+    vulkan-tools
     nvidia-docker
       wget
       at
@@ -170,6 +171,8 @@ environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
 services.atd.enable = true;
 # run cuda in docker
 hardware.nvidia-container-toolkit.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
 
 # run dynamically linked binaries

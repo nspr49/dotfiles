@@ -5,7 +5,7 @@
    zjstatus = {
       url = "github:dj95/zjstatus";
     };
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     home-manager = {
       url = "github:nix-community/home-manager";

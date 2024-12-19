@@ -31,8 +31,6 @@ function M.bootstrap()
     })
   end
   vim.opt.rtp:prepend(lazypath)
-
-
   -----------------------------------------------------
   ---
   ---
@@ -77,11 +75,9 @@ function M.bootstrap()
   -----
   ---
   ---
-
   --nvim dab
   --vim.api.nvim_set_keymap("n", "<leader>du", ":DapUiToggle<Cr>", {noremap=true})
   --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
-
 
   ------------------- transparent-Backround----------------
   vim.cmd("TransparentEnable")

@@ -41,13 +41,16 @@
           rounding = "10";
           active_opacity = "1";
           inactive_opacity = "1.0";
-          drop_shadow = "true";
-          shadow_range = "10";
-          shadow_render_power = "2";
-          shadow_ignore_window = "1";
-          "shadow_offset"= "0 0";
-          "col.shadow"= "rgba(cba6f7ee)";
-          "col.shadow_inactive" = "rgba(89b4faee)";
+          shadow = {
+            enabled = "true";
+            range = "10";
+            color= "rgba(cba6f7ee)";
+            "color_inactive" = "rgba(89b4faee)";
+            render_power = "2";
+            ignore_window = "1";
+            "offset"= "0 0";
+          };
+          #drop_shadow = "true";
           blur =  {
             enabled = "true";
             size = "1";
@@ -84,6 +87,7 @@
 
         "$mod" = "SUPER";
         "$terminal" = "kitty";
+        #"$terminal" = "rio";
         "$fileManager" = "dolphin";
         "$menu" = "rofi -show drun";
         "$w1" = "hyprctl hyprpaper wallpaper 'DP-1, ~/Pictures/animeback.jpg'";

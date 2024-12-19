@@ -1,5 +1,7 @@
 return {
-  --[[  "nvim-treesitter/nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter",
+  opts = {}
+  --[[
   config = function()
     --    local status, ts = pcall(require, "nvim-treesitter.configs")
     --   if (not status) then return end

@@ -23,6 +23,7 @@
     ./modules/fastfetch/fastfetch.nix
    ./modules/zellij.nix
     ./modules/nvim.nix
+    ./modules/fish.nix
     ];
   home.packages = with pkgs; [
   dooit
@@ -34,9 +35,24 @@ swww
       at
       gnumake
       pyenv
-      python313
-      python312Packages.cmake
+texliveFull
+          (python312.withPackages (ps: with ps; [
+ #            networkx
+ #             ortools
+ #             ipykernel
+              numpy
+ #             matplotlib
+ #             pyzmq
+              torch
+              tqdm
+              pandas
+              spacy
+            #  jupyter
+          ]))
+
+    zulu23
       #gtksourceview
+      lldb
       #webkitgtk
       accountsservice
       rofi-wayland
@@ -47,6 +63,7 @@ swww
       spotify
       hyprshot
       hyprpaper
+      rio
       firefox
       hyprpicker
       hyprcursor
@@ -100,11 +117,11 @@ hyprpanel
 optipng
 banana-cursor
 
-       python312Packages.pylatexenc
     quartoMinimal
     zellij
 zjstatus
 zip
+fish
      
      lm_sensors
       ];

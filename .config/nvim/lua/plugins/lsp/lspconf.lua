@@ -83,13 +83,6 @@ return {
       on_attach = on_attach,
     })
 
-    --[[
-   lspconfig["markdown_oxide"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-    --]]
-
     lspconfig['ltex'].setup({
       on_attach = on_attach,
       cmd = { "ltex-ls" },
@@ -102,10 +95,11 @@ return {
       }
     })
 
-    lspconfig.rust_analyzer.setup({
+    --[[lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
+    --]]
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       settings = {

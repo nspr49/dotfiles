@@ -73,7 +73,7 @@ local function highlight_cells()
   end
 end
 
-highlight_cells()
+--highlight_cells()
 
 vim.api.nvim_create_autocmd({ 'ModeChanged', 'BufWrite' }, {
   group = vim.api.nvim_create_augroup('QuartoCellHighlight', { clear = true }),

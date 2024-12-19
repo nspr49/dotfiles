@@ -12,7 +12,6 @@
 
 
 return {
-  --[[
   "MeanderingProgrammer/render-markdown.nvim",
   init = function()
     -- Define color variables
@@ -26,16 +25,14 @@ return {
     -- local color_sign = "#ebfafa"
 
 
-    ]] --
-  -- Highlight for the heading and sign icons (symbol on the left)
-  -- I have the sign disabled for now, so this makes no effect
-  --    vim.cmd(string.format([[highlight Headline1Fg cterm=bold gui=bold guifg=%s]], color1_bg))
-  --   vim.cmd(string.format([[highlight Headline2Fg cterm=bold gui=bold guifg=%s]], color2_bg))
-  --  vim.cmd(string.format([[highlight Headline3Fg cterm=bold gui=bold guifg=%s]], color3_bg))
-  --  vim.cmd(string.format([[highlight Headline4Fg cterm=bold gui=bold guifg=%s]], color4_bg))
-  -- vim.cmd(string.format([[highlight Headline5Fg cterm=bold gui=bold guifg=%s]], color5_bg))
-  -- vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
-  --[[
+    -- Highlight for the heading and sign icons (symbol on the left)
+    -- I have the sign disabled for now, so this makes no effect
+    --    vim.cmd(string.format([[highlight Headline1Fg cterm=bold gui=bold guifg=%s]], color1_bg))
+    --   vim.cmd(string.format([[highlight Headline2Fg cterm=bold gui=bold guifg=%s]], color2_bg))
+    --  vim.cmd(string.format([[highlight Headline3Fg cterm=bold gui=bold guifg=%s]], color3_bg))
+    --  vim.cmd(string.format([[highlight Headline4Fg cterm=bold gui=bold guifg=%s]], color4_bg))
+    -- vim.cmd(string.format([[highlight Headline5Fg cterm=bold gui=bold guifg=%s]], color5_bg))
+    -- vim.cmd(string.format([[highlight Headline6Fg cterm=bold gui=bold guifg=%s]], color6_bg))
   end,
   opts = {
     heading = {
@@ -59,5 +56,4 @@ return {
       },
     },
   },
-  ]] --
 }

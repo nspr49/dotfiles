@@ -122,6 +122,15 @@ function M.boneRemaps()
   --]]
 end
 
+function M.dap()
+  vim.keymap.set('n', '<leader>bn', function() require('dap').continue() end)
+  vim.keymap.set('n', '<leader>bs', function() require('dap').step_over() end)
+  vim.keymap.set('n', '<leader>bi', function() require('dap').step_into() end)
+  vim.keymap.set('n', '<leader>bo', function() require('dap').step_out() end)
+  vim.keymap.set('n', '<Leader>bt', function() require('dap').toggle_breakpoint() end)
+  vim.keymap.set('n', '<Leader>Bs', function() require('dap').set_breakpoint() end)
+end
+
 function M.telescope()
   local builtin = require('telescope.builtin')
   vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -163,7 +172,7 @@ end
 function M.generalLSP()
   vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
 
-  vim.keymap.set("n", "<leader>oi", "<Cmd>:lua vim.lsp.buf.code_action()<CR>")
+  vim.keymap.set({ "v", "n" }, "<leader>oi", require("actions-preview").code_actions)
   vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
 end
 

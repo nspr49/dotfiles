@@ -11,6 +11,9 @@
     enable=true;
     plugins = with pkgs.vimPlugins; [
     {
+#      plugin = rustaceanvim;
+    }
+    {
       plugin = nvim-treesitter.withAllGrammars;
       #config = toLuaFile ./nvim/plugin/treesitter.lua;
     }
@@ -23,8 +26,10 @@
     withPython3 = true;
     extraLuaPackages = ps: [ ps.magick ];
     extraPackages = with pkgs; [
+    java-language-server
       imagemagick # for image rendering
         pyright
+      vscode-extensions.vadimcn.vscode-lldb
         rust-analyzer
         tailwindcss-language-server 
         lua-language-server
@@ -57,6 +62,7 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
+      vadimcn.vscode-lldb
       vscodevim.vim
         ms-toolsai.jupyter
         ms-python.python
