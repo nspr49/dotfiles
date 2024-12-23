@@ -80,8 +80,8 @@ function M.bootstrap()
   --vim.cmd.set("n", "<leader>dp", ":lua require('dapui').open({reset = true})<CR>", {noremap = true})
 
   ------------------- transparent-Backround----------------
-  vim.cmd("TransparentEnable")
-  require('transparent').clear_prefix('lualine')
+  --vim.cmd("TransparentEnable")
+  --require('transparent').clear_prefix('lualine')
   ---------------------------------------
   vim.cmd "colorscheme catppuccin"
 end

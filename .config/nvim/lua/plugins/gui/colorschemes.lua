@@ -2,7 +2,44 @@ return {
   { "Mofiqul/dracula.nvim" },
   { "sainnhe/everforest" },
   { "folke/tokyonight.nvim" },
-  { "catppuccin/nvim",              name = "catppuccin", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          treesitter = true,
+          notify = false,
+          flash = true,
+          noice = true,
+          dap_ui = true,
+          dap = true,
+          ufo = true,
+          telescope = {
+            enabled = true,
+          },
+          which_key = true,
+          mini = {
+            enabled = true,
+            indentscope_color = "",
+          },
+        },
+        custom_highlights = function(colors)
+          return {
+            CmpBorder = { bg = colors.mauve, fg = colors.mauve },
+            Pmenu = { bg = nil, fg = colors.mauve },
+            TelescopeBorder = { fg = colors.mauve },
+          }
+        end
+      })
+    end
+  },
   { "rebelot/kanagawa.nvim" },
   { "scottmckendry/cyberdream.nvim" },
   { "shaunsingh/nord.nvim" },

@@ -11,7 +11,7 @@
     enable=true;
     plugins = with pkgs.vimPlugins; [
     {
-#      plugin = rustaceanvim;
+      plugin = rustaceanvim;
     }
     {
       plugin = nvim-treesitter.withAllGrammars;
