@@ -1,4 +1,5 @@
 import GLib from "gi://GLib?version=2.0"
+import Button from "types/widgets/button"
 const hyprland = await Service.import("hyprland")
 const notifications = await Service.import("notifications")
 const mpris = await Service.import("mpris")
@@ -6,7 +7,7 @@ const audio = await Service.import("audio")
 const battery = await Service.import("battery")
 
 const date = Variable("", {
-    poll: [1000, ' date "+%H:%M %d-%m-%y"'],
+  poll: [1000, ' date "+%H:%M %d-%m-%y"'],
 })
 
 // widgets can be only assigned as a child in one container
@@ -14,109 +15,130 @@ const date = Variable("", {
 // then you can simply instantiate one by calling it
 
 function Workspaces() {
-    const activeId = hyprland.active.workspace.bind("id")
-    const workspaces = hyprland.bind("workspaces")
-        .as(ws =>  ws.sort((a,b) => a.id - b.id)
-          .map(({ id }) => Widget.Button({
-            on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-            child: Widget.Label(`${id}`),
-            class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
-        })))
-    return Widget.Box({
-        class_name: "workspaces",
-        children: workspaces,
-    })
+  const activeId = hyprland.active.workspace.bind("id")
+  /*
+  const workspaces = hyprland.bind("workspaces")
+    .as(ws => {
+      let completeWs: Button<any, any>[] = [];
+      const ids = ws.map(w => w.id); // Extract existing IDs
+      for (let i = 1; i <= 10; i++) {
+        const exists = ids.includes(i); // Check if ID exists
+        completeWs.push(Widget.Button({
+          on_clicked: () => hyprland.messageAsync(`dispatch workspace ${i}`),
+          child: Widget.Label(exists ? `${i}` : ""),
+          class_name: activeId.as(j =>
+            `${j === i ? "focused" : exists ? "" : "unused"}`
+          ), // "focused" if active, "unused" if missing
+        }));
+      }
+      return completeWs; // Return after the loop finishes
+    });
+
+    
+    */
+  const workspaces = hyprland.bind("workspaces")
+    .as(ws => ws.sort((a, b) => a.id - b.id)
+      .map(({ id }) => Widget.Button({
+        on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
+        child: Widget.Label(`${id}`),
+        class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
+      })))
+
+  return Widget.Box({
+    class_name: "workspaces",
+    children: workspaces,
+  })
 }
 
 
 function ClientTitle() {
-    return Widget.Label({
-        class_name: "client-title",
-        label: hyprland.active.client.bind("title").as(s => s.slice(s.length-10,s.length)),
-    })
+  return Widget.Label({
+    class_name: "client-title",
+    label: hyprland.active.client.bind("title").as(s => s.slice(s.length - 10, s.length)),
+  })
 }
 
 
 function Clock() {
-    return Widget.Label({
-        class_name: "clock",
-        label: date.bind(),
-    })
+  return Widget.Label({
+    class_name: "clock",
+    label: date.bind(),
+  })
 }
 
 
 // we don't need dunst or any other notification daemon
 // because the Notifications module is a notification daemon itself
 function Notification() {
-    const popups = notifications.bind("popups")
-    return Widget.Box({
-        class_name: "notification",
-        visible: popups.as(p => p.length > 0),
-        children: [
-          Widget.Button({
-            child: 
-            Widget.Icon({
-                icon: "preferences-system-notifications-symbolic",
-            }),
-                 }),
-            Widget.Label({
-                label: popups.as(p => p[0]?.summary || ""),
-            }),
-        ],
-    })
+  const popups = notifications.bind("popups")
+  return Widget.Box({
+    class_name: "notification",
+    visible: popups.as(p => p.length > 0),
+    children: [
+      Widget.Button({
+        child:
+          Widget.Icon({
+            icon: "preferences-system-notifications-symbolic",
+          }),
+      }),
+      Widget.Label({
+        label: popups.as(p => p[0]?.summary || ""),
+      }),
+    ],
+  })
 }
 
 
 function Media() {
-    const label = Utils.watch("", mpris, "player-changed", () => {
-        if (mpris.players[0]) {
-            const { track_artists, track_title } = mpris.players[0]
-            return `${track_artists.join(", ")} - ${track_title}`
-        } else {
-            return "Nothing is playing"
-        }
-    })
+  const label = Utils.watch("", mpris, "player-changed", () => {
+    if (mpris.players[0]) {
+      const { track_artists, track_title } = mpris.players[0]
+      return `${track_artists.join(", ")} - ${track_title}`
+    } else {
+      return "Nothing is playing"
+    }
+  })
 
-    return Widget.Button({
-        class_name: "media",
-        on_primary_click: () => mpris.getPlayer("")?.playPause(),
-        on_scroll_up: () => mpris.getPlayer("")?.next(),
-        on_scroll_down: () => mpris.getPlayer("")?.previous(),
-        child: Widget.Label({ label }),
-    })
+  return Widget.Button({
+    class_name: "media",
+    on_primary_click: () => mpris.getPlayer("")?.playPause(),
+    on_scroll_up: () => mpris.getPlayer("")?.next(),
+    on_scroll_down: () => mpris.getPlayer("")?.previous(),
+    child: Widget.Label({ label }),
+  })
 }
 
 
 function Volume() {
-    const icons = {
-        101: "overamplified",
-        67: "high",
-        34: "medium",
-        1: "low",
-        0: "muted",
-    }
+  const icons = {
+    101: "overamplified",
+    67: "high",
+    34: "medium",
+    1: "low",
+    0: "muted",
+  }
 
-    function getIcon() {
-        const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(
-            threshold => threshold <= audio.speaker.volume * 100)
+  function getIcon() {
+    const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(
+      threshold => threshold <= audio.speaker.volume * 100)
 
-        return `audio-volume-${icons[icon]}-symbolic`
-    }
+    return `audio-volume-${icons[icon]}-symbolic`
+  }
 
-    const icon = Widget.Icon({
-        icon: Utils.watch(getIcon(), audio.speaker, getIcon),
-        
-    })
+  const icon = Widget.Icon({
+    icon: Utils.watch(getIcon(), audio.speaker, getIcon),
 
-    function callsound() {
-      App.getWindow("sound") == undefined ? App.addWindow(sound()) 
-        : App.removeWindow("sound");
-    }
+  })
 
-    const button = Widget.Button({
-      on_clicked: callsound,
-      child: icon,
-    })
+  function callsound() {
+    App.getWindow("sound") == undefined ? App.addWindow(sound())
+      : App.removeWindow("sound");
+  }
+
+  const button = Widget.Button({
+    on_clicked: callsound,
+    child: icon,
+  })
 
   /*
     const slider = Widget.Slider({
@@ -128,43 +150,43 @@ function Volume() {
         }),
     })*/
 
-    return Widget.Box({
-        class_name: "volume",
-        css: "",
-        children: [button ],
-    })
+  return Widget.Box({
+    class_name: "volume",
+    css: "",
+    children: [button],
+  })
 }
 
 
 function BatteryLabel() {
-    const value = battery.bind("percent").as(p => p > 0 ? p / 100 : 0)
-    const state = battery.bind("percent").as(p =>
-        `battery-level-${Math.floor(p / 10) * 10}-symbolic`)
+  const value = battery.bind("percent").as(p => p > 0 ? p / 100 : 0)
+  const state = battery.bind("percent").as(p =>
+    `battery-level-${Math.floor(p / 10) * 10}-symbolic`)
   //const data = battery.bind("percent").as(p => `${p} %`)
-    return Widget.Box({
-        class_name: "battery",
-        visible: battery.bind("available"),
-        children: [
-            //Widget.Icon({ label: icon }),
-            Widget.Label({
-              visible: battery.bind("charging"),
-              label: "",
-            }),
-          Widget.Label({
-              visible: battery.bind("charging").as(charging => !charging),
-              label: "",
-            }),
-            Widget.Label({
-              class_name: "batteryPercentage",
-              label: battery.bind("percent").as(p=> ""+Math.floor(p.valueOf())+ "%") ,
-            }),
-            Widget.LevelBar({
-                widthRequest: 140,
-                vpack: "center",
-                value,
-            }),
-        ],
-    })
+  return Widget.Box({
+    class_name: "battery",
+    visible: battery.bind("available"),
+    children: [
+      //Widget.Icon({ label: icon }),
+      Widget.Label({
+        visible: battery.bind("charging"),
+        label: "",
+      }),
+      Widget.Label({
+        visible: battery.bind("charging").as(charging => !charging),
+        label: "",
+      }),
+      Widget.Label({
+        class_name: "batteryPercentage",
+        label: battery.bind("percent").as(p => "" + Math.floor(p.valueOf()) + "%"),
+      }),
+      Widget.LevelBar({
+        widthRequest: 140,
+        vpack: "center",
+        value,
+      }),
+    ],
+  })
 }
 
 
@@ -172,17 +194,17 @@ function BatteryLabel() {
 
 function sound() {
   const outputs = audio
-    .speakers.map(function(speaker)  { return "" + speaker.description });
+    .speakers.map(function(speaker) { return "" + speaker.description });
 
-  const labels = outputs.map(function(out)  {
+  const labels = outputs.map(function(out) {
     return Widget.Label({
       class_name: "sound-text",
       hpack: "start",
-      label:out,
+      label: out,
     });
   })
   const sliders: any = [];
-  for(let i = 0; i<outputs.length; i++){
+  for (let i = 0; i < outputs.length; i++) {
     sliders.push(Widget.Slider({
       draw_value: false,
       css: "min-height: 10px;",
@@ -201,7 +223,7 @@ function sound() {
 
   const box_sliders = Widget.Box({
     vertical: true,
-    class_name:"sliders",
+    class_name: "sliders",
     css: "min-width: 180px",
     children: sliders,
   });
@@ -222,33 +244,33 @@ function sound() {
         hexpand: true,
         hpack: "end",
         on_clicked: close,
-        label:"",
+        label: "",
       }),
     ],
   })
 
-    return Widget.Window({
-      name:"sound",
-      class_name:"sound",
-        anchor: ["top", "right"],
-        exclusivity: "exclusive",
-        child: Widget.Box({
-        class_name: "sound-box",
-          vertical: true,
-          css:"padding-left: 1em; padding-right: 1em",
-          children:[
-            header,
-            Widget.Box({
-                vertical: false,
-              class_name: "sound-body",
-              children: [
-                box_names,
-                box_sliders,
-              ],
-            }),
-        ],
+  return Widget.Window({
+    name: "sound",
+    class_name: "sound",
+    anchor: ["top", "right"],
+    exclusivity: "exclusive",
+    child: Widget.Box({
+      class_name: "sound-box",
+      vertical: true,
+      css: "padding-left: 1em; padding-right: 1em",
+      children: [
+        header,
+        Widget.Box({
+          vertical: false,
+          class_name: "sound-body",
+          children: [
+            box_names,
+            box_sliders,
+          ],
         }),
-    })
+      ],
+    }),
+  })
 }
 
 function PowerButton() {
@@ -267,55 +289,55 @@ function PowerButton() {
 
 // layout of the bar
 function Left() {
-    return Widget.Box({
-      class_name: "Left",
-        spacing: 8,
-        hpack: "start",
-        children: [
-            Workspaces(),
-        ],
-    })
+  return Widget.Box({
+    class_name: "Left",
+    spacing: 8,
+    hpack: "start",
+    children: [
+      Clock()
+    ],
+  })
 }
 
 function Center() {
-    return Widget.Box({
-        spacing: 8,
-        class_name: "Center",
-        children: [
-         //   ClientTitle(),
-         //   Media(),
-        Clock()
-           // Notification(),
-        ],
-    })
+  return Widget.Box({
+    spacing: 8,
+    class_name: "Center",
+    children: [
+      //   ClientTitle(),
+      //   Media(),
+      Workspaces(),
+      // Notification(),
+    ],
+  })
 }
 
 function Right() {
-    return Widget.Box({
-        class_name:"Right",
-        hpack: "end",
-        spacing: 8,
-        children: [
-            Volume(),
-            BatteryLabel(),
-            PowerButton(),
-        ],
-    })
+  return Widget.Box({
+    class_name: "Right",
+    hpack: "end",
+    spacing: 8,
+    children: [
+      Volume(),
+      BatteryLabel(),
+      PowerButton(),
+    ],
+  })
 }
 
 function Bar(monitor = 0) {
-    return Widget.Window({
-        name: `bar-${monitor}`, // name has to be unique
-        class_name: "bar",
-        monitor,
-        anchor: ["top", "left", "right"],
-        exclusivity: "exclusive",
-        child: Widget.CenterBox({
-            start_widget: Left(),
-            center_widget: Center(),
-            end_widget: Right(),
-        }),
-    })
+  return Widget.Window({
+    name: `bar-${monitor}`, // name has to be unique
+    class_name: "bar",
+    monitor,
+    anchor: ["top", "left", "right"],
+    exclusivity: "exclusive",
+    child: Widget.CenterBox({
+      start_widget: Left(),
+      center_widget: Center(),
+      end_widget: Right(),
+    }),
+  })
 }
 
 function monitor() {
@@ -327,7 +349,7 @@ function monitor() {
 }
 
 function getCurosr() {
-  const cursor = GLib.getenv("XCURSOR_THEME"); 
+  const cursor = GLib.getenv("XCURSOR_THEME");
   console.log(cursor);
   return cursor == null ? "catppuccin-mocha-mauve-cursors 32" : cursor;
 }
@@ -335,9 +357,9 @@ function getCurosr() {
 App.config(
 
   {
-  style: "./style.css",
-  windows: monitor(),
-  cursorTheme: getCurosr(),
-});
+    style: "./style.css",
+    windows: monitor(),
+    cursorTheme: getCurosr(),
+  });
 
-export {};
+export { };
