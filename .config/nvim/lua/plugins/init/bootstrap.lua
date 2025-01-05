@@ -16,6 +16,8 @@ function M.bootstrap()
   vim.opt.hlsearch = true
   vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
   -- parse editor config files
+  vim.keymap.set('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
+
   vim.g.editorconfig = true
   --------------------- lazy.nvim ---------------------
   --]]

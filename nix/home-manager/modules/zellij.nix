@@ -18,7 +18,7 @@
               border_format   "#[fg=#cba6f7{char}"
               border_position "top"
 
-              mode_normal  "#[bg=blue,fg=#1e1e2e] {name}"
+              mode_normal  "#[bg=blue,fg=#1e1e2e] {name} "
               mode_pane    "#[bg=#cba6f7,fg=#1e1e2e] {name}"
               mode_scroll  "#[bg=#cba6f7,fg=#1e1e2e] {name}"
               mode_locked        "#[bg=#cba6f7,fg=#1e1e2e] {name} "

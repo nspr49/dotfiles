@@ -2,47 +2,54 @@
 { pkgs, ... }:
 
 {
-# ... other config
-  programs.neovim =
-  let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n$";
-  in{
-    enable=true;
+  # ... other config
+  programs.neovim = let
+    toLua = str: ''
+      lua << EOF
+      ${str}
+      EOF
+    '';
+    toLuaFile = file: ''
+      lua << EOF
+      ${builtins.readFile file}
+      EOF
+      $'';
+  in {
+    enable = true;
     plugins = with pkgs.vimPlugins; [
-    {
-      plugin = rustaceanvim;
-    }
-    {
-      plugin = nvim-treesitter.withAllGrammars;
-      #config = toLuaFile ./nvim/plugin/treesitter.lua;
-    }
-    {
-      plugin = otter-nvim;
-    }
+      { plugin = rustaceanvim; }
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        #config = toLuaFile ./nvim/plugin/treesitter.lua;
+      }
+      { plugin = otter-nvim; }
     ];
     withNodeJs = true;
     withRuby = true;
     withPython3 = true;
     extraLuaPackages = ps: [ ps.magick ];
     extraPackages = with pkgs; [
-    java-language-server
+      nixfmt-classic
+      basedpyright
+      ruff
+      java-language-server
       imagemagick # for image rendering
-        pyright
+      pyright
       vscode-extensions.vadimcn.vscode-lldb
-        rust-analyzer
-        tailwindcss-language-server 
-        lua-language-server
-        jdt-language-server
-        nodePackages.typescript-language-server
-        ltex-ls
-        languagetool
-        rustfmt
-        nil
-        luajitPackages.luarocks
+      rust-analyzer
+      tailwindcss-language-server
+      lua-language-server
+      jdt-language-server
+      nodePackages.typescript-language-server
+      ltex-ls
+      languagetool
+      rustfmt
+      nil
+      luajitPackages.luarocks
     ];
-    extraPython3Packages = ps: with ps; [
-      pynvim
+    extraPython3Packages = ps:
+      with ps; [
+        pynvim
         jupyter-client
         jupytext
         cairosvg # for image rendering
@@ -53,9 +60,8 @@
         pylatex
         ipython
         nbformat
-    ];
+      ];
     vimAlias = true;
-
 
   };
 
@@ -64,10 +70,10 @@
     extensions = with pkgs.vscode-extensions; [
       vadimcn.vscode-lldb
       vscodevim.vim
-        ms-toolsai.jupyter
-        ms-python.python
-        ms-toolsai.jupyter-renderers
-        yzhang.markdown-all-in-one
+      ms-toolsai.jupyter
+      ms-python.python
+      ms-toolsai.jupyter-renderers
+      yzhang.markdown-all-in-one
     ];
   };
 }

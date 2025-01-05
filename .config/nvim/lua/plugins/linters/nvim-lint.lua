@@ -9,8 +9,9 @@ return {
     lint.linters_by_ft = {
       javascript = { "ESLint" },
       typescript = { "ESLint" },
+      python = { "ruff" },
       typescriptangular = { "ESLint" },
-      go = {"golangci-lint"}
+      go = { "golangci-lint" }
     }
 
     local lint_augroup = vim.api.create_augroup("lint", { clear = true })

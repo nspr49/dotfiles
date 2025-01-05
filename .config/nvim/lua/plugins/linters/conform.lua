@@ -5,7 +5,6 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         -- Conform will run multiple formatters sequentially
-        python = { "prettier" },
         -- Use a sub-list to run only the first available formatter
         javascript = { "prettier" },
         html = { "prettier" },
@@ -13,7 +12,9 @@ return {
         typescript = { "typescript" },
         javascriptangular = { "prettier" },
         json = { "prettier" },
-        go = {"gofmt"}
+        go = { "gofmt" },
+        nix = { "nixfmt" },
+        python = { "ruff_format" },
       },
       --[[format_on_save = function()
         local hunks = require("gitsigns").get_hunks()
@@ -37,11 +38,12 @@ return {
         end
       end
 --]]
-  format_on_save = {
-    lsp_format = "fallback";
-    timeout_ms = 500;
-  }})
-    
+      format_on_save = {
+        lsp_format = "fallback",
+        timeout_ms = 500,
+      }
+    })
+
 
     local conform = require("conform")
     vim.keymap.set("n", "<leader>vv", function()
