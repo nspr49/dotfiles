@@ -51,6 +51,8 @@ function M.bootstrap()
     { import = "plugins.linters" }, { import = "plugins.lsp" }, { import = "plugins.gui" },
     { import = "plugins.movement" }, { import = "plugins.db" }, { import = "plugins.git" },
     { import = "plugins.wildfly" }, { import = "plugins.extra" }, { import = "plugins.tmux" },
+    { import = "plugins.markdown" }
+
 
 
   }, {

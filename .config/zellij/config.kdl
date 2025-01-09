@@ -278,7 +278,22 @@ copy_on_select true
 //         white 255 255 255
 //     }
 // }
-
+themes {
+ catppuccin-mo {
+    bg "#585b70" // Surface2
+    fg "#cdd6f4" // Text
+    red "#f38ba8"
+    green "#f5c2e7"
+    blue "#89b4fa"
+    yellow "#f9e2af"
+    magenta "#f5c2e7" // Pink
+    orange "#fab387" // Peach
+    cyan "#89dceb" // Sky
+    black "#181825" // Mantle
+    white "#cdd6f4" // Text
+  }
+}
+theme "catppuccin-mo"
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
@@ -308,7 +323,7 @@ copy_on_select true
 // Valid values: positive integers
 // Default value: 10000
 //
-// scroll_buffer_size 10000
+scroll_buffer_size 10000
 
 // Provide a command to execute when copying text. The text will be piped to
 // the stdin of the program to perform the copy. This can be used with
@@ -317,7 +332,7 @@ copy_on_select true
 // Examples:
 //
 // copy_command "xclip -selection clipboard" // x11
-// copy_command "wl-copy"                    // wayland
+copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 
 // Choose the destination for copied text
@@ -366,3 +381,4 @@ copy_on_select true
 // Default: false
 //
 // disable_session_metadata true
+scrollback_editor "vim -u NONE "
