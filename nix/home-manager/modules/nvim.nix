@@ -1,5 +1,5 @@
 # home.nix or wherever you configure neovim
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   # ... other config
@@ -16,6 +16,7 @@
       $'';
   in {
     enable = true;
+    #   package = pkgs.unstable.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
       { plugin = rustaceanvim; }
       {
@@ -23,6 +24,7 @@
         #config = toLuaFile ./nvim/plugin/treesitter.lua;
       }
       { plugin = otter-nvim; }
+      { plugin = neorg; }
     ];
     withNodeJs = true;
     withRuby = true;
@@ -38,6 +40,8 @@
       vscode-extensions.vadimcn.vscode-lldb
       rust-analyzer
       tailwindcss-language-server
+      vscode-langservers-extracted
+      angular-language-server
       lua-language-server
       jdt-language-server
       nodePackages.typescript-language-server

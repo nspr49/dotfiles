@@ -62,6 +62,15 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    lspconfig.r_language_server.setup {}
+
+
+    lspconfig["angularls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,

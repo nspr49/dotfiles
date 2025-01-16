@@ -15,9 +15,10 @@
 
   hardware.graphics = {
     enable = true;
-    #driSupport = true;
-    #driSupport32Bit = true;
+    #   enableDri = true;
+    enable32Bit = true;
   };
+  hardware.keyboard.qmk.enable = true;
   # Bootloader.
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/nvme0n1";
@@ -56,7 +57,7 @@
   services.xserver = {
     enable = true;
     xkb.layout = "de";
-    xkb.variant = "";
+    xkb.variant = "bone";
     videoDrivers = [ "nvidia" ];
     displayManager.gdm = {
       enable = true;
@@ -144,6 +145,8 @@
     killall
   ];
 
+  programs.steam = { enable = true; };
+
   fonts.packages = with pkgs; [
     nerdfonts
     font-awesome
@@ -170,7 +173,6 @@
   services.atd.enable = true;
   # run cuda in docker
   hardware.nvidia-container-toolkit.enable = true;
-  hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
   # run dynamically linked binaries
