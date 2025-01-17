@@ -1,6 +1,4 @@
 return {
-  { "Mofiqul/dracula.nvim" },
-  { "sainnhe/everforest" },
   { "folke/tokyonight.nvim" },
   {
     "catppuccin/nvim",
@@ -40,11 +38,6 @@ return {
       })
     end
   },
-  { "rebelot/kanagawa.nvim" },
-  { "scottmckendry/cyberdream.nvim" },
-  { "shaunsingh/nord.nvim" },
-  { "uZer/pywal16.nvim" },
-  { "eldritch-theme/eldritch.nvim" },
   {
     "rose-pine/neovim",
     priority = 1000,

@@ -2,6 +2,7 @@ return {
   'joeveiga/ng.nvim',
 
   opts = {},
+  ft = { "typescript", "html", "css" },
   config = function()
     local opts = { noremap = true, silent = true }
     local ng = require("ng");
