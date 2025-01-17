@@ -6,7 +6,7 @@
 palette = "catppuccin_mocha"
 
 [username]
-format = "[╭─ $user]($style) "
+format = "[$user]($style) "
 style_user = "bold mauve"
 style_root = "bold mauve"
 show_always = true
@@ -14,9 +14,9 @@ show_always = true
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[[╰> 󰧱](mauve) ❯](mauve)"
-error_symbol = "[[╰> 󰧱](mauve) ❯](mauve)"
-vimcmd_symbol = "[╰> 󰧱 ❮](mauve)" # For use with zsh-vi-mode
+success_symbol = "[[󰧱](mauve) ❯](mauve)"
+error_symbol = "[[󰧱](mauve) ❯](mauve)"
+vimcmd_symbol = "[󰧱 ❮](mauve)" # For use with zsh-vi-mode
 
 [git_branch]
 style = "bold mauve"
