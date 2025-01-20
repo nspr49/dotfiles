@@ -34,6 +34,15 @@ return {
             CmpBorder = { bg = colors.mauve, fg = colors.mauve },
             Pmenu = { bg = nil, fg = colors.mauve },
             TelescopeBorder = { fg = colors.mauve },
+
+            BlinkCmpKindInterface = { fg = colors.peach },
+            BlinkCmpKindKeyword = { fg = colors.red },
+            BlinkCmpKindEnum = { fg = colors.green },
+            BlinkCmpKindText = { fg = colors.green },
+            BlinkCmpKindProperty = { fg = colors.green },
+            BlinkCmpKindSnippet = { fg = colors.mauve },
+            BlinkCmpKindEnumMember = { fg = colors.red },
+		        BlinkCmpKindTypeParameter = { fg = colors.blue },
           }
         end
       })
