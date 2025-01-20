@@ -34,7 +34,7 @@ return {
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities =require('blink.cmp').get_lsp_capabilities();
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)

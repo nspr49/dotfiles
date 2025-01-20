@@ -18,6 +18,7 @@ return {
           noice = true,
           dap_ui = true,
           dap = true,
+          blink_cmp = true,
           ufo = true,
           telescope = {
             enabled = true,
