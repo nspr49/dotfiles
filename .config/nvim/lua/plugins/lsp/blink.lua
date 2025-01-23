@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
-  dependencies ={
+  dependencies = {
     'rafamadriz/friendly-snippets',
     "echasnovski/mini.icons"
 
@@ -23,7 +23,7 @@ return {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
       -- Will be removed in a future release
-     use_nvim_cmp_as_default = false,
+      use_nvim_cmp_as_default = false,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono',
@@ -46,14 +46,14 @@ return {
       ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<C-n>'] = { 'select_next', 'fallback' },
       ['<C-j>'] = { 'select_next', 'fallback' },
-      --['<CR>'] = {'accept', 'fallback'},
+      ['<CR>'] = { 'accept', 'fallback' },
 
       -- disable a keymap from the preset
 
       -- show with a list of providers
-      ['<C-space>'] = { function(cmp) cmp.show({ providers = {'lsp', 'snippets' } }) end },
+      ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'lsp', 'snippets' } }) end },
 
-     
+
       -- optionally, separate cmdline keymaps
       -- cmdline = {}
     },
@@ -61,53 +61,53 @@ return {
     --signature = { enabled = true },
 
     completion = {
-      
+
       menu = {
         border = 'rounded',
 
         scrollbar = true,
 
-        auto_show = function(ctx)
-           return ctx.mode ~= "cmdline" and not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-         end,
-          draw = {
-            components = {
+        --auto_show = function(ctx)
+        --  return ctx.mode ~= "cmdline" and not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+        -- end,
+        draw = {
+          components = {
 
-            },
-            treesitter = {'lsp'},
-
-            
-            columns = { { "label", "label_description" }, { "kind_icon" }, { "kind" } },
           },
-         
+          treesitter = { 'lsp' },
+
+
+          columns = { { "label", "label_description" }, { "kind_icon" }, { "kind" } },
+        },
+
       },
 
       trigger = {
         show_on_trigger_character = true,
       },
 
-       documentation = {
-                auto_show = true,
-                auto_show_delay_ms = 250,
-                treesitter_highlighting = true,
-                window = {
-                  border = "rounded",
-                 winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,EndOfBuffer:BlinkCmpMenuBorder',
-                },
-       },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 250,
+        treesitter_highlighting = true,
+        window = {
+          border = "rounded",
+          winhighlight = 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,EndOfBuffer:BlinkCmpMenuBorder',
+        },
+      },
       list = {
-           selection = {
-              preselect = false,
-              auto_insert = true,
-           }
-          },
+        selection = {
+          preselect = false,
+          auto_insert = true,
+        }
+      },
 
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      -- default = { 'lsp', 'path', 'snippets', 'buffer' },
       --[[
       providers = {
         lsp = {
@@ -129,5 +129,5 @@ return {
   },
 
 
-  opts_extend = { "sources.default" }
+  -- opts_extend = { "sources.default" }
 }
