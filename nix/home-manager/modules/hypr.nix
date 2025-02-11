@@ -1,14 +1,19 @@
 { config, pkgs, lib, ... }:
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-          ${pkgs.ags}/bin/ags &
-          dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
-    #    ${pkgs.hyprpanel}/bin/hyprpanel
-          ${pkgs.swww}/bin/swww-daemon &
-          ${pkgs.swww}/bin/swww img ~/Pictures/ekko_jinx_bridge.jpg &
-          ${pkgs.mako}/bin/mako & 
+            ${pkgs.ags}/bin/ags &
+            dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE 
+      #    ${pkgs.hyprpanel}/bin/hyprpanel
+      #${pkgs.mpvpaper}/bin/mpvpaper -o "no-audio --loop-playlist shuffle" '*' ~/Pictures/mylivewallpaperscity.mp4
+
+
+    ${pkgs.swww}/bin/swww-daemon &
+    ${pkgs.swww}/bin/swww img ~/Pictures/animeback.png &
+
+            ${pkgs.mako}/bin/mako & 
 
   '';
+
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -37,7 +42,7 @@ in {
         "HYPRCURSOR_SIZE, 32"
       ];
       decoration = {
-        rounding = "10";
+        rounding = "20";
         active_opacity = "1";
         inactive_opacity = "1.0";
         shadow = {
@@ -56,21 +61,22 @@ in {
           passes = "3";
           contrast = "1.0";
           new_optimizations = "on";
-          vibrancy_darkness = "1";
+          vibrancy_darkness = "0";
         };
       };
 
       animations = {
         "enabled" = "true";
         #"bezier" = "overshot, 0.9, 0.9, 0.3, 1.05"; 
-        "bezier" = "cubic, 0.79, 0.01, 0.14, 0.53";
+        "bezier" = "cubic, 0.0.445, 0.05, 0.55, 0.95";
 
         "animation" = [
-          "windows, 1, 7, cubic, popin 20%"
-          "windowsOut, 1, 7, cubic, popin 10%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "workspaces, 1, 6, default, slidevert"
+          "windows, 1, 7, cubic"
+          "windowsOut, 1, 7, cubic"
+          #"border, 1, 10, default"
+          #"borderangle, 1, 8, default"
+          #"workspaces, 1, 6, default, slide"
+          "workspaces, 0, 6, default, slide"
           #"workspaces, 1, 6, default"
         ];
       };

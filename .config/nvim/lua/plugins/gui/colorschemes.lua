@@ -18,11 +18,13 @@ return {
           noice = true,
           dap_ui = true,
           dap = true,
+          fzf = true,
           blink_cmp = true,
           ufo = true,
           telescope = {
             enabled = true,
           },
+          snacks = true,
           which_key = true,
           mini = {
             enabled = true,
@@ -42,7 +44,12 @@ return {
             BlinkCmpKindProperty = { fg = colors.green },
             BlinkCmpKindSnippet = { fg = colors.mauve },
             BlinkCmpKindEnumMember = { fg = colors.red },
-		        BlinkCmpKindTypeParameter = { fg = colors.blue },
+            BlinkCmpKindTypeParameter = { fg = colors.blue },
+
+            FloatBorder = { fg = colors.mauve },
+            LineNr = { fg = colors.text },
+
+
           }
         end
       })

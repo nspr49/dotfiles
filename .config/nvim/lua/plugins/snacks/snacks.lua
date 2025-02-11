@@ -16,5 +16,31 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    picker = {},
+  },
+
+  ---@class snacks.picker.files.Config: snacks.picker.proc.Config
+
+
+  keys = {
+    { "<leader>,",  function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>fg", function() Snacks.picker.grep() end,    desc = "Grep" },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files(
+          {
+            exclude = { "target", ".git/" },
+          }
+        )
+      end,
+      desc = "Find Files"
+    },
+    { "<leader>fH", function() Snacks.picker.highlights() end,          desc = "Highlights" },
+    { "<leader>gr", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+    { "<leader>fr", function() Snacks.picker.lsp_references() end,      nowait = true,               desc = "References" },
+    { "<leader>fd", function() Snacks.picker.diagnostics() end,         desc = "Diagnostics" },
+    { "<leader>sm", function() Snacks.picker.marks() end,               desc = "Marks" },
   }
 }

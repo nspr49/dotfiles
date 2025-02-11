@@ -19,14 +19,16 @@
   imports = [
     ./modules/hypr.nix
     ./modules/tmux.nix
-    ./modules/zsh.nix
+    #./modules/zsh.nix
     ./modules/fastfetch/fastfetch.nix
     ./modules/zellij.nix
     ./modules/nvim.nix
     ./modules/fish.nix
   ];
   home.packages = with pkgs; [
+    btop
     nodejs_22
+    nushell
     dooit
     openconnect_openssl
     swww
@@ -38,17 +40,18 @@
     gnumake
     pyenv
     texliveFull
+    pandoc
     #python311
+    #   python312
     (python312.withPackages (ps:
       with ps; [
         networkx
-        ortools
         ipykernel
         numpy
-        matplotlib
         #             pyzmq
         jupyter
       ]))
+    ollama
 
     zulu23
     #gtksourceview
@@ -66,6 +69,7 @@
     rio
     firefox
     hyprpicker
+    qemu
     hyprcursor
     ags
     wezterm

@@ -77,7 +77,6 @@
   console.keyMap = "de";
 
   #enable zsh
-  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   #starship
   programs.starship = { enable = true; };

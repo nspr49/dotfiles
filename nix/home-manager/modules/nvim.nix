@@ -18,13 +18,47 @@
     enable = true;
     #   package = pkgs.unstable.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
-      { plugin = rustaceanvim; }
       {
-        plugin = nvim-treesitter.withAllGrammars;
-        #config = toLuaFile ./nvim/plugin/treesitter.lua;
+        plugin = rustaceanvim;
       }
+      #{
+      #plugin = nvim-treesitter.withAllGrammars;
+      #config = toLuaFile ./nvim/plugin/treesitter.lua;
+      #}
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+
+        p.c
+        p.java
+        p.rust
+        p.python
+        p.nix
+        p.markdown
+        p.lua
+        p.typescript
+        p.bash
+        p.cmake
+        p.css
+        p.dockerfile
+        p.glsl
+        p.html
+        p.javascript
+        p.json5
+        p.json
+        p.latex
+        p.markdown_inline
+        p.nginx
+        p.scss
+        p.sql
+        p.toml
+        p.tsx
+        p.verilog
+      ]))
       { plugin = otter-nvim; }
-      { plugin = neorg; }
+      { plugin = markdown-preview-nvim; }
+      {
+        plugin = nvim-treesitter-parsers.wgsl;
+      }
+      #      { plugin = blink-cmp; }
     ];
     withNodeJs = true;
     withRuby = true;
@@ -33,11 +67,14 @@
     extraPackages = with pkgs; [
       nixfmt-classic
       basedpyright
+      clang-tools
+      llvmPackages_15.clang-unwrapped
       ruff
       java-language-server
       imagemagick # for image rendering
       pyright
       vscode-extensions.vadimcn.vscode-lldb
+      markdown-oxide
       rust-analyzer
       tailwindcss-language-server
       vscode-langservers-extracted

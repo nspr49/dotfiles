@@ -1,2 +1,3 @@
 vim.cmd("set conceallevel=1")
-require("quarto").activate();
+vim.g.editorconfig = false;
+vim.g.trim_trailing_whitespace = false

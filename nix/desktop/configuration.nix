@@ -77,9 +77,9 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  #enable zsh
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  users.users.extra.shell = pkgs.fish;
   #starship
   programs.starship = { enable = true; };
 
@@ -98,10 +98,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.hyprland = {
-    enable = true;
-    #withSystemd = true;
-  };
+  programs.hyprland = { enable = true; };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -111,6 +108,9 @@
     vulkan-tools
     nvidia-docker
     wget
+
+    xdg-desktop-portal
+    steamcmd
     at
     pkgs.libappindicator-gtk3
     pkgs.wlroots
@@ -128,24 +128,16 @@
     pkgs.vesktop
     direnv
 
-    #wm
     (pkgs.hyprland.override { withSystemd = true; })
-    #pkgs.hyprpaper # fuck this
-    # sway bg
     pkgs.swaybg
-    #menu 
     pkgs.pipewire
-    #network
     pkgs.networkmanager
-    #pkgs.wg-netmanager
     pkgs.networkmanagerapplet
     pkgs.cacert
-    #zsh
-    pkgs.zsh
+    pkgs.fish
     killall
+    protonup
   ];
-
-  programs.steam = { enable = true; };
 
   fonts.packages = with pkgs; [
     nerdfonts
@@ -170,10 +162,25 @@
     };
   };
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
+  environment.sessionVariables.STEAM_EXTPRA_COMPAT_TOOLS_PATHS =
+    "/home/extra/.steam/root/compatibilitytools.d";
   services.atd.enable = true;
   # run cuda in docker
   hardware.nvidia-container-toolkit.enable = true;
   hardware.pulseaudio.support32Bit = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall =
+      true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   # run dynamically linked binaries
   #programs.nix-ld.enable = true;
