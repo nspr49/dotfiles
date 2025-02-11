@@ -74,7 +74,7 @@ function M.bootstrap()
 
   ---------------------- telescope -----------------------
   keymaps = require("plugins.keymaps.all");
-  keymaps.telescope();
+  --  keymaps.telescope();
   ------------------------ dap --------------------------
 
   ------------------------ OIL --------------------------
