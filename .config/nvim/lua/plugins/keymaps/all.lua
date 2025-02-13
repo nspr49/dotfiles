@@ -171,9 +171,9 @@ end
 
 function M.generalLSP()
   vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
-
   vim.keymap.set({ "v", "n" }, "<leader>oi", require("actions-preview").code_actions)
   vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
+
 end
 
 function M.lspConfig()
