@@ -13,10 +13,16 @@ return {
     local hydra = require("hydra")
     hydra({
       name = "LSP_SIGNS",
-      hint = false,
+      hint = " _u_/_d_: up/down\n" ..
+      " _<esc>_/_q_: quit",
       config = {
         color = "pink",
         invoke_on_body = true,
+        hint = {
+          float_opts = {
+           border =  "rounded" ,
+          },
+        },
       },
       mode = { "n" },
       body = "<leader>hl", -- this is the key that triggers the hydra
@@ -43,10 +49,19 @@ return {
       config = {
         color = "pink",
         invoke_on_body = true,
+        hint = {
+          window = true,
+        float_opts = {
+          border=  "rounded" ,
+        },
+        },
+        
       },
 
-    hint = [[
-      ]],
+    hint = " _n_/_s_: next/step\n" ..
+    " _i_/_o_: step in/out\n" ..
+    " _<esc>_/_q_: quit",
+
 
       mode = { "n" },
       body = "<leader>hd", -- this is the key that triggers the hydra
@@ -56,7 +71,6 @@ return {
         {"s",function() require('dap').step_over() end},
         {"i", function() require('dap').step_into() end},
         {"o",  function() require('dap').step_out() end},
-        {"t", keys("<leader>bt")},
         { "<esc>", nil,                   { exit = true } },
         { "q",     nil,                   { exit = true } },
       },

@@ -13,7 +13,7 @@ return {
           gitsigns = true,
           nvimtree = true,
           treesitter = true,
-          notify = false,
+          notify = true,
           flash = true,
           noice = true,
           dap_ui = true,
