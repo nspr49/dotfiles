@@ -13,6 +13,7 @@ return {
     input = { enabled = false },
     notifier = { enabled = true },
     quickfile = { enabled = true },
+    git = { },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
@@ -20,10 +21,8 @@ return {
   },
 
   ---@class snacks.picker.files.Config: snacks.picker.proc.Config
-
-
   keys = {
-    { "<leader>,",  function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>bl",  function() Snacks.git.blame_line() end, desc = "Buffers" },
     { "<leader>fg", function() Snacks.picker.grep() end,    desc = "Grep" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     {
@@ -42,5 +41,8 @@ return {
     { "<leader>fr", function() Snacks.picker.lsp_references() end,      nowait = true,               desc = "References" },
     { "<leader>fd", function() Snacks.picker.diagnostics() end,         desc = "Diagnostics" },
     { "<leader>sm", function() Snacks.picker.marks() end,               desc = "Marks" },
+    { "<leader>fb" , function () Snacks.picker.buffers() end,           desc = "Buffer"},
+    { "<leader>fL" , function () Snacks.picker.git_log() end,           desc = "Buffer"},
+    { "<leader>fD" , function () Snacks.picker.git_diff() end,          desc = "Buffer"},
   }
 }
