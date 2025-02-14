@@ -42,7 +42,7 @@ return {
     { "<leader>fd", function() Snacks.picker.diagnostics() end,         desc = "Diagnostics" },
     { "<leader>sm", function() Snacks.picker.marks() end,               desc = "Marks" },
     { "<leader>fb" , function () Snacks.picker.buffers() end,           desc = "Buffer"},
-    { "<leader>fL" , function () Snacks.picker.git_log() end,           desc = "Buffer"},
-    { "<leader>fD" , function () Snacks.picker.git_diff() end,          desc = "Buffer"},
+    { "<leader>fL" , function () Snacks.picker.git_log() end,           desc = "Git Log"},
+    { "<leader>fD" , function () Snacks.picker.git_diff() end,          desc = "Git Diff"},
   }
 }
