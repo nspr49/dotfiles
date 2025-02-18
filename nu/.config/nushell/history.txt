@@ -1,0 +1,53 @@
+ls
+nvim
+nswitch
+switch
+nswitch
+nvim
+nswitch
+nvim
+stow --delete fish
+nswitch
+nvim
+nim
+nvim
+nswitch
+nvim
+ntest
+nvim
+nvim
+ntest
+cd ..
+nvim
+d .config/
+nvim
+cd .config/
+nvim
+ls
+cd nushell/
+nvim
+ls
+ctiectii
+vim
+source ~/.config/nushell/config.nu
+cat $(nu --config-path)<\n>
+nu --config-path
+nu --help
+config nu
+cd
+config nu
+nvim
+config nu
+ls
+cd dotfiles/
+nvim
+ls
+nvmi
+ls
+source ~/.config/nushell/config.nu
+nvim
+ls
+source ~/.config/nushell/config.nu
+ls
+nswitch
+ls

@@ -52,6 +52,7 @@
         p.toml
         p.tsx
         p.verilog
+        #p.nu
       ]))
       { plugin = otter-nvim; }
       { plugin = markdown-preview-nvim; }

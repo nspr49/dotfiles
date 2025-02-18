@@ -32,18 +32,19 @@ return {
         Snacks.picker.files(
           {
             exclude = { "target", ".git/" },
+            hidden = true,
           }
         )
       end,
       desc = "Find Files"
     },
-    { "<leader>fH",  function() Snacks.picker.highlights() end,          desc = "Highlights" },
-    { "<leader>gr",  function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-    { "<leader>fr",  function() Snacks.picker.lsp_references() end,      nowait = true,               desc = "References" },
-    { "<leader>fd",  function() Snacks.picker.diagnostics() end,         desc = "Diagnostics" },
-    { "<leader>sm",  function() Snacks.picker.marks() end,               desc = "Marks" },
-    { "<leader>fb",  function() Snacks.picker.buffers() end,             desc = "Buffer" },
-    { "<leader>fL",  function() Snacks.picker.git_log() end,             desc = "Git Log" },
-    { "<leader>fD",  function() Snacks.picker.git_diff() end,            desc = "Git Diff" },
+    { "<leader>fH", function() Snacks.picker.highlights() end,          desc = "Highlights" },
+    { "<leader>gr", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+    { "<leader>fr", function() Snacks.picker.lsp_references() end,      nowait = true,               desc = "References" },
+    { "<leader>fd", function() Snacks.picker.diagnostics() end,         desc = "Diagnostics" },
+    { "<leader>sm", function() Snacks.picker.marks() end,               desc = "Marks" },
+    { "<leader>fb", function() Snacks.picker.buffers() end,             desc = "Buffer" },
+    { "<leader>fL", function() Snacks.picker.git_log() end,             desc = "Git Log" },
+    { "<leader>fD", function() Snacks.picker.git_diff() end,            desc = "Git Diff" },
   }
 }
