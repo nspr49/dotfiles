@@ -1,0 +1,20 @@
+font-family = ComicShanns
+font-style = Regular
+font-size = 14
+font-thicken = true
+theme = catppuccin-mocha
+gtk-titlebar = false
+
+window-width = 120
+window-height = 45
+window-padding-x = 4
+window-padding-y = 4
+
+confirm-close-surface = false
+clipboard-paste-protection = false
+
+background-opacity = 0.8
+background-blur-radius = 20
+
+background = #09091b
+

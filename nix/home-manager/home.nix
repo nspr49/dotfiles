@@ -26,23 +26,24 @@
     ./modules/fish.nix
   ];
   home.packages = with pkgs; [
+    llvmPackages_latest.libllvm
+    llvmPackages_latest.libcxx
+    gcc
     btop
     nodejs_22
+    nautilus
     nushell
     dooit
     openconnect_openssl
     swww
     starship
-    gcc
     gdb
+    bear
     ghostty
     at
     gnumake
-    pyenv
     texliveFull
     pandoc
-    #python311
-    #   python312
     (python312.withPackages (ps:
       with ps; [
         networkx
@@ -54,13 +55,9 @@
     ollama
 
     zulu23
-    #gtksourceview
-    lldb
-    #webkitgtk
     accountsservice
     rofi-wayland
     swaybg
-    waybar
     tmux
     fastfetch
     spotify
@@ -104,7 +101,6 @@
     google-java-format
     #languages
 
-    libclang
     lua
     widevine-cdm
     catppuccin-cursors
@@ -112,7 +108,6 @@
     lazygit
     fzf
     pnglatex
-    waypaper
     mpvpaper
     vscode
     netpbm
@@ -120,8 +115,6 @@
     # latexrun
     optipng
     banana-cursor
-
-    quartoMinimal
     zellij
     zjstatus
     zip

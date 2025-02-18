@@ -68,7 +68,6 @@
       nixfmt-classic
       basedpyright
       clang-tools
-      llvmPackages_15.clang-unwrapped
       ruff
       java-language-server
       imagemagick # for image rendering
