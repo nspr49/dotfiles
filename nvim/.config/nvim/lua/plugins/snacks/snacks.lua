@@ -8,9 +8,24 @@ return {
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      sections = {
+        {
+          section = "terminal",
+          cmd = "chafa ~/Pictures/fern_1.jpg --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+          height = 17,
+          padding = 1,
+        },
+        {
+          pane = 2,
+          { section = "keys",   gap = 1, padding = 1 },
+          { section = "startup" },
+        },
+      },
+    },
     indent = { enabled = false },
-    input = { enabled = false },
+    input = {},
     notifier = { enabled = true },
     quickfile = { enabled = true },
     git = {},
