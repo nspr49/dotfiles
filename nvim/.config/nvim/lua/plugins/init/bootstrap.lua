@@ -39,6 +39,7 @@ function M.bootstrap()
 
   --------------------- Set Mapleader ---------------------
   vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+  vim.g.maplocalleader = ","
 
   ------------------------------------------------------
 
@@ -62,6 +63,7 @@ function M.bootstrap()
     --    { import = "plugins.plantuml" },
     { import = "plugins.snacks" },
     { import = "plugins.treesitter-home" },
+    { import = "plugins.grug" },
     --{ import = "plugins.jupytr" },
 
     --    { import = "plugins.treesitter-work" },
@@ -79,12 +81,12 @@ function M.bootstrap()
   --  keymaps.telescope();
   ------------------------ dap --------------------------
   ---
-
   vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '@lsp.type.selfKeyword', linehl = '', numhl = '' })
-  vim.fn.sign_define('DapStopped', { text = '', texthl = '@lsp.type.selfKeyword', linehl = '', numhl = '' })
+  vim.fn.sign_define('DapStopped', { text = '->', texthl = '@lsp.type.selfKeyword', linehl = '', numhl = '' })
   vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = '@lsp.type.selfKeyword', linehl = '', numhl = '' })
 
   keymaps.dap();
+  keymaps.windows();
 
   ------------------------ OIL --------------------------
 

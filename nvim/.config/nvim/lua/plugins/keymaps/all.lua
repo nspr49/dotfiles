@@ -173,7 +173,6 @@ function M.generalLSP()
   vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', {})
   vim.keymap.set({ "v", "n" }, "<leader>oi", require("actions-preview").code_actions)
   vim.keymap.set("n", "<leader>vn", "<Cmd>:lua vim.lsp.buf.format()<CR>")
-
 end
 
 function M.lspConfig()
@@ -243,6 +242,13 @@ function M.oilKeymaps()
     ["g."] = "actions.toggle_hidden",
     ["g\\"] = "actions.toggle_trash",
   }
+end
+
+function M.windows()
+  vim.keymap.set("n", "<C-j>", "<C-W>j", { silent = true, noremap = true });
+  vim.keymap.set("n", "<C-l>", "<C-W>l", { silent = true, noremap = true });
+  vim.keymap.set("n", "<C-h>", "<C-W>h", { silent = true, noremap = true });
+  vim.keymap.set("n", "<C-k>", "<C-W>k", { silent = true, noremap = true });
 end
 
 function M.flash()
