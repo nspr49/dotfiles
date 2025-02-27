@@ -36,10 +36,10 @@ in {
         "layout" = "dwindle";
       };
       env = [
-        "XCURSOR_THEME, Banana"
-        "XCURSOR_SIZE,32"
-        "HYPRCURSOR_THEME, Banana"
-        "HYPRCURSOR_SIZE, 32"
+        "XCURSOR_THEME, Bibata-Modern-Ice"
+        "XCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME, Bibata-Modern-Ice"
+        "HYPRCURSOR_SIZE, 24"
       ];
       decoration = {
         rounding = "20";

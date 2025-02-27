@@ -1,6 +1,7 @@
-font-family = ComicShanns
+
+font-family = CaskaydiaCove
 font-style = Regular
-font-size = 14
+font-size = 18
 font-thicken = true
 theme = catppuccin-mocha
 gtk-titlebar = false
@@ -16,5 +17,10 @@ clipboard-paste-protection = false
 background-opacity = 0.8
 background-blur-radius = 20
 
+
 background = #09091b
 
+#custom-shader = ./bla.glsl
+
+custom-shader = ./ghostty-shaders/bettercrt.glsl
+#custom-shader = ./bettercrt.glsl

@@ -7,11 +7,15 @@ $env.config.edit_mode = 'vi'
 alias nswitch = sudo nixos-rebuild switch --flake ~/dotfiles/nix/desktop/
 alias ntest = sudo nixos-rebuild test --flake ~/dotfiles/nix/desktop/
 
+$env.config.show_banner = false
 
 
 
 
-$env.PROMPT_COMMAND_RIGHT = ""
 source mocha.nu
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+
+$env.TRANSIENT_PROMPT_COMMAND_RIGHT = null
+$env.TRANSIENT_PROMPT_MULTILINE_INDICATOR = null
+
+

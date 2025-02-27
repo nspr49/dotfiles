@@ -107,6 +107,7 @@
     nvidia-container-toolkit
     vulkan-tools
     nvidia-docker
+    bibata-cursors
     wget
 
     xdg-desktop-portal
@@ -137,6 +138,12 @@
     pkgs.fish
     killall
     protonup
+
+    gtk4-layer-shell
+    gtk4
+    dbus
+    dbus-glib
+    libpkgconf
   ];
 
   fonts.packages = with pkgs; [
@@ -161,6 +168,8 @@
       ];
     };
   };
+
+  programs.dconf.enable = true;
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
   environment.sessionVariables.STEAM_EXTPRA_COMPAT_TOOLS_PATHS =
     "/home/extra/.steam/root/compatibilitytools.d";
@@ -183,7 +192,16 @@
   programs.gamemode.enable = true;
 
   # run dynamically linked binaries
-  #programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true;
+
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "widget.use-xdg-desktop-portal.mime-handler" = 1;
+    };
+
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Some programs need SUID wrappers, can be configured further or are
@@ -197,7 +215,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  #services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

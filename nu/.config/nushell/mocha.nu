@@ -40,10 +40,10 @@ let scheme = {
 }
 
 $env.config.color_config = {
-  separator: { fg: $theme.surface2 attr: b }
+  separator: { fg: $theme.mauve attr: b }
   leading_trailing_space_bg: { fg: $theme.lavender attr: u }
   header: { fg: $theme.text attr: b }
-  row_index: $scheme.virtual_text
+  row_index: $theme.pink
   record: $theme.text
   list: $theme.text
   hints: $scheme.virtual_text
@@ -63,6 +63,7 @@ $env.config.color_config = {
   shape_vardecl: $scheme.variable
   shape_variable: $scheme.variable
   empty: { attr: n }
+
   filesize: {||
     if $in < 1kb {
       $theme.teal

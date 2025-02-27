@@ -52,6 +52,7 @@
         p.toml
         p.tsx
         p.verilog
+        #        p.wgsl
         #p.nu
       ]))
       { plugin = otter-nvim; }
@@ -87,6 +88,7 @@
       rustfmt
       nil
       luajitPackages.luarocks
+      unstable.wgsl-analyzer
     ];
     extraPython3Packages = ps:
       with ps; [

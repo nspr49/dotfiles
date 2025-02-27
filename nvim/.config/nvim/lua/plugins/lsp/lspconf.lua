@@ -114,6 +114,10 @@ return {
       capabilities = capabilities,
       on_attach = on_attach
     }
+    lspconfig["wgsl_analyzer"].setup {
+      capabilities = capabilities,
+      on_attach = on_attach
+    }
 
     lspconfig["pyright"].setup {
       settings = {

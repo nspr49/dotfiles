@@ -31,8 +31,9 @@
     gcc
     btop
     nodejs_22
-    nautilus
     nushell
+    chafa
+    ast-grep
     dooit
     openconnect_openssl
     swww
@@ -165,10 +166,10 @@
     gtk = { enable = true; };
     x11 = {
       enable = true;
-      defaultCursor = "Banana";
+      defaultCursor = "Bibata-Modern-Ice";
     };
-    name = "Banana";
-    size = 32;
+    name = "Bibata-Modern-Ice";
+    size = 24;
   };
   programs.wezterm.enable = true;
 }

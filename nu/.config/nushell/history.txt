@@ -51,3 +51,208 @@ source ~/.config/nushell/config.nu
 ls
 nswitch
 ls
+m
+cd 
+ls
+cd dotfiles/nvim/
+ls
+cd .config/
+ls
+nvim nvim/
+cd 
+ls
+cd dotfiles/
+ls
+cd starship/.config/
+ls
+nvim
+cd ..
+cd nu/
+ls
+cd .config/
+$nu.env-path
+ls
+blu
+exit
+nu
+ls
+ls -l
+ctilesnctisle cntislenct 
+exit
+nu
+ls
+cstien ctsiln
+ls
+nvim
+ls
+celar
+clear
+exit
+nu
+ls
+ctienctgsren
+nvim
+ls
+hyprpicker
+ls
+ctiect ie | ctie 
+exit
+nu
+ls
+echo $env.PROMPT_INDICATOR_VI_INSERT
+ls
+show-color
+exit
+nu
+show-color PROMPT_INDICATOR_VI_NORMAL
+echo $env.config.color_config.filesize
+ls
+ctiecti ectie ctie
+exit
+nu
+ls
+ctie ctie 
+ls
+hyprpicker
+ls
+n
+exit
+nu
+ls
+ctie
+ls
+ctie 
+exit
+nu
+ls
+cd
+ls
+rm .local/share/nushell/
+ls
+rm -rf .local/share/nushell/
+ls
+cd .config/nushell/
+ls
+nvim
+ls
+nnu
+nu --version
+ls
+it
+i
+ls
+$env.config.color_config | sort
+$env.config.color_config.block='mauve'
+ls
+$env.config.color_config.block='mauve'
+$env.config.color_config.block='mauvenu'
+ls
+$env.config.color_config.block='mauvenu'
+$env.config.color_config.block='#8839ef'
+exitnu
+ls
+$env.config.color_config.block = '#8839ef'<\n>
+$env.config.color_config.bloc = '#8839ef'<\n>
+$env.config.color_config.cursor = '#8839ef'<\n>
+$env.config.color_config.cursor = '#d20f39'<\n>
+ctiectie ctie ctie
+ls
+nvim Zahnartz.txt
+ls
+hyprpicker
+ls
+hyprpicker
+$env.config
+$env.config.show_banner = false
+$env.config
+$env.color_config.filesize = "#FF"
+ls
+nu config reload
+source $nu.env-path
+riload
+reload
+nvim
+ls
+source $nu.env-path
+ls
+source $nu.env-path
+ls
+source $nu.env-path
+ls
+$env.config
+ls
+$env.config
+$env.config.color_config
+$env.config.color_config | where shape_custom
+$env.config.color_config | sort
+$env.config.color_config | where shape_custom
+$env.config.color_config 
+$env.config.color_config  | sort
+$env.config.color_config 
+$env.config.color_config | sort
+$env.config.color_config  | sort
+$env.config.color_config | sort
+ls
+$env.config.color_config | sort
+ls
+$env.config.color_config | sort
+ls
+$env.config.color_config | sort
+ls
+cd dotfiles/nvim/
+ls
+ls -a
+cd .config/
+lhs
+ls
+cd ..
+cd nu
+cd ..
+cd nu/.config/nushell/
+nvim
+ls
+exit
+nu
+exit
+nu
+exit
+nu
+exit
+nu
+ls
+exche $conf
+echo $env.config.color_config
+config nu --doc | nu-highlight | bat<\n># or<\n>config nu --doc | nu-highlight | less -R
+config nu --doc | nu-highlight | bat<\n>
+$env.config.color_config | sort
+ls
+echo $env.config.color_config
+ls
+rm -rf ~/.local/share/nushell/
+ls
+clear
+unu
+ls
+jnu
+ls
+lms
+ls
+ctie
+i
+ctie
+exit
+nu
+ls
+hyprpicker
+pwd
+ls
+cd
+ls
+ls | grep"l"
+ls | grep "l"
+ls
+export NIXPKGS_ALLOW_UNFREE=1
+ls
+clear
+ls
+cd dotfiles/

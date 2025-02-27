@@ -8,14 +8,16 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     wezterm.url = "github:wez/wezterm?dir=nix";
+    ghostty.url = "github:ghostty-org/ghostty";
+    wgsl-analyzer.url = "github:wgsl-analyzer/wgsl-analyzer";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, wezterm
-    , nixpkgs-unstable, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, wezterm, ghostty
+    , wgsl-analyzer, nixpkgs-unstable, ... }:
     let
       lib = nixpkgs.lib;
 
@@ -31,6 +33,9 @@
             zjstatus = inputs.zjstatus.packages."x86_64-linux".default;
             hyprpanel = inputs.hyprpanel.packages."x86_64-linux".default;
             wezterm = inputs.wezterm.packages."x86_64-linux".default;
+            ghostty = inputs.ghostty.packages."x86_64-linux".default;
+            wgsl-analyzer =
+              inputs.wgsl-analyzer.packages."x86_64-linux".default;
           })
         ];
       };
