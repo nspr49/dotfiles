@@ -79,6 +79,12 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+    --[[
+    lspconfig["ccls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    --]]
     -- configure typescript server with plugin
     lspconfig["biome"].setup({
       capabilities = capabilities,

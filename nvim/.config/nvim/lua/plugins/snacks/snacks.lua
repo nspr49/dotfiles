@@ -13,7 +13,7 @@ return {
       sections = {
         {
           section = "terminal",
-          cmd = "chafa ~/Pictures/fern_1.jpg --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+          cmd = "chafa ~/Pictures/fern_battle.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
           height = 17,
           padding = 1,
         },

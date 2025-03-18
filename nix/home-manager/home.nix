@@ -17,7 +17,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   imports = [
-    ./modules/hypr.nix
+    #    ./modules/hypr.nix
     ./modules/tmux.nix
     #./modules/zsh.nix
     ./modules/fastfetch/fastfetch.nix
@@ -26,9 +26,18 @@
     ./modules/fish.nix
   ];
   home.packages = with pkgs; [
+    inputs.astal.packages.${system}.default
     llvmPackages_latest.libllvm
+    sass
     llvmPackages_latest.libcxx
+    wallust
+    platformio
     gcc
+    ghostscript
+    #pkgs.pkgsCross.avr.buildPackages.gcc
+    #pkgs.pkgsCross.avr.buildPackages.avrlibc
+    #avrlibc
+
     btop
     nodejs_22
     nushell

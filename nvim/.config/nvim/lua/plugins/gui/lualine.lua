@@ -9,21 +9,22 @@ return {
     -- Author: shadmansaleh
     -- Credit: glepnir
     local lualine = require 'lualine'
+    local cp = require("catppuccin.palettes").get_palette("mocha");
 
     -- Color table for highlights
     local colors = {
       bg = nil, -- transparent
-      fg = '#bbc2cf',
-      yellow = '#ECBE7B',
-      cyan = '#008080',
-      darkblue = '#081633',
-      green = '#a6e3a1',
-      orange = '#FF8800',
-      violet = '#a9a1e1',
-      magenta = '#cba6f7',
-      blue = '#8839ef',
-      red = '#ec5f67',
-      flamingo = '#f2cdcd',
+      fg = cp.foreground,
+      yellow = cp.yellow,
+      cyan = cp.blue,
+      darkblue = cp.blue,
+      green = cp.green,
+      orange = cp.peach,
+      violet = cp.mauve,
+      magenta = cp.pink,
+      blue = cp.blue,
+      red = cp.red,
+      flamingo = cp.flamingo,
     }
 
     local conditions = {
@@ -96,8 +97,8 @@ return {
     ins_left_mode {
       --function() return '▊' end,
       function() return '󰧱' end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
-      left_padding = 0              -- We don't need space before this
+      color = { fg = colors.violet }, -- Sets highlighting of component
+      left_padding = 0                -- We don't need space before this
     }
 
 
@@ -242,7 +243,7 @@ return {
       'branch',
       icon = '',
       condition = conditions.check_git_workspace,
-      color = { fg = colors.violet, gui = 'bold' }
+      color = { fg = colors.magenta, gui = 'bold' }
     }
 
     ins_right {
@@ -256,9 +257,8 @@ return {
     }
 
     ins_right {
-      --function() return '▊' end,
       function() return '󰧱' end,
-      color = { fg = colors.blue },
+      color = { fg = colors.violet },
       right_padding = 0
     }
 

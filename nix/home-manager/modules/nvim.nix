@@ -102,7 +102,6 @@
         pylatexenc
         pylatex
         ipython
-        nbformat
       ];
     vimAlias = true;
 

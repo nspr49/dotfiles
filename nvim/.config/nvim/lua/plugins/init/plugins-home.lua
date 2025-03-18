@@ -12,6 +12,7 @@ return {
   { import = "plugins.gui" },
 
   { import = "plugins.linters" },
+  { import = "plugins.embedded" },
   { import = "plugins.lsp" },
   { import = "plugins.markdown" },
   --    { import = "plugins.mason" },

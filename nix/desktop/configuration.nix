@@ -2,9 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }: {
 
-{
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../shared-modules/virtualisation.nix
@@ -59,11 +58,21 @@
     xkb.layout = "de";
     xkb.variant = "bone";
     videoDrivers = [ "nvidia" ];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    #displayManager.gdm = {
+    #     enable = true;
+    #     wayland = true;
+    #   };
   };
+  services.displayManager.ly.enable = true;
+
+  #  services.displayManager.sddm = {
+  #    enable = true;
+  #    package = pkgs.kdePackages.sddm;
+  #    wayland = { enable = true; };
+  #    extraPackages = with pkgs; [ kdePackages.qtmultimedia ];
+  #    theme = "sddm-astronaut-theme";
+  #  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   hardware.nvidia = {
     modesetting.enable = true;
@@ -75,7 +84,7 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "bone";
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
@@ -96,7 +105,11 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+
+  };
 
   programs.hyprland = { enable = true; };
 
@@ -109,13 +122,14 @@
     nvidia-docker
     bibata-cursors
     wget
-
     xdg-desktop-portal
     steamcmd
     at
     pkgs.libappindicator-gtk3
     pkgs.wlroots
+    (unstable.sddm-astronaut.override { embeddedTheme = "pixel_sakura"; })
     grim
+    prismlauncher
     pkgs.dconf
     pkgs.gtk3
     kitty
@@ -152,6 +166,7 @@
 
   ];
   security.rtkit.enable = true;
+  services.udev.packages = with pkgs; [ platformio-core.udev ];
   services.pipewire = {
     enable = true;
     pulse.enable = true;

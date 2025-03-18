@@ -8,6 +8,19 @@ return {
       require("catppuccin").setup({
         flavour = "mocha",
         transparent_background = true,
+        color_overrides = {
+          mocha = {
+            --           mauve = "#EBD5DF",
+            pink = "#907aa9",
+            --flamingo = "#736C93",
+            red = "#F6C0D3",
+            crust = "#677A8B",
+            peach = "#FD9B93",
+            blue = "#C2E4F4",
+
+
+          }
+        },
         integrations = {
           cmp = true,
           gitsigns = true,

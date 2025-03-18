@@ -256,3 +256,7 @@ ls
 clear
 ls
 cd dotfiles/
+mkdir folien
+cd folien/
+ls
+nvim teil_1.md

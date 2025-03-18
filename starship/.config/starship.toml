@@ -3,7 +3,7 @@
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette = "catppuccin_mocha"
+palette = "sakura"
 
 [username]
 format = "[$user]($style) "
@@ -14,19 +14,21 @@ show_always = true
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-#success_symbol = "[[󰧱](mauve) ❯](mauve)"
-#error_symbol = "[[󰧱](mauve) ❯](mauve)"
-#vimcmd_symbol = "[󰧱 ❮](mauve)" # For use with zsh-vi-mode
+success_symbol = "[[󰧱](mauve) ❯](mauve)"
+error_symbol = "[[󰧱](mauve) ❯](mauve)"
+vimcmd_symbol = "[󰧱 ❮](mauve)" # For use with zsh-vi-mode
 
-success_symbol = "[[󰧱](mauve)](mauve)"
-error_symbol = "[[󰧱](mauve)](mauve)"
-vimcmd_symbol = "[󰧱](mauve)" # For use with zsh-vi-mode
+#success_symbol = "[[󰧱](mauve)](mauve)"
+#error_symbol = "[[󰧱](mauve)](mauve)"
+#vimcmd_symbol = "[󰧱](mauve)" # For use with zsh-vi-mode
 [git_branch]
 style = "bold mauve"
 
 [directory]
 truncation_length = 4
 style = "bold lavender"
+
+
 
 # Palette definitions
 [palettes.catppuccin_latte]
@@ -89,7 +91,7 @@ crust = "#232634"
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
 pink = "#f5bde6"
-mauve = "#c6a0f6"
+mauve = "D5BCC3"
 red = "#ed8796"
 maroon = "#ee99a0"
 peach = "#f5a97f"
@@ -140,4 +142,32 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+[palettes.sakura]
+rosewater = "#ECC9D1"  # Matched to color13
+flamingo = "#ECC9D1"   # Matched to color13
+pink = "#A78FAC"       # Matched to color3
+mauve = "#A78FAC"      # Matched to color3
+red = "#3F4A52"        # Matched to color1
+maroon = "#3F4A52"     # Matched to color1
+peach = "#A78FAC"      # Matched to color3
+yellow = "#95A4BC"     # Matched to color4
+green = "#616385"      # Matched to color2
+teal = "#F0F2F1"       # Matched to color14
+sky = "#F0F2F1"        # Matched to color14
+sapphire = "#95A4BC"   # Matched to color4
+blue = "#95A4BC"       # Matched to color4
+lavender = "#ECC9D1"   # Matched to color13
+text = "#EFF0F0"       # Matched to color7
+subtext1 = "#F0F2F1"   # Matched to color14
+subtext0 = "#616385"   # Matched to color2
+overlay2 = "#A7A8A8"   # Matched to color8
+overlay1 = "#A7A8A8"   # Matched to color8
+overlay0 = "#3F4A52"   # Matched to color1
+surface2 = "#616385"   # Matched to color2
+surface1 = "#A78FAC"   # Matched to color3
+surface0 = "#3F4A52"   # Matched to color1
+base = "#242b36"       # Matched to color0
+mantle = "#3F4A52"     # Matched to color1
+crust = "#616385"      # Matched to color2
 

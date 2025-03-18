@@ -14,16 +14,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, wezterm, ghostty
-    , wgsl-analyzer, nixpkgs-unstable, ... }:
+    , wgsl-analyzer, nixpkgs-unstable, astal, ... }:
     let
       lib = nixpkgs.lib;
 
       pkgs = import nixpkgs {
         system = "x86_64-linux";
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+          allowUnsupportedSystem = true;
+        };
         overlays = [
           (final: prev: {
             unstable = import inputs.nixpkgs-unstable {
@@ -36,15 +43,35 @@
             ghostty = inputs.ghostty.packages."x86_64-linux".default;
             wgsl-analyzer =
               inputs.wgsl-analyzer.packages."x86_64-linux".default;
+            astal = {
+              url = "github:aylur/astal";
+              inputs.nixpkgs.follows = "nixpkgs";
+            };
           })
+
         ];
       };
       pkgs-unstable = nixpkgs-unstable.legacyPackages."x86_64-linux";
 
     in {
       #    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
-      pkgs."x86_64-linux".default =
-        [ pkgs.zjstatus pkgs.hyprpanel pkgs.wezterm ];
+      pkgs."x86_64-linux".default = [
+        pkgs.zjstatus
+        pkgs.hyprpanel
+        pkgs.wezterm
+        astal.lib.mkLuaPackage
+        {
+          inherit pkgs;
+          name = "my-shell"; # how to name the executable
+          src = ./../../astal/notifications; # should contain init.lua
+
+          # add extra glib packages or binaries
+          extraPackages =
+            [ astal.packages."x86_64-linux".battery pkgs.dart-sass ];
+        }
+
+      ];
+
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           modules = [
@@ -61,6 +88,13 @@
               home-manager.users.extra = import ./home.nix;
             }
           ];
+          specialArgs = {
+            # Pass unstable packages as a special argument
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true; # If needed for unfree packages
+            };
+          };
         };
       };
     };

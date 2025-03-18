@@ -1,5 +1,8 @@
 { config, pkgs, pkgs-unstable, ... }:
 
 {
-  imports = [ ./modules/hypr.nix ./modules/zsh.nix ../home-manager/home.nix ];
+  imports = [ # ./modules/hypr.nix
+    ./modules/zsh.nix
+    ../home-manager/home.nix
+  ];
 }
