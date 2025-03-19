@@ -69,7 +69,7 @@
     extraPackages = with pkgs; [
       nixfmt-classic
       basedpyright
-      clang-tools
+      #clang-tools
       ruff
       java-language-server
       imagemagick # for image rendering

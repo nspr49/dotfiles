@@ -1,5 +1,4 @@
 return {
-  --[[
   "OXY2DEV/markview.nvim",
   lazy = false,    -- Recommended
   ft = "markdown", -- If you decide to lazy-load anyway
@@ -9,7 +8,9 @@ return {
     "nvim-tree/nvim-web-devicons"
   },
   opts = {
-    hybrid_modes = { "n", "v" },
+    preview = {
+
+      hybrid_modes = { "n", "v" },
+    }
   }
-  --]]
 }

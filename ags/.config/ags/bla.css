@@ -1,0 +1,109 @@
+window.bar {
+  font-family: "JetBrains Mono Nerd Font", font-awesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color: #F6C0D3;
+  font-weight: bold; }
+
+.Center,
+.Right,
+.Left {
+  margin-top: -3px;
+  margin-bottom: 6px;
+  padding: 3px 4px 5px 4px;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 5px solid #F6C0D3;
+  opacity: 1; }
+
+.Left {
+  margin-left: -2px;
+  padding-left: 3px;
+  border-bottom-left-radius: 0; }
+
+.Right {
+  margin-right: -2px;
+  padding-right: 3px;
+  border-bottom-right-radius: 0;
+  opacity: 1; }
+
+button {
+  min-width: 0;
+  color: #F6C0D3;
+  border: transparent;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 40px; }
+
+.workspaces button.focused {
+  border: #F6C0D3;
+  background: #F6C0D3;
+  border-radius: 40px;
+  color: #FFFFFF; }
+
+button:active,
+button:hover {
+  background-color: #F6C0D3; }
+
+.clock {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 0 6px;
+  background: transparent; }
+
+.battery levelbar block,
+.battery levelbar highlight {
+  background: #FFFFFF; }
+.battery levelbar trough {
+  background-color: #9399b2;
+  border-radius: 40px;
+  border: none; }
+.battery levelbar block {
+  min-height: 0.9em;
+  background-color: #a6e3a1;
+  color: #000000;
+  border: #FFFFFF; }
+.battery levelbar block.empty {
+  background-color: #f38ba8;
+  border-color: #FFFFFF; }
+.battery levelbar label {
+  color: #a6e3a1;
+  font-size: 15px;
+  margin-right: 0.6em; }
+
+.sound-box {
+  background-color: #FFFFFF;
+  color: #cdd6f4;
+  border-radius: 14px;
+  border-width: 7px;
+  box-shadow: 0 0 3px 4px #F6C0D3;
+  margin: 20px 10px;
+  font-size: 17px; }
+
+.sound-header label {
+  color: #cdd6f4;
+  border-width: 5px;
+  padding: 0; }
+  .sound-header label:hover {
+    padding-top: 1px;
+    background-color: rgba(246, 192, 211, 0.4); }
+
+.sound-box label {
+  margin-top: 8px;
+  margin-bottom: 6px; }
+
+.sliders trough {
+  background-color: #FFFFFF;
+  border-color: #b4befe;
+  border-radius: 24px;
+  min-height: 5px; }
+.sliders highlight {
+  background-color: #F6C0D3;
+  border-color: #F6C0D3;
+  border-radius: 14px; }
+.sliders slider {
+  color: #F6C0D3;
+  border: none;
+  background: #F6C0D3; }
+
+/*# sourceMappingURL=bla.css.map */

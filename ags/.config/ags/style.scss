@@ -1,0 +1,172 @@
+// Variables
+$font-family: "JetBrains Mono Nerd Font", font-awesome, Roboto, Helvetica, Arial, sans-serif;
+$primary-color: #F6C0D3;
+$secondary-color: #FFFFFF;
+$highlight-color: #F6C0D3;
+$border-color: $primary-color;
+$accent-color: #a6e3a1;
+$warning-color: #f38ba8;
+$text-color: $primary-color;
+$border-radius: 20px;
+$button-radius: 40px;
+$font-size: 20px;
+$clock-font-size: 20px;
+$label-font-size: 15px;
+$slider-height: 5px;
+$slider-radius: 24px;
+$slider-color: #A78FAC;
+$opacity: 1;
+
+// General window bar styling
+window.bar {
+  font-family: $font-family;
+  font-size: $font-size;
+  color: $text-color;
+  font-weight: bold;
+}
+
+// Layout for the center, left, and right elements
+.Center,
+.Right,
+.Left {
+  margin-top: -3px;
+  margin-bottom: 6px;
+  padding: 3px 4px 5px 4px;
+  background-color: $secondary-color;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  border: 5px solid $primary-color;
+  opacity: $opacity;
+  // box-shadow: 0 0 3px 4px $primary-color;
+}
+
+.Left {
+  margin-left: -2px;
+  padding-left: 3px;
+  border-bottom-left-radius: 0;
+}
+
+.Right {
+  margin-right: -2px;
+  padding-right: 3px;
+  border-bottom-right-radius: 0;
+  opacity: $opacity;
+}
+
+// Button styles
+button {
+  min-width: 0;
+  color: $text-color;
+  border: transparent;
+  box-shadow: none;
+  background: transparent;
+  border-radius: $button-radius;
+}
+
+.workspaces button.focused {
+  border: $primary-color;
+  background: $primary-color;
+  border-radius: $button-radius;
+  color: $secondary-color;
+}
+
+button:active,
+button:hover {
+  background-color: $primary-color;
+}
+
+// Clock styling
+.clock {
+  font-size: $clock-font-size;
+  border-radius: 10px;
+  padding: 0 6px;
+  background: transparent;
+}
+
+// Battery styles
+.battery {
+  levelbar {
+
+    block,
+    highlight {
+      background: $secondary-color;
+    }
+
+    trough {
+      background-color: #9399b2;
+      border-radius: $button-radius;
+      border: none;
+    }
+
+    block {
+      min-height: 0.9em;
+      background-color: $accent-color;
+      color: #000000;
+      border: $secondary-color;
+    }
+
+    block.empty {
+      background-color: $warning-color;
+      border-color: $secondary-color;
+    }
+
+    label {
+      color: $accent-color;
+      font-size: $label-font-size;
+      margin-right: 0.6em;
+    }
+  }
+}
+
+// Sound box and header styles
+.sound-box {
+  background-color: $secondary-color;
+  color: #cdd6f4;
+  border-radius: 14px;
+  border-width: 7px;
+  box-shadow: 0 0 3px 4px $primary-color;
+  margin: 20px 10px;
+  font-size: 17px;
+}
+
+.sound-header {
+  label {
+    color: #cdd6f4;
+    border-width: 5px;
+    padding: 0;
+
+    &:hover {
+      padding-top: 1px;
+      background-color: rgba($primary-color, 0.4);
+    }
+  }
+
+  button:hover {}
+}
+
+.sound-box label {
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+// Slider styles
+.sliders {
+  trough {
+    background-color: $secondary-color;
+    border-color: #b4befe;
+    border-radius: $slider-radius;
+    min-height: $slider-height;
+  }
+
+  highlight {
+    background-color: $highlight-color;
+    border-color: $primary-color;
+    border-radius: 14px;
+  }
+
+  slider {
+    color: $primary-color;
+    border: none;
+    background: $primary-color;
+  }
+}

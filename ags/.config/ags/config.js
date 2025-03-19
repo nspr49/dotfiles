@@ -2,6 +2,9 @@ const main = '/tmp/ags/main.js';
 
 try {
   await Utils.execAsync([
+    'sass', `${App.configDir}/style.scss`, `${App.configDir}/bla.css`,
+  ]);
+  await Utils.execAsync([
     'bun', 'build', `${App.configDir}/main.ts`,
     '--outfile', main,
     '--external', 'resource://*',

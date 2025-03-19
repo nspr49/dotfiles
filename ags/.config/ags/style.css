@@ -19,7 +19,7 @@ window.bar {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border: 1 solid rgba(203, 166, 247, 1.0);
-  box-shadow: 0 0 3px 4px rgba(203, 166, 247, 1.0);
+  /* box-shadow: 0 0 3px 4px rgba(203, 166, 247, 1.0); */
 }
 
 .Left {
@@ -97,8 +97,8 @@ highlight {
   background-color: #a6e3a1;
   color: #000000;
   border: #1e1e2e;
-  border: 0.3em;
-  border-radius: 40;
+  /*border: 0.0m; */
+  /*border-radius: 40;*/
   border-color: #1e1e2e;
 }
 

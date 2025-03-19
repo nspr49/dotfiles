@@ -357,7 +357,7 @@ function getCurosr() {
 App.config(
 
   {
-    style: "./style.css",
+    style: "./bla.css",
     windows: monitor(),
     cursorTheme: getCurosr(),
   });
