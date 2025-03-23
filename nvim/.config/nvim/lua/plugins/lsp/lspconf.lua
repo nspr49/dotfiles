@@ -25,10 +25,13 @@ return {
 
     local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
+      --client.server_capabilities.semanticTokensProvider = nil
       opts.buffer = bufnr
       vim.diagnostic.config({
         severity_sort = true,
       })
+      -- disable semantic highlighting
+      -- more stuff here...
 
       -- set keybinds
     end
@@ -69,12 +72,12 @@ return {
       end,
       cmd = {
         "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--header-insertion=iwyu",
-        "--completion-style=detailed",
-        "--function-arg-placeholders",
-        "--fallback-style=llvm",
+        -- "--background-index",
+        --  "--clang-tidy",
+        -- "--header-insertion=iwyu",
+        --   "--completion-style=detailed",
+        --"--function-arg-placeholders",
+        -- "--fallback-style=llvm",
       },
       capabilities = capabilities,
       on_attach = on_attach,

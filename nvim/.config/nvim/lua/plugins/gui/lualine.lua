@@ -9,22 +9,23 @@ return {
     -- Author: shadmansaleh
     -- Credit: glepnir
     local lualine = require 'lualine'
-    local cp = require("catppuccin.palettes").get_palette("mocha");
+    --local cp = require("catppuccin.palettes").get_palette("mocha");
+    local cp = require("eldritch.colors").default
 
     -- Color table for highlights
     local colors = {
       bg = nil, -- transparent
       fg = cp.foreground,
       yellow = cp.yellow,
-      cyan = cp.blue,
-      darkblue = cp.blue,
+      cyan = cp.cyan,
+      darkblue = cp.dark_cyan,
       green = cp.green,
-      orange = cp.peach,
-      violet = cp.mauve,
+      orange = cp.visual,
+      violet = cp.purple,
       magenta = cp.pink,
       blue = cp.blue,
       red = cp.red,
-      flamingo = cp.flamingo,
+      flamingo = cp.magenta2,
     }
 
     local conditions = {

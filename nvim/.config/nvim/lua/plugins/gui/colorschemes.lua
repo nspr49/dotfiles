@@ -90,4 +90,55 @@ return {
     "xero/evangelion.nvim",
     lazy = false,
   },
+  {
+    "eldritch-theme/eldritch.nvim",
+    lazy = false,
+    priority = 1000,
+
+    opts = {
+      transparent = true,
+      fzf_colors = {
+        true,
+        bg = "-1",
+        gutter = "-1",
+
+      },
+      on_colors = function(global_colors)
+        local color_definitions = {
+        }
+        for key, value in pairs(color_definitions) do
+          global_colors[key] = value
+        end
+      end
+
+    },
+
+
+    config = function()
+      local colors = require("eldritch.colors").default;
+
+      require("eldritch").setup(opts);
+      vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = colors.pink })
+
+      --- blink
+      vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = colors.cyan })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = colors.cyan })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindEnum", { fg = colors.red })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindFile", { fg = colors.bright_cyan })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = colors.orange })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = colors.bright_green })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindProperty", { fg = colors.bright_green })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindValue", { fg = colors.magenta })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", { fg = colors.cyan })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindValue", { fg = colors.bright_red })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = colors.purple })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = colors.bright_red })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindInterface", { fg = colors.yellow })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = colors.bright_green })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = colors.magenta2 })
+      --vim.api.nvim_set_hl(0, "SnacksBackdrop_000000 ", { bg = colors.pink })
+      --vim.api.nvim_set_hl(0, "SnacksBackdrop", { default = false, bg = colors.pink })
+      vim.api.nvim_set_hl(0, "Pmenu", { fg = colors.green })
+    end
+  }
 }

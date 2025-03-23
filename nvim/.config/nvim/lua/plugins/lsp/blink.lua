@@ -4,7 +4,6 @@ return {
   dependencies = {
     'rafamadriz/friendly-snippets',
     "echasnovski/mini.icons"
-
   },
 
 

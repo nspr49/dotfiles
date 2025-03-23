@@ -89,7 +89,7 @@ function M.bootstrap()
   --vim.cmd("TransparentEnable")
   --require('transparent').clear_prefix('lualine')
   ---------------------------------------
-  vim.cmd "colorscheme catppuccin"
+  vim.cmd "colorscheme eldritch"
 end
 
 return M
