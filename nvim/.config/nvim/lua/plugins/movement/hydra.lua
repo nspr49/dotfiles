@@ -14,13 +14,13 @@ return {
     hydra({
       name = "LSP_SIGNS",
       hint = " _u_/_d_: up/down\n" ..
-      " _<esc>_/_q_: quit",
+          " _<esc>_/_q_: quit",
       config = {
         color = "pink",
         invoke_on_body = true,
         hint = {
           float_opts = {
-           border =  "rounded" ,
+            border = "rounded",
           },
         },
       },
@@ -29,8 +29,8 @@ return {
       heads = {
         { "d",     keys("]d") },
         { "u",     keys("[d") },
-        { "<esc>", nil,                   { exit = true } },
-        { "q",     nil,                   { exit = true } },
+        { "<esc>", nil,       { exit = true } },
+        { "q",     nil,       { exit = true } },
       },
     })
     --[[
@@ -42,7 +42,7 @@ return {
   vim.keymap.set('n', '<leader>bo', function() require('dap').step_out() end)
   vim.keymap.set('n', '<Leader>bt', function() require('dap').toggle_breakpoint() end)
   vim.keymap.set('n', '<Leader>Bs', function() require('dap').set_breakpoint() end)
-    --]]
+  --]]
 
     hydra({
       name = "DEBUGGER",
@@ -51,30 +51,29 @@ return {
         invoke_on_body = true,
         hint = {
           window = true,
-        float_opts = {
-          border=  "rounded" ,
+          float_opts = {
+            border = "rounded",
+          },
         },
-        },
-        
+
       },
 
-    hint = " _n_/_s_: next/step\n" ..
-    " _i_/_o_: step in/out\n" ..
-    " _<esc>_/_q_: quit",
+      hint = " _n_/_s_: next/step\n" ..
+          " _i_/_o_: step in/out\n" ..
+          " _<esc>_/_q_: quit",
 
 
       mode = { "n" },
       body = "<leader>hd", -- this is the key that triggers the hydra
       heads = {
-        {"n",
-        function() require('dap').continue() end},
-        {"s",function() require('dap').step_over() end},
-        {"i", function() require('dap').step_into() end},
-        {"o",  function() require('dap').step_out() end},
-        { "<esc>", nil,                   { exit = true } },
-        { "q",     nil,                   { exit = true } },
+        { "n",
+          function() require('dap').continue() end },
+        { "s",     function() require('dap').step_over() end },
+        { "i",     function() require('dap').step_into() end },
+        { "o",     function() require('dap').step_out() end },
+        { "<esc>", nil,                                      { exit = true } },
+        { "q",     nil,                                      { exit = true } },
       },
     })
-    
   end
 }

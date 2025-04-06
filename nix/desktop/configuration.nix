@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, unstable, ... }: {
+{ config, lib, pkgs, unstable, ... }: {
 
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -24,6 +24,7 @@
   # boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -126,6 +127,7 @@
     steamcmd
     at
     pkgs.libappindicator-gtk3
+    hyprsunset
     pkgs.wlroots
     (unstable.sddm-astronaut.override { embeddedTheme = "pixel_sakura"; })
     grim
@@ -143,7 +145,7 @@
     pkgs.vesktop
     direnv
 
-    (pkgs.hyprland.override { withSystemd = true; })
+    (hyprland.override { withSystemd = true; })
     pkgs.swaybg
     pkgs.pipewire
     pkgs.networkmanager
@@ -217,6 +219,11 @@
     };
 
   };
+
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.geoclue2.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Some programs need SUID wrappers, can be configured further or are

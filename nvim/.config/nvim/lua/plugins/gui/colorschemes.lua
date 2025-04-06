@@ -103,42 +103,73 @@ return {
         gutter = "-1",
 
       },
-      on_colors = function(global_colors)
-        local color_definitions = {
+      on_highlights = function(highlights)
+        local colors = require('eldritch.colors').default
+        local highlight_defs = {
+          BlinkCmpMenuBorder = {
+            bg = nil,
+            fg = colors.magenta2
+          },
+
+          BlinkCmpMenu = {
+            bg = nil,
+          },
+          BlinkCmpKindFunction = {
+            fg = colors.cyan,
+            bg = nil,
+          },
+          BlinkCmpKindEnum = { fg = colors.magenta },
+          BlinkCmpKindFile = { fg = colors.bright_cyan },
+          BlinkCmpKindClass = { fg = colors.orange },
+          BlinkCmpKindField = { fg = colors.bright_green },
+          BlinkCmpKindProperty = { fg = colors.bright_green },
+          BlinkCmpKindFolder = { fg = colors.cyan },
+          BlinkCmpKindValue = { fg = colors.bright_red },
+          BlinkCmpKindVariable = { fg = colors.purple },
+          BlinkCmpKindKeyword = { fg = colors.bright_red },
+          BlinkCmpKindInterface = { fg = colors.yellow },
+          BlinkCmpKindText = { fg = colors.bright_green },
+          BlinkCmpKindSnippet = { fg = colors.magenta2 },
+          BlinkCmpKindMethod = { bg = nil, fg = colors.orange },
+          BlinkCmpKindConstant = { bg = nil, fg = colors.magenta },
+          BlinkCmpKindStruct = { bg = nil, fg = colors.magenta },
+          BlinkCmpKindModule = { bg = nil, fg = colors.yellow },
+          BlinkCmpLabel = { bg = nil, fg = colors.fg },
+          BlinkCmpMenuSelection = { bg = colors.pink },
+          BlinkCmpLabelDetail = { bg = nil, fg = colors.fg },
+          BlinkCmpKindDefault = { bg = nil, fg = colors.fg },
+          BlinkCmpLabelGhostText = { bg = nil, fg = colors.terminal_black },
+          BlinkCmpGhostText = { bg = nil, fg = colors.fg },
+          BlinkCmpLabelDescription = { bg = nil, fg = colors.fg },
+          BlinkCmpSignatureHelp = { bg = nil, fg = colors.fg },
+          WinBar = { bg = nil },
+          StatusLine = { bg = nil },
+          Headline1Bg = { bg = colors.green, fg = colors.terminal_black },
+          Headline2Bg = { bg = colors.magenta, fg = colors.terminal_black },
+          Headline3Bg = { bg = colors.pink, fg = colors.terminal_black },
+          Headline4Bg = { bg = colors.cyan, fg = colors.terminal_black },
+          RenderMarkdownH1Bg = { bg = colors.green, fg = colors.terminal_black },
+          RenderMarkdownH2Bg = { bg = colors.magenta, fg = colors.terminal_black },
+          RenderMarkdownH3Bg = { bg = colors.pink, fg = colors.terminal_black },
+          RenderMarkdownH4Bg = { bg = colors.cyan, fg = colors.terminal_black },
+
+
+          Pmenu = {
+            bg = nil,
+          },
+
+
+          SnacksPickerBorder = { fg = colors.pink
+          }
+
         }
-        for key, value in pairs(color_definitions) do
-          global_colors[key] = value
+        for group, props in pairs(highlight_defs) do
+          highlights[group] = props
         end
       end
 
+
     },
 
-
-    config = function()
-      local colors = require("eldritch.colors").default;
-
-      require("eldritch").setup(opts);
-      vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = colors.pink })
-
-      --- blink
-      vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = colors.cyan })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindFunction", { fg = colors.cyan })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindEnum", { fg = colors.red })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindFile", { fg = colors.bright_cyan })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = colors.orange })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = colors.bright_green })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindProperty", { fg = colors.bright_green })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindValue", { fg = colors.magenta })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindFolder", { fg = colors.cyan })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindValue", { fg = colors.bright_red })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindVariable", { fg = colors.purple })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = colors.bright_red })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindInterface", { fg = colors.yellow })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = colors.bright_green })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindSnippet", { fg = colors.magenta2 })
-      --vim.api.nvim_set_hl(0, "SnacksBackdrop_000000 ", { bg = colors.pink })
-      --vim.api.nvim_set_hl(0, "SnacksBackdrop", { default = false, bg = colors.pink })
-      vim.api.nvim_set_hl(0, "Pmenu", { fg = colors.green })
-    end
   }
 }

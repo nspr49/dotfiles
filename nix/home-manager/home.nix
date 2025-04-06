@@ -27,6 +27,7 @@
   ];
   home.packages = with pkgs; [
     inputs.astal.packages.${system}.default
+    jetbrains.webstorm
     llvmPackages_latest.libllvm
     sass
     llvmPackages_latest.libcxx
@@ -34,10 +35,11 @@
     platformio
     gcc
     ghostscript
+    markdownlint-cli2
+    osu-lazer
     #pkgs.pkgsCross.avr.buildPackages.gcc
     #pkgs.pkgsCross.avr.buildPackages.avrlibc
     #avrlibc
-
     btop
     nodejs_22
     nushell
@@ -125,7 +127,7 @@
     # latexrun
     optipng
     banana-cursor
-    zellij
+    pkgs-unstable.zellij
     zjstatus
     zip
     fish

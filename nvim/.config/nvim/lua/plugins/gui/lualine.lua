@@ -152,7 +152,7 @@ return {
         }
         vim.api.nvim_command(
           'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
-          colors.bg)
+          nil)
 
         return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
       end,

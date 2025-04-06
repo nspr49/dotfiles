@@ -155,7 +155,7 @@ return {
     lspconfig['ltex'].setup({
       on_attach = on_attach,
       cmd = { "ltex-ls" },
-      filetypes = { "markdown", "text" },
+      filetypes = { "markdown", "text", "tex" },
       flags = { debounce_text_changes = 300 },
       settings = {
         ltex = {

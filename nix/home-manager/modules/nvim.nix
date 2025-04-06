@@ -16,7 +16,7 @@
       $'';
   in {
     enable = true;
-    #   package = pkgs.unstable.neovim-unwrapped;
+    package = pkgs-unstable.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
       {
         plugin = rustaceanvim;
@@ -55,17 +55,19 @@
         #        p.wgsl
         #p.nu
       ]))
-      { plugin = otter-nvim; }
-      { plugin = markdown-preview-nvim; }
+      #      { plugin = otter-nvim; }
       {
-        plugin = nvim-treesitter-parsers.wgsl;
+        plugin = markdown-preview-nvim;
       }
+      #      {
+      #        plugin = nvim-treesitter-parsers.wgsl;
+      #      }
       #      { plugin = blink-cmp; }
     ];
     withNodeJs = true;
     withRuby = true;
     withPython3 = true;
-    extraLuaPackages = ps: [ ps.magick ];
+    #extraLuaPackages = ps: [ ps.magick ];
     extraPackages = with pkgs; [
       nixfmt-classic
       basedpyright
@@ -73,13 +75,13 @@
       ruff
       java-language-server
       imagemagick # for image rendering
-      pyright
+      #      pyright
       vscode-extensions.vadimcn.vscode-lldb
       markdown-oxide
       rust-analyzer
       tailwindcss-language-server
       vscode-langservers-extracted
-      angular-language-server
+      #      angular-language-server
       lua-language-server
       jdt-language-server
       nodePackages.typescript-language-server
@@ -88,20 +90,20 @@
       rustfmt
       nil
       luajitPackages.luarocks
-      unstable.wgsl-analyzer
+      #      unstable.wgsl-analyzer
     ];
     extraPython3Packages = ps:
       with ps; [
-        pynvim
-        jupyter-client
-        jupytext
+        #        pynvim
+        #        jupyter-client
+        #        jupytext
         cairosvg # for image rendering
         pnglatex # for image rendering
         plotly # for image rendering
         pyperclip
         pylatexenc
         pylatex
-        ipython
+        #        ipython
       ];
     vimAlias = true;
 

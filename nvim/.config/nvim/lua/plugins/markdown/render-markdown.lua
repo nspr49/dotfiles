@@ -14,14 +14,6 @@ return {
   "MeanderingProgrammer/render-markdown.nvim",
   init = function()
     -- Define color variables
-    local color1_bg = "#ee99a0"
-    local color2_bg = "#f38ba8"
-    local color3_bg = "#cba6f7"
-    local color4_bg = "#ed8796"
-    local color5_bg = "#f5a97f"
-    local color6_bg = "#a6da95"
-    local color_fg = "#24273a"
-    -- local color_sign = "#ebfafa"
     -- --]]
 
 
@@ -36,25 +28,62 @@ return {
   end,
 
   opts = {
-    heading = {
-      sign = false,
-      icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
-      backgrounds = {
-        "Headline1Bg",
-        "Headline2Bg",
-        "Headline3Bg",
-        "Headline4Bg",
-        "Headline5Bg",
-        "Headline6Bg",
+    bullet = {
+      -- Turn on / off list bullet rendering
+      enabled = true,
+    },
+    checkbox = {
+      -- Turn on / off checkbox state rendering
+      enabled = true,
+      -- Determines how icons fill the available space:
+      --  inline:  underlying text is concealed resulting in a left aligned icon
+      --  overlay: result is left padded with spaces to hide any additional text
+      position = "inline",
+      unchecked = {
+        -- Replaces '[ ]' of 'task_list_marker_unchecked'
+        icon = "   󰄱 ",
+        -- Highlight for the unchecked icon
+        highlight = "RenderMarkdownUnchecked",
+        -- Highlight for item associated with unchecked checkbox
+        scope_highlight = nil,
       },
-      foregrounds = {
-        "Headline1Fg",
-        "Headline2Fg",
-        "Headline3Fg",
-        "Headline4Fg",
-        "Headline5Fg",
-        "Headline6Fg",
+
+      html = {
+        -- Turn on / off all HTML rendering
+        enabled = true,
+        comment = {
+          -- Turn on / off HTML comment concealing
+          conceal = false,
+        },
+      },
+      -- Add custom icons lamw26wmal
+      link = {
+        image = vim.g.neovim_mode == "skitty" and "" or "󰥶 ",
+        custom = {
+          youtu = { pattern = "youtu%.be", icon = "󰗃 " },
+        },
+      },
+      heading = {
+        sign = false,
+
+        icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+        backgrounds = {
+          "Headline1Bg",
+          "Headline2Bg",
+          "Headline3Bg",
+          "Headline4Bg",
+          "Headline5Bg",
+          "Headline6Bg",
+        },
+        foregrounds = {
+          "Headline1Fg",
+          "Headline2Fg",
+          "Headline3Fg",
+          "Headline4Fg",
+          "Headline5Fg",
+          "Headline6Fg",
+        },
       },
     },
-  },
+  }
 }

@@ -1,14 +1,23 @@
 term xterm-256color
+#term xterm-kitty
 kitty themes --reload-in=all Catppuccin-Mocha
-include current-theme.conf
+cursor_trail 3
+cursor_trail_start_threshold 0
+#cursor_trail_decay 0.1 0.9
+cursor_shape block
 
 
-font_family      JetBrains Mono Nerd Font 
+#font_family      JetBrains Mono Nerd Font 
+#font_family     ComicShannsMono Nerd Font
+font_family     ZedMono Nerd Font
+#font_family      Fira Code Nerd Font
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
+# turn down for fira or jetbrains
+#font_size 14.0
+font_size 17.0
 
-font_size 12.0
 remember_window_size no
 initial_window_width 70c
 initial_window_height 40c
@@ -18,6 +27,7 @@ window_padding_width 4
 #padding_top
 window_padding_height 4
 
+shell fish
 
 
 
@@ -25,6 +35,7 @@ confirm_os_window_close 0
 
 # durchsichtig
 background_opacity 0.8
+#background_opacity 0.8
 
 # cursor
 #cursor_shape block
@@ -34,7 +45,7 @@ background_opacity 0.8
 
 # idk
 #
-sync_to_monitor yes
+sync_to_monitor no
 
 
 # window margin
@@ -53,9 +64,36 @@ tab_powerline_style         slanted
 tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
 
 
+sync_to_monitor no
+input_delay 1
+repaint_delay 1
 
 
 
 # BEGIN_KITTY_THEME
 # Catppuccin-Mocha
+#include curr_theme.conf
 # END_KITTY_THEME
+
+#background #242b36
+background #212337
+
+
+#  "color0": "#242b36",
+#  "color1": "#8D99A8",
+#  "color2": "#A6BAC6",
+#  "color3": "#D5BCC3",
+#  "color4": "#C9D2DD",
+#  "color5": "#E9D6DE",
+#  "color6": "#D1D9E2",
+#  "color7": "#eff0f0",
+#  "color8": "#a7a8a8",
+#  "color9": "#8D99A8",
+#  "color10": "#A6BAC6",
+#  "color11": "#D5BCC3",
+#  "color12": "#C9D2DD",
+#  "color13": "#E9D6DE",
+#  "color14": "#D1D9E2",
+#  "color15": "#eff0f0"
+
+
