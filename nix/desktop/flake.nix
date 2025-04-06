@@ -7,7 +7,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    wezterm.url = "github:wez/wezterm?dir=nix";
     ghostty.url = "github:ghostty-org/ghostty";
     wgsl-analyzer.url = "github:wgsl-analyzer/wgsl-analyzer";
     home-manager = {
@@ -20,7 +19,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, wezterm, ghostty
+  outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, ghostty
     , wgsl-analyzer, nixpkgs-unstable, astal, ... }:
     let
       lib = nixpkgs.lib;
@@ -55,22 +54,8 @@
 
     in {
       #    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
-      pkgs."x86_64-linux".default = [
-        pkgs.zjstatus
-        pkgs.hyprpanel
-        pkgs.wezterm
-        astal.lib.mkLuaPackage
-        {
-          inherit pkgs;
-          name = "my-shell"; # how to name the executable
-          src = ./../../astal/notifications; # should contain init.lua
-
-          # add extra glib packages or binaries
-          extraPackages =
-            [ astal.packages."x86_64-linux".battery pkgs.dart-sass ];
-        }
-
-      ];
+      pkgs."x86_64-linux".default =
+        [ pkgs.zjstatus pkgs.hyprpanel pkgs.wezterm ];
 
       nixosConfigurations = {
         nixos = lib.nixosSystem {
