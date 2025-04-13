@@ -75,5 +75,42 @@ return {
         { "q",     nil,                                      { exit = true } },
       },
     })
+
+
+    hydra({
+      name = "Present",
+      config = {
+        color = "pink",
+        invoke_on_body = true,
+        hint = {
+          window = true,
+          float_opts = {
+            border = "rounded",
+          },
+        },
+
+      },
+
+      hint = " _n_/_p_: next/previous\n" ..
+          " _f_/_l_: first/last\n" ..
+          " _<esc>_/_q_: quit",
+
+
+      mode = { "n" },
+      body = "<leader>hp", -- this is the key that triggers the hydra
+      heads = {
+        { "n",
+          function() require('presenting').next() end },
+        { "p", function() require('presenting').prev() end },
+        { "f", function() require('presenting').first() end },
+        { "l", function() require('presenting').last() end },
+        { "<esc>", function()
+          vim.cmd('Presenting');
+        end, { exit = true } },
+        { "q", function()
+          vim.cmd('Presenting');
+        end, { exit = true } },
+      },
+    })
   end
 }

@@ -20,7 +20,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, zjstatus, ghostty
-    , wgsl-analyzer, nixpkgs-unstable, astal, ... }:
+    , wgsl-analyzer, nixpkgs-unstable, astal, hyprpanel, ... }:
     let
       lib = nixpkgs.lib;
 
@@ -56,7 +56,6 @@
       #    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
       pkgs."x86_64-linux".default =
         [ pkgs.zjstatus pkgs.hyprpanel pkgs.wezterm ];
-
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           modules = [
