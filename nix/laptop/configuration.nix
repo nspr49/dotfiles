@@ -57,8 +57,8 @@ in {
   services.xserver = {
     enable = true;
     xkb.layout = "de";
-    xkb.variant = "";
-    videoDrivers = [ "nvidia" ];
+    xkb.variant = "bone";
+    #    videoDrivers = [ "nvidia" ];
     displayManager.gdm = {
       enable = true;
       wayland = true;
@@ -75,10 +75,12 @@ in {
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "bone";
 
   #enable zsh
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  users.users.extra.shell = pkgs.fish;
   #starship
   programs.starship = { enable = true; };
 
@@ -110,6 +112,7 @@ in {
     pkgs.dconf
     pkgs.gtk3
     kitty
+    fish
     pkgs.polkit
     xwayland
     slurp

@@ -38,7 +38,6 @@
             };
             zjstatus = inputs.zjstatus.packages."x86_64-linux".default;
             hyprpanel = inputs.hyprpanel.packages."x86_64-linux".default;
-            wezterm = inputs.wezterm.packages."x86_64-linux".default;
             ghostty = inputs.ghostty.packages."x86_64-linux".default;
             wgsl-analyzer =
               inputs.wgsl-analyzer.packages."x86_64-linux".default;
@@ -54,8 +53,7 @@
 
     in {
       #    environment.systemPackages = [ inputs.wezterm.packages.${pkgs.system}.default ];
-      pkgs."x86_64-linux".default =
-        [ pkgs.zjstatus pkgs.hyprpanel pkgs.wezterm ];
+      pkgs."x86_64-linux".default = [ pkgs.zjstatus pkgs.hyprpanel ];
 
       nixosConfigurations = {
         nixos = lib.nixosSystem {
