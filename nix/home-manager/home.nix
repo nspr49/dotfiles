@@ -51,7 +51,6 @@
     starship
     gdb
     bear
-    ghostty
     at
     gnumake
     texliveFull
@@ -81,7 +80,6 @@
     qemu
     hyprcursor
     ags
-    wezterm
     socat
     xwayland
     jq
@@ -90,7 +88,6 @@
     postman
     wlogout
     unzip
-    mako
     discord
     pwvucontrol
     anki-bin
