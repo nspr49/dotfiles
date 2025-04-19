@@ -2,49 +2,15 @@
   "theme.font.name": "JetBrainsMono Nerd Font",
   "theme.font.label": "JetBrainsMono Nerd Font",
   "bar.layouts": {
-    "0": {
-      "left": [
-        "clock"
-      ],
-      "middle": [
-        "workspaces"
-      ],
+    "*": {
+      "left": ["clock"],
+      "middle": ["workspaces"],
       "right": [
         "volume",
         "network",
         "bluetooth",
         "battery",
         "systray",
-        "notifications",
-        "dashboard"
-      ]
-    },
-    "1": {
-      "left": [
-        "clock",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "notifications",
-        "dashboard"
-      ]
-    },
-    "2": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "workspaces"
-      ],
-      "right": [
-        "volume",
         "notifications",
         "dashboard"
       ]
@@ -399,3 +365,4 @@
   "theme.bar.shadowMargins": "0px 0px 4px 0px",
   "theme.bar.buttons.enableBorders": false
 }
+
