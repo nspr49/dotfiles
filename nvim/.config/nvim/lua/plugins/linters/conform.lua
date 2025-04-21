@@ -13,6 +13,7 @@ return {
         javascriptangular = { "prettier" },
         json = { "prettier" },
         go = { "gofmt" },
+        latex = { "latexindent" },
         nix = { "nixfmt" },
         python = { "ruff_format" },
       },
